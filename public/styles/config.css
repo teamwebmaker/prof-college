@@ -1,0 +1,92 @@
+
+:root {
+    --alfa: 1;
+    --transparent: var(--alfa);
+    --icon: "\f3e8";
+    --light-red: hsla(1deg 95% 30% / var(--transparent));
+    --dark-red: hsl(1deg 60% 45%);
+    --gold: hsla(43deg, 55%, 50%, var(--transparent));
+    --white: hsla(0deg, 0%, 100%, var(--transparent));
+    --light-gray: hsla(28deg, 7%, 87%, var(--transparent));
+    --lightGray: hsla(0deg, 0%, 95%, var(--transparent));
+    --background-color: transparent;
+    --text-color: transparent;
+    --border-color: transparent;
+}
+
+.response-img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 9 / 6;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.truncate {
+    text-overflow: ellipsis;
+    /* Needed to make it work */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+.bg-dark-red{
+    background-color: var(--dark-red);
+}
+.bg-light-red{
+    background-color: var(--light-red);
+}
+.bg-light-gray{
+    --alfa: 0;
+    background-color: var(--light-gray);
+}
+.text-white{
+    color: var(--white);
+}
+.text-red{
+    color: var(--dark-red);
+}
+
+.text-gold{
+    color: var(--gold);
+}
+.bg-gold{
+    background-color: var(--gold);
+}
+.navbar-toggler{
+    --bs-navbar-toggler-border-color: var(--white);
+    padding-block: 0.75rem;
+    box-shadow: none !important;
+}
+
+.view-more-btn{
+    background-color: var(--dark-red);
+    color: var(--white);
+    border: 1px solid var(--dark-red);
+    font-size: 0.75rem;
+}
+
+.view-more-btn:hover{
+    background-color: transparent;
+    color: var(--dark-red);
+    border: 1px solid var(--dark-red);
+}
+.cursor-default{
+    cursor: default;
+}
+.aside-btn:hover{
+    background-color: var(--white);
+    color: var(--dark-red) !important;
+}

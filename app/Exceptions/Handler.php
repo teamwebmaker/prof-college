@@ -27,4 +27,13 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+//    public function render($request, Throwable $exception)
+//    {
+//        if ($exception instanceof PostTooLargeException) {
+//            return response()->json(['error' => 'The file you are trying to upload is too large.'], 413);
+//            // You can customize the error message and HTTP status code as per your requirement.
+//        }
+//        return parent::render($request, $exception);
+//    }
 }
