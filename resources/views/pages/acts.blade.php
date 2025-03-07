@@ -35,6 +35,28 @@
                                     @endforeach
                                 </div>
                             </div>
+
+                            <div class="authorization mb-5 border border-warning-subtle rounded p-2">
+                                <h5 class="text-red pb-2 pt-2">{{ __('static.pages.documents.legislation.sub_title_leg') }}</h5>
+                                <div class="row">
+                                    @foreach($legislative_docs as $doc)
+                                        <div class="col-md-4 mb-3">
+                                            <x-doc-component :doc="$doc" :language="$language"/>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="authorization mb-5 border border-warning-subtle rounded p-2">
+                                <h5 class="text-red pb-2 pt-2">{{ __('static.pages.documents.legislation.sub_title_sub') }}</h5>
+                                <div class="row">
+                                    @foreach($subordinate_docs as $doc)
+                                        <div class="col-md-4 mb-3">
+                                            <x-doc-component :doc="$doc" :language="$language"/>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

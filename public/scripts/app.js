@@ -12,6 +12,7 @@ const swiperSlider = {
     }
 }
 
+
 const swiperPartner = {
     slidesPerView: 2,
     speed: 1000,
@@ -35,6 +36,8 @@ const swiperPartner = {
         },
     }
 }
+
+
 
 const pageModal = new bootstrap.Modal('#pageModal', {
     keyboard: false

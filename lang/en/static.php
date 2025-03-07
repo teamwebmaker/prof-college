@@ -24,6 +24,7 @@ return [
     'pages' => [
         'title' => 'LEPL College ″Gldani Vocational Education and Training Center″',
         'more' => 'View More',
+        'tour' => 'Virtual Tour',
         'staff' => [
             'title' => 'College Administration'
         ],
@@ -51,7 +52,9 @@ return [
             'legislation' => [
                 'title' => 'Legislative Acts List',
                 'authorization' => 'Authorization',
-                'legal_acts' => 'Legal Acts'
+                'legal_acts' => 'Legal Acts',
+                'sub_title_leg' => 'Legislative Acts',
+                'sub_title_sub' => 'Subordinate Legislation'
             ],
             'learning_process' => [
                 'title' => 'Learning Process',
@@ -63,6 +66,9 @@ return [
             ],
             'activities' => [
                 'title' => 'Accounts/Activities'
+            ],
+            'mission' => [
+                'title' => 'Mission | Vision | Values'
             ],
             'exams' => 'Exams'
         ],

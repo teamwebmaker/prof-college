@@ -34,6 +34,10 @@
                         <option disabled selected>კატეგორიები</option>
                         <option value="acts">სამართლებრივი აქტები</option>
                         <option value="activates">ანგარიშები / აქტიობები</option>
+                        <option value="structure">მისია / ხედვა / ღირებულება</option>
+                        <option value="educations">სასწავლო პროცესი</option>
+                        <option value="legislative">საკანონმდებლო აქტები</option>
+                        <option value="subordinate">კანონქვემდებარე აქტები</option>
                     </select>
                 </div>
                 <button type="submit" class=" btn btn-primary">დამატება</button>

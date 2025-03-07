@@ -14,10 +14,12 @@ use App\Models\Profession;
 use App\Models\Program;
 use App\Models\Slide;
 use App\Models\Staff;
+use App\Models\SubSlider;
 use App\Models\Task;
 use App\Models\Teacher;
 use App\Models\Vacancy;
 use App\Models\Video;
+use App\Models\Cataloge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -25,7 +27,7 @@ class PageController extends Controller
 {
     public function home(Request $request)
     {
-        $articles = Article::where('visibility', '1') -> orderBy('id', 'DESC')->paginate(8);
+        $articles = Article::where('visibility', '1') -> orderBy('created_at', 'DESC')->paginate(8);
         if($request -> filled('search')){
             $articles = Article::where('title', 'like', '%'.$request -> search.'%')->
             orWhere('description', 'like', '%'.$request -> search.'%')
@@ -47,7 +49,8 @@ class PageController extends Controller
 
     public function programs()
     {
-        $programs = Program::where('visibility', '1')->get();
+        $professions = Profession::where('visibility', '1')->get();
+        $catalogues = Cataloge::where('visibility', '1')->get();
 //        $modular = $programs->filter(function($program){ return $program -> category == 'modular';});
 //        $dual = $programs->filter(fn($program) => $program -> category == 'dual');
 //        $integrated = $programs->filter(fn($program) => $program -> category == 'integrated');
@@ -59,7 +62,8 @@ class PageController extends Controller
 //        'short_term' => $short_term,
 
         return view('pages.programs', [
-           'programs' => $programs,
+           'professions' => $professions,
+           'catalogues' =>  $catalogues
         ]);
     }
 
@@ -120,8 +124,11 @@ class PageController extends Controller
 
     public function tables()
     {
-        return view('pages.tables',[
-            'professions' => Profession::where('visibility', '1')->with('groups')->get(),
+        return view('pages.tables', [
+            'professions' => Profession::where('visibility', '1')
+                ->where('type->en', 'modular') // Querying the JSON column
+                ->with('groups')
+                ->get(),
         ]);
     }
 
@@ -135,13 +142,16 @@ class PageController extends Controller
     public function graduates()
     {
         return view('pages.graduates',[
-            'graduates' => Graduated::where('visibility', '1')->orderBy('id', 'DESC')->paginate(5)
+            'graduates' => Graduated::where('visibility', '1')->orderBy('sortable', 'ASC')->paginate(5)
         ]);
     }
 
     public function visitors()
     {
-        return view('layouts.visitors');
+        $slides = SubSlider::where('visibility', '1')->get();
+        return view('layouts.visitors',[
+            'slides' => $slides
+        ]);
     }
 
     public function studyingProcess()
@@ -165,15 +175,28 @@ class PageController extends Controller
     public function acts()
     {
         $docs = Documentation::where('visibility', '1')->get();
-        $strategy_docs = $docs->filter(function($doc){ return $doc-> category == 'acts';});
+        $act_docs = $docs->filter(function($doc){ return $doc-> category == 'acts';});
+        $legislative_docs = $docs->filter(function($doc){ return $doc-> category == 'legislative';});
+        $subordinate_docs = $docs->filter(function($doc){ return $doc-> category == 'subordinate';});
         return view('pages.acts',[
-            'docs' => $strategy_docs
+            'docs' => $act_docs,
+            'legislative_docs' => $legislative_docs,
+            'subordinate_docs' => $subordinate_docs
         ]);
     }
     public function vacancies()
     {
         return view('pages.vacancies',[
             'vacancies' => Vacancy::orderBy('sortable', 'DESC') -> where('visibility', '1')->paginate(12)
+        ]);
+    }
+
+    public function mission()
+    {
+        $docs = Documentation::where('visibility', '1')->get();
+        $mission_docs = $docs->filter(function($doc){ return $doc-> category == 'structure';});
+        return view('pages.mission',[
+            'docs' => $mission_docs
         ]);
     }
 }

@@ -312,23 +312,23 @@
         </div>
     </div>
     <!-- visitors -->
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#visitors" aria-expanded="true" aria-controls="visitors">
-                <i class="bi bi-person-badge"></i>
-                <span class="btn-label">ვიზიოტრები</span>
-            </button>
-        </h2>
-        <div id="visitors" class="accordion-collapse collapse @if($routeName == 'visitors.index') show @endif" data-bs-parent="#dashboard">
-            <div class="accordion-body">
-                <ul class="list-group">
-                    <li class="list-group-item @if($routeName == 'visitors.index')  bg-secondary text-white @endif">
-                        <a class="nav-link" href="{{ route('visitors.index',['language' => app() -> getLocale()]) }}">ვიზიტორების სია</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+{{--    <div class="accordion-item">--}}
+{{--        <h2 class="accordion-header">--}}
+{{--            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#visitors" aria-expanded="true" aria-controls="visitors">--}}
+{{--                <i class="bi bi-person-badge"></i>--}}
+{{--                <span class="btn-label">ვიზიოტრები</span>--}}
+{{--            </button>--}}
+{{--        </h2>--}}
+{{--        <div id="visitors" class="accordion-collapse collapse @if($routeName == 'visitors.index') show @endif" data-bs-parent="#dashboard">--}}
+{{--            <div class="accordion-body">--}}
+{{--                <ul class="list-group">--}}
+{{--                    <li class="list-group-item @if($routeName == 'visitors.index')  bg-secondary text-white @endif">--}}
+{{--                        <a class="nav-link" href="{{ route('visitors.index',['language' => app() -> getLocale()]) }}">ვიზიტორების სია</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- vacancies -->
     <div class="accordion-item">
         <h2 class="accordion-header">

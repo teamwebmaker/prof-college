@@ -18,132 +18,73 @@
                 <span class="section-title-label pb-2">{{ __('static.pages.programs.catalog') }}</span>
             </h4>
             <div class="row">
-                <div class="col-md-4">
-                    <a class="doc-link text-decoration-none" href="#" target="_blank">
+                 @foreach($catalogues as $catalogue)
+                <div class="col-md-4 mb-2">
+                    <a class="doc-link text-decoration-none" href="{{ asset($catalogue->file) }}" target="_blank">
                         <div class="card px-3 py-2 doc-card">
                             <h6 class="module-title d-flex align-items-center gap-2">
                                 <i class="bi bi-filetype-pdf fs-3"></i>
-                                <span class="module-title-label truncate">2023 წლის კატალოგი</span>
+                                <span class="module-title-label truncate">{{ $catalogue -> title -> $language}}</span>
                             </h6>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a class="doc-link text-decoration-none" href="#" target="_blank">
-                        <div class="card px-3 py-2 doc-card">
-                            <h6 class="module-title d-flex align-items-center gap-2">
-                                <i class="bi bi-filetype-pdf fs-3"></i>
-                                <span class="module-title-label truncate">2022 წლის კატალოგი</span>
-                            </h6>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="doc-link text-decoration-none" href="#" target="_blank">
-                        <div class="card px-3 py-2 doc-card">
-                            <h6 class="module-title d-flex align-items-center gap-2">
-                                <i class="bi bi-filetype-pdf fs-3"></i>
-                                <span class="module-title-label truncate">2021 წლის კატალოგი</span>
-                            </h6>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="accordion program-accordion" id="accordionExample">
-                <!-- ✨ TODO: start item  ✨-->
-                <div class="accordion-item program-accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapse-btn bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#modular" aria-expanded="true" aria-controls="modular">
-                            <h5 class="module-title d-flex align-items-center gap-2">
-                                <i class="bi bi-book fs-3"></i>
-                                <span class="section-title-label">{{ __('static.pages.programs.current') }}</span>
-                            </h5>
-                        </button>
-                    </h2>
-                    <div id="modular" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div class="accordion-body program-accordion-body">
-                            <div class="row">
-                                @foreach($programs as $program)
-                                    <div class="col-lg-4 mb-3">
-                                        <x-program-component :program="$program" :language="$language"/>
-                                    </div>
-                                @endforeach
+        <div class="row justify-content-center catalog p-0">
+            <div class="accordion p-0" id="programsListTabs">
+                @foreach($professions as $profession)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button program-accordion-button @if(! $loop -> first) collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#programsListTab-{{$profession -> id}}" aria-expanded="@if($loop -> first) true @else false @endif" aria-controls="programsListTab-{{ $profession -> id }}">
+                                {{ $profession -> title -> $language }} ({{$profession -> type -> $language}})
+                            </button>
+                        </h2>
+                        <div id="programsListTab-{{$profession -> id}}" class="accordion-collapse collapse @if($loop -> first) show @endif" data-bs-parent="#programsListTabs">
+                            <div class="accordion-body">
+                                <ul class="list-group list-group-flush">
+                                    @if($profession -> condition)
+                                        <li class="list-group-item fw-bold">
+                                            <span class="item-key text-red">{{ __('static.pages.professions.condition') }} :</span>
+                                            <span class="item-value">{{ $profession -> condition -> $language }}</span>
+                                        </li>
+                                    @endif
+                                    @if($profession -> level)
+                                        <li class="list-group-item fw-bold">
+                                            <span class="item-key text-red">{{ __('static.pages.professions.level') }} :</span>
+                                            <span class="item-value">{{ $profession -> level }}</span>
+                                        </li>
+                                    @endif
+                                    @if($profession -> credits)
+                                        <li class="list-group-item fw-bold">
+                                            <span class="item-key text-red">{{ __('static.pages.professions.credits') }} :</span>
+                                            <span class="item-value">{{ $profession -> credits }} {{__('static.pages.professions.credit')}}</span>
+                                        </li>
+                                    @endif
+                                    @if($profession -> duration)
+                                        <li class="list-group-item fw-bold">
+                                            <span class="item-key text-red">{{ __('static.pages.professions.duration') }} :</span>
+                                            <span class="item-value">{{ $profession -> duration  }} {{__('static.pages.professions.month')}}</span>
+                                        </li>
+                                    @endif
+                                    @if($profession -> custom_credits)
+                                        <li class="list-group-item fw-bold">
+                                            <span class="item-key text-red">{{ __('static.pages.professions.custom_credits') }} :</span>
+                                            <span class="item-value">{{ $profession -> custom_credits  }} {{__('static.pages.professions.credit')}}</span>
+                                        </li>
+                                    @endif
+                                    @if($profession -> custom_duration)
+                                        <li class="list-group-item fw-bold">
+                                            <span class="item-key text-red">{{ __('static.pages.professions.custom_duration') }} :</span>
+                                            <span class="item-value">{{ $profession -> custom_duration  }} {{__('static.pages.professions.month')}}</span>
+                                        </li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-{{--                <!-- ✨ TODO: end item  ✨-->--}}
-{{--                <!-- ✨ TODO: start item  ✨-->--}}
-{{--                <div class="accordion-item program-accordion-item">--}}
-{{--                    <h2 class="accordion-header">--}}
-{{--                        <button class="accordion-button collapse-btn bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#dual" aria-expanded="true" aria-controls="dual">--}}
-{{--                            <h5 class="module-title d-flex align-items-center gap-2">--}}
-{{--                                <i class="bi bi-book fs-3"></i>--}}
-{{--                                <span class="section-title-label">{{ __('static.pages.programs.dual') }}</span>--}}
-{{--                            </h5>--}}
-{{--                        </button>--}}
-{{--                    </h2>--}}
-{{--                    <div id="dual" class="accordion-collapse collapse" data-bs-parent="#accordionExample">--}}
-{{--                        <div class="accordion-body program-accordion-body">--}}
-{{--                            <div class="row">--}}
-{{--                                @foreach($dual as $program)--}}
-{{--                                    <div class="col-lg-4 mb-3">--}}
-{{--                                        <x-program-component :program="$program" :language="$language"/>--}}
-{{--                                    </div>--}}
-{{--                                @endforeach--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <!-- ✨ TODO: end item  ✨-->--}}
-{{--                <!-- ✨ TODO: start item  ✨-->--}}
-{{--                <div class="accordion-item program-accordion-item">--}}
-{{--                    <h2 class="accordion-header">--}}
-{{--                        <button class="accordion-button collapse-btn bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#integrated" aria-expanded="true" aria-controls="integrated">--}}
-{{--                            <h5 class="module-title d-flex align-items-center gap-2">--}}
-{{--                                <i class="bi bi-book fs-3"></i>--}}
-{{--                                <span class="section-title-label">{{ __('static.pages.programs.integrated') }}</span>--}}
-{{--                            </h5>--}}
-{{--                        </button>--}}
-{{--                    </h2>--}}
-{{--                    <div id="integrated" class="accordion-collapse collapse" data-bs-parent="#accordionExample">--}}
-{{--                        <div class="accordion-body program-accordion-body">--}}
-{{--                            <div class="row">--}}
-{{--                                @foreach($integrated as $program)--}}
-{{--                                    <div class="col-lg-4 mb-3">--}}
-{{--                                        <x-program-component :program="$program" :language="$language"/>--}}
-{{--                                    </div>--}}
-{{--                                @endforeach--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <!-- ✨ TODO: end item  ✨-->--}}
-{{--                <!-- ✨ TODO: start item  ✨-->--}}
-{{--                <div class="accordion-item program-accordion-item">--}}
-{{--                    <h2 class="accordion-header">--}}
-{{--                        <button class="accordion-button collapse-btn bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#short_term" aria-expanded="true" aria-controls="short_term">--}}
-{{--                            <h5 class="module-title d-flex align-items-center gap-2">--}}
-{{--                                <i class="bi bi-book fs-3"></i>--}}
-{{--                                <span class="section-title-label">{{ __('static.pages.programs.short-term') }}</span>--}}
-{{--                            </h5>--}}
-{{--                        </button>--}}
-{{--                    </h2>--}}
-{{--                    <div id="short_term" class="accordion-collapse collapse" data-bs-parent="#accordionExample">--}}
-{{--                        <div class="accordion-body program-accordion-body">--}}
-{{--                            <div class="row">--}}
-{{--                                @foreach($short_term as $program)--}}
-{{--                                    <div class="col-lg-4 mb-3">--}}
-{{--                                        <x-program-component :program="$program" :language="$language"/>--}}
-{{--                                    </div>--}}
-{{--                                @endforeach--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <!-- ✨ TODO: end item  ✨-->--}}
+                @endforeach
             </div>
         </div>
     </div>

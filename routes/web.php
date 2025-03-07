@@ -62,7 +62,7 @@ Route::group(['prefix' => '{language}'], function () {
                 Route::resource('/groups', GroupController::class);
                 Route::resource('/vacancies', VacancyController::class);
                 Route::resource('/contacts', ContactController::class) -> except('store', 'edit');
-                Route::resource('/visitors', VisitorController::class);
+
             });
         });
     });
@@ -80,14 +80,16 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/tables', [PageController::class, 'tables'])->name('tables');
     Route::get('/councils', [PageController::class, 'councils'])->name('councils');
     Route::get('/graduates', [PageController::class, 'graduates'])->name('graduates');
-    Route::get('visitors', [PageController::class, 'visitors'])->name('visitors');
+    Route::get('/visitors', [PageController::class, 'visitors'])->name('visitors');
     Route::get('vacancies', [PageController::class, 'vacancies'])->name('vacancies');
     Route::get('/legislative-acts', [PageController::class, 'legislativeActs'])->name('legislativeActs');
     Route::get('/studying-process', [PageController::class, 'studyingProcess'])->name('studyingProcess');
+    Route::get('/mission', [PageController::class, 'mission'])->name('mission');
     Route::get('acts', [PageController::class, 'acts'])->name('acts');
     Route::resource('/votes', VoteController::class)->only('store');
     Route::resource('/categories', CategoryController::class)->only('show');
     Route::resource('/contacts', ContactController::class) -> only('store');
     Route::resource('/articles', ArticleController::class)->only('show');
+    Route::resource('/visitors', VisitorController::class)->only('store');
 });
 

@@ -12,7 +12,7 @@
         <div class="card px-3 py-2 doc-card">
             <h6 class="module-title d-flex align-items-center gap-2">
                 <i class="bi bi-filetype-pdf fs-3"></i>
-                <span class="module-title-label truncate">{{ $doc -> title -> $language  }}</span>
+                <span class="module-title-label truncate" title="{{ $doc -> title -> $language  }}">{{ $doc -> title -> $language  }}</span>
             </h6>
         </div>
     </a>

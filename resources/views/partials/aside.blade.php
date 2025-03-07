@@ -26,19 +26,19 @@
         <div class="col-lg-12 col-md-4 col-sm-6 mb-4">
             <div class="card task-card">
                 <div class="card-header task-card-header p-0">
-                    <a class="d-block content-overlay" href="{{ route('graduates', ['language' => app() -> getLocale()]) }}">
-                        <img src="{{ asset('images/tasks/graduates.JPG') }}" class="card-img-top response-img" alt="..." />
+                    <a class="d-block content-overlay" href="https://www.youtube.com/watch?v=dtnR_kjOxOE" target="_blank">
+                        <img src="{{ asset('images/tasks/tour.jpg') }}" class="card-img-top response-img" alt="..." />
                     </a>
                 </div>
                 <div class="card-body task-card-body py-2">
-                    <h5 class="card-title truncate text-red">{{ __('static.pages.graduates.title') }}</h5>
+                    <h5 class="card-title truncate text-red">{{ __('static.pages.tour') }}</h5>
                 </div>
             </div>
         </div>
         <div class="col-lg-12 col-md-4 col-sm-6 mb-4">
             <div class="card task-card">
                 <div class="card-header task-card-header p-0">
-                    <a class="d-block content-overlay" href="#" target="_blank">
+                    <a class="d-block content-overlay" href="{{ asset('docs/static/student_guide.pdf') }}" target="_blank">
                         <img src="{{ asset('images/tasks/admission.jpg') }}" class="card-img-top response-img" alt="..." />
                     </a>
                 </div>
