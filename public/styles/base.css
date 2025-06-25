@@ -287,9 +287,10 @@
 }
 
 .doc-card{
-    background-color: var(--dark-red);
-    color: var(--white);
-    border: 2px solid var(--gold);
+    color: var(--dark-red);
+    /* color: var(--white); */
+    background-color: transparent;
+    border: 1px solid var(--dark-red);
 }
 .teacher-card{
     border-color: var(--gold) ;
@@ -340,7 +341,8 @@
 .employer-card{
     display: flex;
     align-items: center;
-    border: 2px solid var(--gold);
+    border: 1px solid var(--dark-red);
+    /* background-color: transparent?; */
     height: 100%;
 }
 

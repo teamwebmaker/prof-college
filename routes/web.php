@@ -12,10 +12,10 @@ use App\Http\Controllers\GraduatedController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\DocumentController;
-use  App\Http\Controllers\ProfessionController;
+use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DocContoller;
+use App\Http\Controllers\DocController;
 use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\GalleryImageController;
 use App\Http\Controllers\VideoController;
@@ -38,11 +38,11 @@ Route::redirect('/', '/ka');
 
 Route::group(['prefix' => '{language}'], function () {
     Route::prefix('admin')->group(function () {
-        Route::get('/', [AdminController::class, 'login']) -> name('admin.login.page');
-        Route::post('/auth', [AdminController::class, 'auth']) -> name('admin.auth');
+        Route::get('/', [AdminController::class, 'login'])->name('admin.login.page');
+        Route::post('/auth', [AdminController::class, 'auth'])->name('admin.auth');
         Route::middleware(['route.guard'])->group(function () {
-            Route::get('/dashboard', [AdminController::class, 'dashboard']) -> name('admin.dashboard.page');
-            Route::post('/logout', [AdminController::class, 'logout']) -> name('admin.logout');
+            Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard.page');
+            Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
             Route::prefix('dashboard')->group(function () {
                 Route::resource('/articles', ArticleController::class)->except('show');
                 Route::resource('/teachers', TeacherController::class);
@@ -54,14 +54,15 @@ Route::group(['prefix' => '{language}'], function () {
                 Route::resource('/programs', ProgramController::class);
                 Route::resource('/documents', DocumentController::class);
                 Route::resource('/professions', ProfessionController::class);
-                Route::resource('/docs', DocContoller::class);
+                Route::resource('/docs', DocController::class);
                 Route::resource('/galleries', PhotoGalleryController::class);
                 Route::resource('/images', GalleryImageController::class)->only('store', 'destroy');
                 Route::resource('/videos', VideoController::class);
+                // TODO: ამას აქვს ერრორ გაასწორე
                 Route::resource('/slides', slideController::class);
                 Route::resource('/groups', GroupController::class);
                 Route::resource('/vacancies', VacancyController::class);
-                Route::resource('/contacts', ContactController::class) -> except('store', 'edit');
+                Route::resource('/contacts', ContactController::class)->except('store', 'edit');
 
             });
         });
@@ -70,6 +71,7 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::get('/', [PageController::class, 'home'])->name('home');
     Route::get('/staff', [PageController::class, 'staff'])->name('staff');
+    Route::get('/structure/', [PageController::class, 'structure'])->name('structure');
     Route::get('/programs', [PageController::class, 'programs'])->name('programs');
     Route::get('/documents', [PageController::class, 'documents'])->name('documents');
     Route::get('/teachers', [PageController::class, 'teachers'])->name('teachers');
@@ -88,7 +90,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('acts', [PageController::class, 'acts'])->name('acts');
     Route::resource('/votes', VoteController::class)->only('store');
     Route::resource('/categories', CategoryController::class)->only('show');
-    Route::resource('/contacts', ContactController::class) -> only('store');
+    Route::resource('/contacts', ContactController::class)->only('store');
     Route::resource('/articles', ArticleController::class)->only('show');
     Route::resource('/visitors', VisitorController::class)->only('store');
 });

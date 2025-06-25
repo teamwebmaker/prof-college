@@ -38,7 +38,7 @@ const swiperPartner = {
 }
 
 
-
+// TODO: open when production
 const pageModal = new bootstrap.Modal('#pageModal', {
     keyboard: false
 })

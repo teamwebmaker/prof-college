@@ -29,19 +29,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url): void
     {
-        if(env('REDIRECT_HTTPS')) {
+        if (env('REDIRECT_HTTPS')) {
             $url->forceScheme('https');
         }
 
         $MainMenu = MainMenu::where('visibility', '1')
-            ->with(['sub_menus' => function ($query) {
-                $query->where('visibility', '1');
-            }])
+            ->with([
+                'sub_menus' => function ($query) {
+                    $query->where('visibility', '1');
+                }
+            ])
             ->get();
         $slides = Slide::all();
-        $tasks =  Task::where('visibility', '1') -> get();
-        $partners = Partner::orderBy('sortable', 'asc') -> get();
-        $language =  App::getLocale();
+        $tasks = Task::where('visibility', '1')->get();
+        $partners = Partner::orderBy('sortable', 'asc')->get();
+        $language = App::getLocale();
         $professions = Profession::all();
         $categories = Category::where('visibility', '1')->get();
 

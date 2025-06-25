@@ -27,23 +27,38 @@ class PageController extends Controller
 {
     public function home(Request $request)
     {
-        $articles = Article::where('visibility', '1') -> orderBy('created_at', 'DESC')->paginate(8);
-        if($request -> filled('search')){
-            $articles = Article::where('title', 'like', '%'.$request -> search.'%')->
-            orWhere('description', 'like', '%'.$request -> search.'%')
+        $articles = Article::where('visibility', '1')->orderBy('created_at', 'DESC')->paginate(8);
+        if ($request->filled('search')) {
+            $articles = Article::where('title', 'like', '%' . $request->search . '%')->
+                orWhere('description', 'like', '%' . $request->search . '%')
                 ->where('visibility', '1')
                 ->paginate(8);
         }
-        return view('pages.home',[
-            'articles' =>  $articles,
+        return view('pages.home', [
+            'articles' => $articles,
 
         ]);
     }
 
     public function staff()
     {
+        $staff = Staff::where('visibility', '1')
+            ->orderBy('sortable', 'ASC')
+            ->whereIn('category', ['administration', 'management'])
+            ->get()
+            ->groupBy('category');
+
         return view('pages.staff', [
-            'staff' => Staff::where('visibility', '1') -> orderby('sortable', 'ASC') ->get(),
+            'administrations' => $staff->get('administration', collect()),
+            'managements' => $staff->get('management', collect()),
+        ]);
+    }
+
+    public function structure(Request $request)
+    {
+        $fileName = implode(".", [$request->route()->getName(), "pdf"]);
+        return view('pages.pdf-view', [
+            'fileName' => $fileName
         ]);
     }
 
@@ -51,7 +66,7 @@ class PageController extends Controller
     {
         $professions = Profession::where('visibility', '1')->get();
         $catalogues = Cataloge::where('visibility', '1')->get();
-//        $modular = $programs->filter(function($program){ return $program -> category == 'modular';});
+        //        $modular = $programs->filter(function($program){ return $program -> category == 'modular';});
 //        $dual = $programs->filter(fn($program) => $program -> category == 'dual');
 //        $integrated = $programs->filter(fn($program) => $program -> category == 'integrated');
 //        $short_term = $programs->filter(fn($program) => $program -> category == 'short_term');
@@ -62,8 +77,8 @@ class PageController extends Controller
 //        'short_term' => $short_term,
 
         return view('pages.programs', [
-           'professions' => $professions,
-           'catalogues' =>  $catalogues
+            'professions' => $professions,
+            'catalogues' => $catalogues
         ]);
     }
 
@@ -73,7 +88,7 @@ class PageController extends Controller
             'teachers' => Teacher::orderBy('id', 'DESC')->paginate(8),
         ]);
     }
-//    public function documents()
+    //    public function documents()
 //    {
 //        $docs = Documentation::where('visibility', '1')->get();
 //
@@ -101,23 +116,23 @@ class PageController extends Controller
 
     public function gallery()
     {
-        $photoGallery = PhotoGallery::where('visibility', '1')->with('gallery_images')-> orderBy('id', 'DESC') -> paginate(6);
+        $photoGallery = PhotoGallery::where('visibility', '1')->with('gallery_images')->orderBy('id', 'DESC')->paginate(6);
 
-        return view('pages.gallery',[
+        return view('pages.gallery', [
             'photoGallery' => $photoGallery
         ]);
     }
 
     public function videos()
     {
-        return view('pages.videos',[
-           'videos' => Video::where('visibility', '1')->orderBy('id', 'DESC')->paginate(9),
+        return view('pages.videos', [
+            'videos' => Video::where('visibility', '1')->orderBy('id', 'DESC')->paginate(9),
         ]);
     }
 
-    public  function employers()
+    public function employers()
     {
-        return view('pages.employers',[
+        return view('pages.employers', [
             'employers' => Employer::where('visibility', '1')->orderBy('id', 'DESC')->paginate(15),
         ]);
     }
@@ -134,14 +149,14 @@ class PageController extends Controller
 
     public function councils()
     {
-        return view('pages.councils',[
+        return view('pages.councils', [
             'councils' => Council::where('visibility', '1')->get()
         ]);
     }
 
     public function graduates()
     {
-        return view('pages.graduates',[
+        return view('pages.graduates', [
             'graduates' => Graduated::where('visibility', '1')->orderBy('sortable', 'ASC')->paginate(5)
         ]);
     }
@@ -149,7 +164,7 @@ class PageController extends Controller
     public function visitors()
     {
         $slides = SubSlider::where('visibility', '1')->get();
-        return view('layouts.visitors',[
+        return view('layouts.visitors', [
             'slides' => $slides
         ]);
     }
@@ -157,8 +172,10 @@ class PageController extends Controller
     public function studyingProcess()
     {
         $docs = Documentation::where('visibility', '1')->get();
-        $docs = $docs->filter(function($doc){ return $doc-> category == 'educations';});
-        return view('pages.studying-process',[
+        $docs = $docs->filter(function ($doc) {
+            return $doc->category == 'educations';
+        });
+        return view('pages.studying-process', [
             'docs' => $docs
         ]);
     }
@@ -166,8 +183,10 @@ class PageController extends Controller
     public function legislativeActs()
     {
         $docs = Documentation::where('visibility', '1')->get();
-        $legislative_docs = $docs->filter(function($doc){ return  $doc -> category == 'activates';});
-        return view('pages.activates',[
+        $legislative_docs = $docs->filter(function ($doc) {
+            return $doc->category == 'activates';
+        });
+        return view('pages.activates', [
             'docs' => $legislative_docs
         ]);
     }
@@ -175,10 +194,16 @@ class PageController extends Controller
     public function acts()
     {
         $docs = Documentation::where('visibility', '1')->get();
-        $act_docs = $docs->filter(function($doc){ return $doc-> category == 'acts';});
-        $legislative_docs = $docs->filter(function($doc){ return $doc-> category == 'legislative';});
-        $subordinate_docs = $docs->filter(function($doc){ return $doc-> category == 'subordinate';});
-        return view('pages.acts',[
+        $act_docs = $docs->filter(function ($doc) {
+            return $doc->category == 'acts';
+        });
+        $legislative_docs = $docs->filter(function ($doc) {
+            return $doc->category == 'legislative';
+        });
+        $subordinate_docs = $docs->filter(function ($doc) {
+            return $doc->category == 'subordinate';
+        });
+        return view('pages.acts', [
             'docs' => $act_docs,
             'legislative_docs' => $legislative_docs,
             'subordinate_docs' => $subordinate_docs
@@ -186,16 +211,18 @@ class PageController extends Controller
     }
     public function vacancies()
     {
-        return view('pages.vacancies',[
-            'vacancies' => Vacancy::orderBy('sortable', 'DESC') -> where('visibility', '1')->paginate(12)
+        return view('pages.vacancies', [
+            'vacancies' => Vacancy::orderBy('sortable', 'DESC')->where('visibility', '1')->paginate(12)
         ]);
     }
 
     public function mission()
     {
         $docs = Documentation::where('visibility', '1')->get();
-        $mission_docs = $docs->filter(function($doc){ return $doc-> category == 'structure';});
-        return view('pages.mission',[
+        $mission_docs = $docs->filter(function ($doc) {
+            return $doc->category == 'structure';
+        });
+        return view('pages.mission', [
             'docs' => $mission_docs
         ]);
     }

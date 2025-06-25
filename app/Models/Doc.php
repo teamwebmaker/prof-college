@@ -10,7 +10,7 @@ class Doc extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'src', 'type', 'article_id'];
-    protected  $casts = [
+    protected $casts = [
         'title' => JsonConvertCast::class,
     ];
     public function article()

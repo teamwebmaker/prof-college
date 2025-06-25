@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Doc;
 use Illuminate\Http\Request;
 
-class DocContoller extends Controller
+class DocController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,20 +37,20 @@ class DocContoller extends Controller
 
         $title = ["ka" => $data['title_ka'], "en" => $data['title_en']];
         $storeData = [
-          'title' => $title,
-          'article_id' => $data['article_id']
+            'title' => $title,
+            'article_id' => $data['article_id']
         ];
         if ($request->hasFile('src')) {
             $file = $request->file('src');
             $type = $file->getClientOriginalExtension();
-            $fileName = uniqid() . '-' . time() .'.'. $file->getClientOriginalExtension();
-            $uploadPath = 'docs/articles' . $request -> uuid;
+            $fileName = uniqid() . '-' . time() . '.' . $file->getClientOriginalExtension();
+            $uploadPath = 'docs/articles' . $request->uuid;
             $file->move(public_path($uploadPath), $fileName);
             $storeData = [...$storeData, 'type' => $type, 'src' => $fileName];
             Doc::create($storeData);
-            return redirect() -> back() -> with('success', 'დოკუმენტი წარმატებით დაემატა');
+            return redirect()->back()->with('success', 'დოკუმენტი წარმატებით დაემატა');
         }
-        return redirect() -> back() -> with('error', 'დოკუმენტის ატვირთვა ვერ მოხერხდა');
+        return redirect()->back()->with('error', 'დოკუმენტის ატვირთვა ვერ მოხერხდა');
 
     }
 

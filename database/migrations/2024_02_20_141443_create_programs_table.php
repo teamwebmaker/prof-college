@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,9 +14,9 @@ return new class extends Migration
             $table->id();
             $table->json('title');
             $table->json('file');
-            $table->enum('category', ['modular', 'dual', 'integrated', 'short_term']);
-            $table->enum('visibility',['0', '1']) -> default('1');
-            $table->tinyInteger('sortable') -> default(1);
+            $table->enum('category', ['modular', 'dual', 'integrated', 'short_term'])->nullable();
+            $table->enum('visibility', ['0', '1'])->default('1');
+            $table->tinyInteger('sortable')->default(1);
             $table->timestamps();
         });
     }

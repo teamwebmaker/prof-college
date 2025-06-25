@@ -19,14 +19,16 @@ return [
         'title' => 'Visit to College',
     ],
     'vote' => [
-      'send' => 'Submit an Evaluation'
+        'send' => 'Submit an Evaluation'
     ],
     'pages' => [
         'title' => 'LEPL College ″Gldani Vocational Education and Training Center″',
         'more' => 'View More',
         'tour' => 'Virtual Tour',
+        'pdf_view' => 'PDF document',
         'staff' => [
-            'title' => 'College Administration'
+            'administration' => 'College Administration',
+            'management' => 'College Management'
         ],
         'professions' => [
             'condition' => 'Prerequisite for admission to the program',
@@ -119,22 +121,22 @@ return [
 
     ],
     'section' => [
-      'articles' => [
-          'title' => 'College News'
-      ],
-      'tasks' => [
-          'title' => 'Information Board'
-      ],
-      'vote' => [
-          'title' => 'How would you rate our website?',
-          'high' => 'Positive',
-          'middle' => 'Satisfactory',
-          'low' => 'Negative'
-      ],
-      'aside' => [
-          'announcement' => 'Announcement',
-          'vote' => 'Vote'
-      ]
+        'articles' => [
+            'title' => 'College News'
+        ],
+        'tasks' => [
+            'title' => 'Information Board'
+        ],
+        'vote' => [
+            'title' => 'How would you rate our website?',
+            'high' => 'Positive',
+            'middle' => 'Satisfactory',
+            'low' => 'Negative'
+        ],
+        'aside' => [
+            'announcement' => 'Announcement',
+            'vote' => 'Vote'
+        ]
     ],
     'admission' => [
         'title' => 'Acceptance Rule'
