@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DocController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -15,7 +16,6 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DocController;
 use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\GalleryImageController;
 use App\Http\Controllers\VideoController;

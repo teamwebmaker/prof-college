@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Doc;
 use Illuminate\Http\Request;
-
+use App\Models\Doc;
 class DocController extends Controller
 {
     /**
