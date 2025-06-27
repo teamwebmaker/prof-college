@@ -135,7 +135,8 @@ return [
         ],
         'aside' => [
             'announcement' => 'Announcement',
-            'vote' => 'Vote'
+            'vote' => 'Vote',
+            'library' => 'Library'
         ]
     ],
     'admission' => [

@@ -135,7 +135,8 @@ return [
         ],
         'aside' => [
             'announcement' => 'ანონსი',
-            'vote' => 'შეფასება'
+            'vote' => 'შეფასება',
+            'library' => 'ბიბლიოთეკა'
         ]
     ],
     'admission' => [

@@ -1,9 +1,9 @@
 @php
     $filePath = $doc->file->$language ?? null;
-    $isDisabled = $language === 'en' && $filePath === null;
+    $isDisabled = $filePath === null;
 @endphp
 
-<a class="doc-link text-decoration-none {{ $isDisabled ? 'disabled opacity-75' : '' }}"
+<a class="doc-link text-decoration-none {{ $isDisabled ? 'disabled opacity-75 cursor-default' : '' }}"
     href="{{ $isDisabled ? '#' : asset('docs/documentations/' . $filePath) }}"
     target="{{ $isDisabled ? '_self' : '_blank' }}">
     <div class="card px-3 py-2 doc-card" @if (!$isDisabled) data-bs-toggle="tooltip" data-bs-placement="bottom"

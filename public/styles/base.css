@@ -305,7 +305,7 @@
 }
 
 .catalog{
-    border: 2px solid var(--gold);
+    border: 1px solid var(--dark-red);
     margin-bottom: 2rem;
     padding: 1rem;
     border-radius: 5px;
@@ -516,6 +516,9 @@ body{
 .category-link{
     text-decoration: none;
     color: var(--white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .category-item:hover .category-link{
     color: var(--dark-red);

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', __('static.pages.title'))
+
 
 @section('styles')
     <style>
@@ -15,7 +15,7 @@
         <div class="row">
             @foreach($articles as $article)
                 <div class="col-md-6 mb-4">
-                    <x-article-component :article="$article" :language="$language"/>
+                    <x-article-component :article="$article" :language="$language" />
                 </div>
             @endforeach
         </div>
@@ -29,7 +29,7 @@
 
 @section('scripts')
     <script>
-        const swiperSliderInit = new Swiper(".swiper-slider", swiperSlider );
+        const swiperSliderInit = new Swiper(".swiper-slider", swiperSlider);
         const swiperPartnerInit = new Swiper(".swiper-partner", swiperPartner);
         Fancybox.bind("[data-fancybox]", {
             // Your custom options
