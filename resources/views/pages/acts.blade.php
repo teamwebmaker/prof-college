@@ -16,7 +16,7 @@
         </h2>
 
         <!-- Activities Docs -->
-        <div class="mb-5 border border-gray rounded p-3">
+        <div class="mb-5 catalog rounded p-3">
             <h5 class="module-title  d-flex align-items-center gap-2 text-red mb-3">
                 {{ __('static.pages.documents.activities.title') }}
             </h5>
@@ -30,7 +30,7 @@
         </div>
 
         <!-- Legislative Docs -->
-        <div class="mb-5 border border border-gray rounded p-3">
+        <div class="mb-5 catalog rounded p-3">
             <h5 class="text-red pb-2 ">
                 {{ __('static.pages.documents.legislation.sub_title_leg') }}
             </h5>
@@ -44,7 +44,7 @@
         </div>
 
         <!-- Subordinate Docs -->
-        <div class="mb-5 border border border-gray rounded p-3">
+        <div class="mb-5 catalog rounded p-3">
             <h5 class="text-red pb-2">
                 {{ __('static.pages.documents.legislation.sub_title_sub') }}
             </h5>

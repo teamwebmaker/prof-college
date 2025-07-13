@@ -1,7 +1,8 @@
 <div class="single-article doc-row">
     <div class="card  single-article-card">
         <div class="row g-0">
-            <div class="col-lg-4">
+            <div class="col-xl-4 multimedia-block" style="--background-image: url({{ asset('images/articles/' . $article -> image) }})">
+                {{-- If the article has an embed video, use it as a background --}}
                 @if($article -> embed)
                     <a href="{{ $article -> embed }}" data-fancybox data-caption="Single image">
                         <div class="card-head article-card-head article-video-player" data-content="{{ $article -> created_at -> format('Y-m-d') }}">
@@ -14,10 +15,10 @@
                     </div>
                 @endif
             </div>
-            <div class="col-lg-8">
+            <div class="col-xl-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $article -> title -> $language }}</h5>
-                    <p class="card-text">{{ $article -> description -> $language }}</p>
+                    <h5 class="card-title article-title">{{ $article -> title -> $language }}</h5>
+                    <p class="card-text article-text">{{ $article -> description -> $language }}</p>
                 </div>
             </div>
         </div>

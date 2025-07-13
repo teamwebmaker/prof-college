@@ -71,7 +71,7 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::get('/', [PageController::class, 'home'])->name('home');
     Route::get('/staff', [PageController::class, 'staff'])->name('staff');
-    Route::get('/structure/', [PageController::class, 'structure'])->name('structure');
+    Route::get('/structure', [PageController::class, 'structure'])->name('structure');
     Route::get('/programs', [PageController::class, 'programs'])->name('programs');
     Route::get('/documents', [PageController::class, 'documents'])->name('documents');
     Route::get('/teachers', [PageController::class, 'teachers'])->name('teachers');
