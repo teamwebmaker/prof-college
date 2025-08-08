@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cataloge extends Model
 {
-   protected $fillable = ['title', 'file'];
-   protected  $casts = [
-        'title' => JsonConvertCast::class,
+  protected $fillable = ['title', 'file'];
+  protected  $casts = [
+    'title' => JsonConvertCast::class,
+    'file' => JsonConvertCast::class,
   ];
-    use HasFactory;
+  use HasFactory;
 }

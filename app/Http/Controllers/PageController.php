@@ -29,8 +29,7 @@ class PageController extends Controller
     {
         $articles = Article::where('visibility', '1')->orderBy('created_at', 'DESC')->paginate(8);
         if ($request->filled('search')) {
-            $articles = Article::where('title', 'like', '%' . $request->search . '%')->
-                orWhere('description', 'like', '%' . $request->search . '%')
+            $articles = Article::where('title', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')
                 ->where('visibility', '1')
                 ->paginate(8);
         }
@@ -67,14 +66,14 @@ class PageController extends Controller
         $professions = Profession::where('visibility', '1')->get();
         $catalogues = Cataloge::where('visibility', '1')->get();
         //        $modular = $programs->filter(function($program){ return $program -> category == 'modular';});
-//        $dual = $programs->filter(fn($program) => $program -> category == 'dual');
-//        $integrated = $programs->filter(fn($program) => $program -> category == 'integrated');
-//        $short_term = $programs->filter(fn($program) => $program -> category == 'short_term');
-//
-//        'modular' => $modular,
-//        'dual' => $dual,
-//        'integrated' => $integrated,
-//        'short_term' => $short_term,
+        //        $dual = $programs->filter(fn($program) => $program -> category == 'dual');
+        //        $integrated = $programs->filter(fn($program) => $program -> category == 'integrated');
+        //        $short_term = $programs->filter(fn($program) => $program -> category == 'short_term');
+        //
+        //        'modular' => $modular,
+        //        'dual' => $dual,
+        //        'integrated' => $integrated,
+        //        'short_term' => $short_term,
 
         return view('pages.programs', [
             'professions' => $professions,
@@ -89,25 +88,25 @@ class PageController extends Controller
         ]);
     }
     //    public function documents()
-//    {
-//        $docs = Documentation::where('visibility', '1')->get();
-//
-//        $activate_docs = $docs->filter(function($doc){ return $doc-> category == 'activates';});
-//        $authorization_docs = $docs->filter(function($doc){ return $doc-> category == 'authorizations';});
-//        $act_docs = $docs->filter(function($doc){ return $doc-> category == 'acts';});
-//        $education_docs = $docs->filter(function($doc){ return $doc-> category == 'educations';});
-//        $rate_docs = $docs->filter(function($doc){ return $doc-> category == 'rates';});
-//        $strategy_docs = $docs->filter(function($doc){ return $doc-> category == 'strategies';});
-//
-//        return view('pages.documents', [
-//            'activate_docs' => $activate_docs,
-//            'authorization_docs' => $authorization_docs,
-//            'act_docs' => $act_docs,
-//            'education_docs' => $education_docs,
-//            'rate_docs' => $rate_docs,
-//            'strategy_docs' => $strategy_docs,
-//        ]);
-//    }
+    //    {
+    //        $docs = Documentation::where('visibility', '1')->get();
+    //
+    //        $activate_docs = $docs->filter(function($doc){ return $doc-> category == 'activates';});
+    //        $authorization_docs = $docs->filter(function($doc){ return $doc-> category == 'authorizations';});
+    //        $act_docs = $docs->filter(function($doc){ return $doc-> category == 'acts';});
+    //        $education_docs = $docs->filter(function($doc){ return $doc-> category == 'educations';});
+    //        $rate_docs = $docs->filter(function($doc){ return $doc-> category == 'rates';});
+    //        $strategy_docs = $docs->filter(function($doc){ return $doc-> category == 'strategies';});
+    //
+    //        return view('pages.documents', [
+    //            'activate_docs' => $activate_docs,
+    //            'authorization_docs' => $authorization_docs,
+    //            'act_docs' => $act_docs,
+    //            'education_docs' => $education_docs,
+    //            'rate_docs' => $rate_docs,
+    //            'strategy_docs' => $strategy_docs,
+    //        ]);
+    //    }
 
     public function contact()
     {
@@ -169,24 +168,24 @@ class PageController extends Controller
         ]);
     }
 
-    public function studyingProcess()
+    public function developmentStrategy()
     {
         $docs = Documentation::where('visibility', '1')->get();
         $docs = $docs->filter(function ($doc) {
-            return $doc->category == 'educations';
+            return $doc->category == 'development-strategy';
         });
-        return view('pages.studying-process', [
+        return view('pages.development-strategy', [
             'docs' => $docs
         ]);
     }
 
-    public function legislativeActs()
+    public function reportsActivities()
     {
         $docs = Documentation::where('visibility', '1')->get();
         $legislative_docs = $docs->filter(function ($doc) {
-            return $doc->category == 'activates';
+            return $doc->category == 'reports-activities';
         });
-        return view('pages.activates', [
+        return view('pages.reports-activities', [
             'docs' => $legislative_docs
         ]);
     }
@@ -194,17 +193,14 @@ class PageController extends Controller
     public function acts()
     {
         $docs = Documentation::where('visibility', '1')->get();
-        $act_docs = $docs->filter(function ($doc) {
-            return $doc->category == 'acts';
-        });
+
         $legislative_docs = $docs->filter(function ($doc) {
-            return $doc->category == 'legislative';
+            return $doc->category == 'legislative-acts';
         });
         $subordinate_docs = $docs->filter(function ($doc) {
-            return $doc->category == 'subordinate';
+            return $doc->category == 'subordinate-legislation-acts';
         });
         return view('pages.acts', [
-            'docs' => $act_docs,
             'legislative_docs' => $legislative_docs,
             'subordinate_docs' => $subordinate_docs
         ]);

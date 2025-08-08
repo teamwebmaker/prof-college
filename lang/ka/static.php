@@ -27,7 +27,7 @@ return [
         'tour' => 'ვირტუალური ტური',
         'pdf_view' => 'PDF დოკუმენტი',
         'staff' => [
-            'administration' => 'კოლეჯის ხემძღვანელობა ',
+            'administration' => 'კოლეჯის დირექცია',
             'management' => 'კოლეჯის ადმინისტრაცია'
         ],
         'professions' => [

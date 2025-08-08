@@ -24,6 +24,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\ExternalRedirectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ use App\Http\Controllers\VisitorController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::redirect('/', '/ka');
 
 Route::group(['prefix' => '{language}'], function () {
@@ -63,7 +65,6 @@ Route::group(['prefix' => '{language}'], function () {
                 Route::resource('/groups', GroupController::class);
                 Route::resource('/vacancies', VacancyController::class);
                 Route::resource('/contacts', ContactController::class)->except('store', 'edit');
-
             });
         });
     });
@@ -80,12 +81,13 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/videos', [PageController::class, 'videos'])->name('videos');
     Route::get('/employers', [PageController::class, 'employers'])->name('employers');
     Route::get('/tables', [PageController::class, 'tables'])->name('tables');
+    Route::get('/library', [ExternalRedirectController::class, 'library'])->name('library');
     Route::get('/councils', [PageController::class, 'councils'])->name('councils');
     Route::get('/graduates', [PageController::class, 'graduates'])->name('graduates');
     Route::get('/visitors', [PageController::class, 'visitors'])->name('visitors');
     Route::get('vacancies', [PageController::class, 'vacancies'])->name('vacancies');
-    Route::get('/legislative-acts', [PageController::class, 'legislativeActs'])->name('legislativeActs');
-    Route::get('/studying-process', [PageController::class, 'studyingProcess'])->name('studyingProcess');
+    Route::get('/reports-activities', [PageController::class, 'reportsActivities'])->name('reportsActivities');
+    Route::get('/development-strategy', [PageController::class, 'developmentStrategy'])->name('developmentStrategy');
     Route::get('/mission', [PageController::class, 'mission'])->name('mission');
     Route::get('acts', [PageController::class, 'acts'])->name('acts');
     Route::resource('/votes', VoteController::class)->only('store');
@@ -94,4 +96,3 @@ Route::group(['prefix' => '{language}'], function () {
     Route::resource('/articles', ArticleController::class)->only('show');
     Route::resource('/visitors', VisitorController::class)->only('store');
 });
-

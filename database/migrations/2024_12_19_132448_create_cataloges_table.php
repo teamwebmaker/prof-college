@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('cataloges', function (Blueprint $table) {
             $table->id();
             $table->json('title');
-            $table->string('file');
-            $table->enum('visibility',['0', '1']) -> default('1');
-            $table->tinyInteger('sortable') -> default(1);
+            $table->json('file');
+            $table->enum('visibility', ['0', '1'])->default('1');
+            $table->tinyInteger('sortable')->default(1);
             $table->timestamps();
         });
     }

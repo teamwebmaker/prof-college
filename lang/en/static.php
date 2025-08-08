@@ -27,7 +27,7 @@ return [
         'tour' => 'Virtual Tour',
         'pdf_view' => 'PDF document',
         'staff' => [
-            'administration' => 'College Administration',
+            'administration' => 'College Directorate',
             'management' => 'College Management'
         ],
         'professions' => [

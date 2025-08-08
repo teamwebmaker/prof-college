@@ -15,11 +15,13 @@ return new class extends Migration {
             $table->json('title');
             $table->json('file');
             $table->string('category');
+            $table->string('section')->nullable(); // Added after category
             $table->enum('visibility', ['0', '1'])->default('1');
             $table->tinyInteger('sortable')->default(1);
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

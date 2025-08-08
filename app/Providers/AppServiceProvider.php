@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use App\Models\Category;
 use App\Models\Profession;
 use App\Models\Program;
@@ -34,12 +35,15 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $MainMenu = MainMenu::where('visibility', '1')
+            ->orderBy('sortable', 'asc') // Order main menu
             ->with([
                 'sub_menus' => function ($query) {
-                    $query->where('visibility', '1');
+                    $query->where('visibility', '1')
+                        ->orderBy('sortable', 'asc'); // Order submenus
                 }
             ])
             ->get();
+
         $slides = Slide::all();
         $tasks = Task::where('visibility', '1')->get();
         $partners = Partner::orderBy('sortable', 'asc')->get();

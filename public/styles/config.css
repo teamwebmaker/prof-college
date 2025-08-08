@@ -1,97 +1,156 @@
+/* ============================================= */
+/*               CSS Variables                   */
+/* ============================================= */
 
+/**
+ * Root variables for consistent theming and easy maintenance.
+ * All color values use HSL format for better control over hue,
+ * saturation, and lightness.
+ */
 :root {
+    /* Base opacity control */
     --alfa: 1;
     --transparent: var(--alfa);
+
+    /* Icon reference (Font Awesome) */
     --icon: "\f3e8";
+
+    /* Color palette */
     --light-red: hsla(1deg 95% 30% / var(--transparent));
     --dark-red: hsl(1deg 60% 45%);
     --gold: hsla(43deg, 55%, 50%, var(--transparent));
     --white: hsla(0deg, 0%, 100%, var(--transparent));
     --light-gray: hsla(28deg, 7%, 87%, var(--transparent));
-    --lightGray: hsla(0deg, 0%, 95%, var(--transparent));
+    --lightGray: hsla(
+        0deg,
+        0%,
+        95%,
+        var(--transparent)
+    ); /* Note: inconsistent naming */
+
+    /* Base colors */
     --background-color: transparent;
     --text-color: transparent;
     --border-color: transparent;
 }
 
+/* ============================================= */
+/*               Base Elements                   */
+/* ============================================= */
+
+/**
+ * Icon styling - ensures proper alignment
+ */
 i {
-  line-height: 1 !important;
-  vertical-align: middle;
+    line-height: 1 !important; /* Override any inherited line-height */
+    vertical-align: middle; /* Center align with surrounding text */
 }
 
+/* ============================================= */
+/*               Utility Classes                 */
+/* ============================================= */
+
+/* Responsive image container */
 .response-img {
     width: 100%;
     display: block;
-    aspect-ratio: 9 / 6;
-    object-fit: cover;
-    object-position: center center;
+    aspect-ratio: 9 / 6; /* Maintain 9:6 aspect ratio */
+    object-fit: cover; /* Crop to cover container */
+    object-position: center center; /* Center the image */
 }
 
+/* Multi-line text truncation (3 lines max) */
 .line-clamp {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    overflow: hidden; /* Hide overflow */
 }
 
+/* Single-line text truncation */
 .truncate {
-    text-overflow: ellipsis;
-    /* Needed to make it work */
-    overflow: hidden;
-    white-space: nowrap;
+    text-overflow: ellipsis; /* Show ... for overflow */
+    overflow: hidden; /* Hide overflow */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
+/* Layout wrapper for full-height pages */
 .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+    justify-content: space-between; /* Space between header/content/footer */
+    min-height: 100vh; /* At least full viewport height */
 }
-.bg-dark-red{
+
+/* ============================================= */
+/*               Color Utilities                 */
+/* ============================================= */
+
+/* Background colors */
+.bg-dark-red {
     background-color: var(--dark-red);
 }
-.bg-light-red{
+
+.bg-light-red {
     background-color: var(--light-red);
 }
-.bg-light-gray{
-    --alfa: 0;
+
+.bg-light-gray {
+    --alfa: 0; /* Make transparent */
     background-color: var(--light-gray);
 }
-.text-white{
+
+/* Text colors */
+.text-white {
     color: var(--white);
 }
-.text-red{
+
+.text-red {
     color: var(--dark-red);
 }
 
-.text-gold{
+.text-gold {
     color: var(--gold);
 }
-.bg-gold{
+
+/* Background colors */
+.bg-gold {
     background-color: var(--gold);
 }
-.navbar-toggler{
-    --bs-navbar-toggler-border-color: var(--white);
-    padding-block: 0.75rem;
-    box-shadow: none !important;
+
+/* ============================================= */
+/*               Component Styles                */
+/* ============================================= */
+
+/* Navbar toggler customization */
+.navbar-toggler {
+    --bs-navbar-toggler-border-color: var(--white); /* Override Bootstrap */
+    padding-block: 0.75rem; /* Vertical padding */
+    box-shadow: none !important; /* Remove any shadow */
 }
 
-.view-more-btn{
+/* View More button - primary CTA */
+.view-more-btn {
     background-color: var(--dark-red);
     color: var(--white);
     border: 1px solid var(--dark-red);
-    font-size: 0.75rem;
+    font-size: 0.75rem; /* Small text */
 }
 
-.view-more-btn:hover{
+/* View More button - hover state */
+.view-more-btn:hover {
     background-color: transparent;
     color: var(--dark-red);
     border: 1px solid var(--dark-red);
 }
-.cursor-default{
-    cursor: default;
+
+/* Cursor utility */
+.cursor-default {
+    cursor: default; /* Default cursor (not pointer) */
 }
-.aside-btn:hover{
+
+/* Aside button - hover state */
+.aside-btn:hover {
     background-color: var(--white);
-    color: var(--dark-red) !important;
+    color: var(--dark-red) !important; /* Override any text color */
 }

@@ -15,20 +15,6 @@
             </span>
         </h2>
 
-        <!-- Activities Docs -->
-        <div class="mb-5 catalog rounded p-3">
-            <h5 class="module-title  d-flex align-items-center gap-2 text-red mb-3">
-                {{ __('static.pages.documents.activities.title') }}
-            </h5>
-            <div class="row">
-                @foreach($docs as $doc)
-                    <div class="col-md-4 mb-3">
-                        <x-doc-component :doc="$doc" :language="$language" />
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
         <!-- Legislative Docs -->
         <div class="mb-5 catalog rounded p-3">
             <h5 class="text-red pb-2 ">
