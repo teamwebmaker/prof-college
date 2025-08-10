@@ -3,6 +3,15 @@
 
 @section('styles')
     <style>
+    .form-check-input:checked {
+        background-color: hsl(1, 60%, 45%) !important;
+        border-color: hsl(1, 60%, 45%) !important;
+    }
+
+    .form-check-input:focus {
+        border-color: hsl(1, 60%, 65%) !important;
+        box-shadow: 0 0 0 .25rem hsla(1, 60%, 45%, 0.3) !important;
+    }
     </style>
 @endsection
 @section('main')
@@ -56,6 +65,15 @@
                     <div class="mb-3">
                         <textarea class="form-control form-field"  rows="5" name="message"  placeholder="{{ __('static.pages.contact.form_fields.message') }}"></textarea>
                     </div>
+
+                    <!-- Consent Checkbox -->
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="consentCheck" name="consent" required>
+                        <label class="form-check-label text-red" for="consentCheck" style="cursor: pointer; font-size: 0.8rem;">
+                            {{ __('static.pages.contact.consent_label') }}
+                        </label>
+                    </div>
+
                     <button type="submit" class="btn view-more-btn">{{ __('static.pages.contact.send_message') }}</button>
                 </form>
             </div>

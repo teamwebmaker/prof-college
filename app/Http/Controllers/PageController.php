@@ -115,7 +115,7 @@ class PageController extends Controller
 
     public function gallery()
     {
-        $photoGallery = PhotoGallery::where('visibility', '1')->with('gallery_images')->orderBy('id', 'DESC')->paginate(6);
+        $photoGallery = PhotoGallery::where('visibility', '1')->with('gallery_images')->orderBy('id', 'DESC')->paginate(4);
 
         return view('pages.gallery', [
             'photoGallery' => $photoGallery
@@ -125,7 +125,7 @@ class PageController extends Controller
     public function videos()
     {
         return view('pages.videos', [
-            'videos' => Video::where('visibility', '1')->orderBy('id', 'DESC')->paginate(9),
+            'videos' => Video::where('visibility', '1')->orderBy('sortable', 'ASC')->paginate(12),
         ]);
     }
 

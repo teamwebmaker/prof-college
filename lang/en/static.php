@@ -21,6 +21,7 @@ return [
     'vote' => [
         'send' => 'Submit an Evaluation'
     ],
+    'details' => 'View Details',
     'pages' => [
         'title' => 'LEPL College ″Gldani Vocational Education and Training Center″',
         'more' => 'View More',
@@ -88,6 +89,7 @@ return [
                 'phone' => 'Phone',
                 'message' => 'Message'
             ],
+            'consent_label' => 'I consent to the processing of my personal data',
             'send_message' => 'Send Message'
         ],
         'galleries' => [

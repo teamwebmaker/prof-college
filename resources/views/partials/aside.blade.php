@@ -50,7 +50,8 @@
 
         <div class="col-lg-12 col-md-4 col-sm-6 mb-4">
             <div class="card task-card">
-                <a class="d-block content-overlay text-decoration-none" data-fancybox
+                <a class="d-block content-overlay text-decoration-none" data-fancybox data-type="iframe"
+                data-preload="false"
                     href="{{ asset('docs/static/student_guide.pdf') }}" target="_blank">
                     <div class="card-header task-card-header p-0">
                         <img src="{{ asset('images/tasks/admission.jpg') }}" class="card-img-top response-img"

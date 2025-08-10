@@ -9,7 +9,7 @@
                 </a>
             @else
                 <div class="card-head article-card-head" data-content="{{ explode(' ', $article -> created_at)[0] }}">
-                    <img src="{{ asset('images/articles/' . $article -> image) }}" class="rounded-start article-image" alt="...">
+                    <img src="{{ asset('images/articles/' . $article -> image) }}" class="rounded-start article-image" alt="..." />
                 </div>
             @endif
         </div>
