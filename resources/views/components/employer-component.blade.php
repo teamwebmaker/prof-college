@@ -8,8 +8,10 @@
 
         <!-- Content section -->
         <div class="col-sm-8">
-            <div class="card-body ps-0 ">
-                <p class="card-title fs-6 fw-semibold text-danger mb-0 line-clamp" title="{{ $employer->title }}">
+            <div class="card-body ps-0">
+                <p class="card-title fs-6 fw-semibold text-danger mb-0 line-clamp"
+                    title="{{ $employer->title }}"
+                    data-language="{{ $language }}">
                     {{ $employer->title }}
                 </p>
             </div>

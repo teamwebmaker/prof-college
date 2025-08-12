@@ -5,18 +5,18 @@
                 <img src="{{ asset('images/themes/dog.gif') }}" class="college-dog" onclick="showModal('programsList')">
             </div>
             <div class="col-md-9">
-                <div class="row  align-items-center">
+                <div class="row align-items-center">
                     <div class="col-lg-5 py-1">
-                         <span class="contact text-red" style="--icon: '\f3e8'">{{ __('static.contact.address') }}</span>
+                        <span class="contact text-red" style="--icon: '\f3e8'" data-language="{{ $language }}">{{ __('static.contact.address') }}</span>
                     </div>
                     <div class="col-lg-3 text-center py-1">
-                        <a class="contact text-red" href="tel:0322140314"  style="--icon: '\f5c1'">
-                            <span>(032) 2-140-314</span>
-                       </a>
+                        <a class="contact text-red" href="tel:0322140314" style="--icon: '\f5c1'">
+                            <span data-language="{{ $language }}">(032) 2-140-314</span>
+                        </a>
                     </div>
                     <div class="col-lg-4 py-1">
-                        <a class="contact text-red" href="mailto:polrofgldaniedu@gmail.com"  style="--icon: '\f32f'">
-                           <span>profgldaniedu@gmail.com</span>
+                        <a class="contact text-red" href="mailto:polrofgldaniedu@gmail.com" style="--icon: '\f32f'">
+                            <span data-language="{{ $language }}">profgldaniedu@gmail.com</span>
                         </a>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <a type="button" class="btn social-icon" target="_blank" href="https://www.facebook.com/profile.php?id=100063588697917">
                         <svg fill="#b7312e" width="16" height="16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M47.4008 25.8H41.8008H39.8008V23.8V17.6V15.6H41.8008H46.0008C47.1008 15.6 48.0008 14.8 48.0008 13.6V3C48.0008 1.9 47.2008 1 46.0008 1H38.7008C30.8008 1 25.3008 6.6 25.3008 14.9V23.6V25.6H23.3008H16.5008C15.1008 25.6 13.8008 26.7 13.8008 28.3V35.5C13.8008 36.9 14.9008 38.2 16.5008 38.2H23.1008H25.1008V40.2V60.3C25.1008 61.7 26.2008 63 27.8008 63H37.2008C37.8008 63 38.3008 62.7 38.7008 62.3C39.1008 61.9 39.4008 61.2 39.4008 60.6V40.3V38.3H41.5008H46.0008C47.3008 38.3 48.3008 37.5 48.5008 36.3V36.2V36.1L49.9008 29.2C50.0008 28.5 49.9008 27.7 49.3008 26.9C49.1008 26.4 48.2008 25.9 47.4008 25.8Z"/></svg>
                     </a>
-                    <a type="button" class="btn social-icon" target="_blank" href="https://www.youtube.com/@%E1%83%92%E1%83%9A%E1%83%93%E1%83%90%E1%83%9C%E1%83%98%E1%83%A1%E1%83%9E%E1%83%A0%E1%83%9D%E1%83%A4%E1%83%94%E1%83%A1%E1%83%98%E1%83%A3%E1%83%9A%E1%83%98%E1%83%9B%E1%83%9D%E1%83%9B%E1%83%96%E1%83%90%E1%83%93%E1%83%94%E1%83%91%E1%83%98%E1%83%A1%E1%83%AA%E1%83%94%E1%83%9C">
+                    <a type="button" class="btn social-icon" target="_blank" href="https://www.youtube.com/@გლდანისპროფესიულიმომზადებისცენ">
                         <svg fill="#b7312e" width="16" height="16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M61.7 17.0998C61 14.3998 58.9 12.2998 56.2 11.5998C51.4 10.2998 32 10.2998 32 10.2998C32 10.2998 12.6 10.2998 7.8 11.5998C5.1 12.2998 3 14.3998 2.3 17.0998C1 21.9998 1 31.9998 1 31.9998C1 31.9998 1 42.0998 2.3 46.8998C3 49.5998 5.1 51.6998 7.8 52.3998C12.6 53.6998 32 53.6998 32 53.6998C32 53.6998 51.4 53.6998 56.2 52.3998C58.9 51.6998 61 49.5998 61.7 46.8998C63 42.0998 63 31.9998 63 31.9998C63 31.9998 63 21.9998 61.7 17.0998ZM25.8 41.2998V22.6998L41.9 31.9998L25.8 41.2998Z"/></svg>
                     </a>
                     <a type="button" class="btn social-icon" target="_blank" href="https://www.tiktok.com/@profgldani">

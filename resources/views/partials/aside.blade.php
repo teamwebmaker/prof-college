@@ -1,12 +1,12 @@
 <div class="tasks">
     <h2 class="section-title mb-4 fs-4 text-red">
-        <i class="bi bi-binoculars fs-2"></i>
-        <span class="section-title-label pb-2 decor-border">{{ __('static.section.tasks.title') }}</span>
+        <i class="bi bi-pin-angle fs-2"></i>
+        <span class="section-title-label pb-2 decor-border" data-language="{{ $language }}">{{ __('static.section.tasks.title') }}</span>
     </h2>
     <ul class="list-group list-group-flush my-4">
         @foreach($categories as $category)
             <li class="list-group-item category-item">
-                <a class="d-block category-link"
+                <a class="d-block category-link" data-language="{{ $language }}"
                     href="{{ route('categories.show', ['language' => app()->getLocale(), 'category' => $category->id]) }}">{{
             $category->title->$language }}</a>
             </li>
@@ -14,7 +14,7 @@
     </ul>
     <div class="row">
         <div class="col-lg-12 col-md-4 col-sm-6 mb-4">
-            <div class="card task-card ">
+            <div class="card task-card">
                 <a class="d-block content-overlay text-decoration-none"
                     href="{{ route('visitors', ['language' => app()->getLocale()]) }}" target="_blank">
                     <div class="card-header task-card-header p-0">
@@ -24,7 +24,7 @@
                     <div class="card-body task-card-body py-2">
                         <h5 class="card-title truncate p-1 text-red">
                             <i class="bi bi-person-walking"></i>
-                            <span>{{ __('static.visit.title') }}</span>
+                            <span data-language="{{ $language }}">{{ __('static.visit.title') }}</span>
                         </h5>
                     </div>
                 </a>
@@ -41,7 +41,7 @@
                     <div class="card-body task-card-body py-2">
                         <h5 class="card-title truncate p-1 text-red">
                             <i class="bi bi-globe"></i>
-                            <span>{{ __('static.pages.tour') }}</span>
+                            <span data-language="{{ $language }}">{{ __('static.pages.tour') }}</span>
                         </h5>
                     </div>
                 </a>
@@ -58,10 +58,9 @@
                             alt="..." />
                     </div>
                     <div class="card-body task-card-body py-2">
-                        {{-- <h5 class="card-title truncate text-red">{{ __('static.admission.title') }}</h5> --}}
                         <h5 class="card-title truncate p-1 text-red">
                             <i class="bi bi-file-earmark-text"></i>
-                            <span>{{ __('static.admission.title') }}</span>
+                            <span data-language="{{ $language }}">{{ __('static.admission.title') }}</span>
                         </h5>
                     </div>
                 </a>

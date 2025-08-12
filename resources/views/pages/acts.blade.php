@@ -8,7 +8,7 @@
 @section('main')
     <div class="container-xxl">
         <!-- Page Header -->
-        <h2 class="section-title mb-4 text-red d-flex align-items-center">
+        <h2 class="section-title mb-4 text-red d-flex align-items-center" data-language="{{ $language }}">
             <i class="bi bi-briefcase fs-2"></i>
             <span class="section-title-label pb-2 decor-border">
                 {{ __('static.pages.documents.legislation.legal_acts') }}
@@ -17,7 +17,7 @@
 
         <!-- Legislative Docs -->
         <div class="mb-5 catalog rounded p-3">
-            <h5 class="text-red pb-2 ">
+            <h5 class="text-red pb-2" data-language="{{ $language }}">
                 {{ __('static.pages.documents.legislation.sub_title_leg') }}
             </h5>
             <div class="row">
@@ -31,7 +31,7 @@
 
         <!-- Subordinate Docs -->
         <div class="mb-5 catalog rounded p-3">
-            <h5 class="text-red pb-2">
+            <h5 class="text-red pb-2" data-language="{{ $language }}">
                 {{ __('static.pages.documents.legislation.sub_title_sub') }}
             </h5>
             <div class="row">

@@ -22,6 +22,9 @@ return [
         'send' => 'Submit an Evaluation'
     ],
     'details' => 'View Details',
+    'mission' => 'Mission',
+    'vision' => 'Vision',
+    'values' => 'Values',
     'pages' => [
         'title' => 'LEPL College ″Gldani Vocational Education and Training Center″',
         'more' => 'View More',
@@ -71,7 +74,7 @@ return [
                 'title' => 'Accounts/Activities'
             ],
             'mission' => [
-                'title' => 'Mission | Vision | Values'
+                'title' => 'Mission, Vision & Values of a College'
             ],
             'exams' => 'Exams'
         ],
@@ -138,7 +141,7 @@ return [
         'aside' => [
             'announcement' => 'Announcement',
             'vote' => 'Vote',
-            'library' => 'Library'
+            'library' => 'Library',
         ]
     ],
     'admission' => [

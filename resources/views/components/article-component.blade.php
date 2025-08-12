@@ -15,17 +15,20 @@
         </div>
         <div class="col-xl-7 d-flex justify-content-between flex-column">
             <div class="card-body">
-                <h5 class="card-title truncate cursor-default" title="{{ $article -> title -> $language }}">{{ $article -> title -> $language }}</h5>
-                <p class="card-text line-clamp">{{ $article -> description -> $language }}</p>
+                <h5 class="card-title truncate cursor-default" title="{{ $article -> title -> $language }}" data-language="{{ $language }}">
+                    {{ $article -> title -> $language }}
+                </h5>
+                <p class="card-text line-clamp" data-language="{{ $language }}">
+                    {{ $article -> description -> $language }}
+                </p>
             </div>
             <div class="card-footer bg-transparent px-2 overflow-hidden">
-                <a type="button" class="btn view-more-btn float-end rounded-1" href="{{  route('articles.show', ['article' => $article, 'language' => app() -> getLocale()]) }}">{{ __('static.pages.more') }}</a>
+                <a type="button" class="btn view-more-btn float-end rounded-1"
+                    href="{{ route('articles.show', ['article' => $article, 'language' => app() -> getLocale()]) }}"
+                    data-language="{{ $language }}">
+                    {{ __('static.pages.more') }}
+                </a>
             </div>
         </div>
     </div>
 </div>
-
-
-{{--<div class="card-head article-card-head" data-content="{{ $article -> created_at }}">--}}
-{{--    <img src="{{ asset('images/articles/' . $article -> image) }}" class="rounded-start article-image" alt="..."/>--}}
-{{--</div>--}}

@@ -18,19 +18,19 @@
     <div class="container-xxl">
         <h2 class="section-title mb-4 text-red">
             <i class="bi bi-person-lines-fill"></i>
-            <span class="section-title-label pb-2 decor-border">{{ __('static.pages.contact.title') }}</span>
+            <span class="section-title-label pb-2 decor-border" data-language="{{ $language }}">{{ __('static.pages.contact.title') }}</span>
         </h2>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li data-language="{{ $language }}">{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
         @endif
         @session('success')
-        <div class="alert alert-success" role="alert"  x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+        <div class="alert alert-success" role="alert"  x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" data-language="{{ $language }}">
             {{ $value }}
         </div>
         @endsession
@@ -41,40 +41,40 @@
                     <div class="row">
                         <div class="col-md-6 mb-2">
                             <div class="mb-3">
-                                <input type="text" class="form-control  form-field" name="full_name" placeholder="{{ __('static.pages.contact.form_fields.full_name') }}"  />
+                                <input type="text" class="form-control form-field" name="full_name" placeholder="{{ __('static.pages.contact.form_fields.full_name') }}" data-language="{{ $language }}" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="mb-3">
-                                <input type="text" class="form-control form-field" name="subject" placeholder="{{ __('static.pages.contact.form_fields.subject') }}"  />
+                                <input type="text" class="form-control form-field" name="subject" placeholder="{{ __('static.pages.contact.form_fields.subject') }}" data-language="{{ $language }}" />
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-2">
                             <div class="mb-3">
-                                <input type="email" class="form-control form-field" name="email" placeholder="{{ __('static.pages.contact.form_fields.email') }}"  />
+                                <input type="email" class="form-control form-field" name="email" placeholder="{{ __('static.pages.contact.form_fields.email') }}" data-language="{{ $language }}" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="mb-3">
-                                <input type="tel" id="phone" name="phone"  class="form-control form-field"  placeholder="{{ __('static.pages.contact.form_fields.phone') }}"  />
+                                <input type="tel" id="phone" name="phone" class="form-control form-field" placeholder="{{ __('static.pages.contact.form_fields.phone') }}" data-language="{{ $language }}" />
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control form-field"  rows="5" name="message"  placeholder="{{ __('static.pages.contact.form_fields.message') }}"></textarea>
+                        <textarea class="form-control form-field" rows="5" name="message" placeholder="{{ __('static.pages.contact.form_fields.message') }}" data-language="{{ $language }}"></textarea>
                     </div>
 
                     <!-- Consent Checkbox -->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="consentCheck" name="consent" required>
-                        <label class="form-check-label text-red" for="consentCheck" style="cursor: pointer; font-size: 0.8rem;">
+                        <label class="form-check-label text-red" for="consentCheck" style="cursor: pointer; font-size: 0.8rem;" data-language="{{ $language }}">
                             {{ __('static.pages.contact.consent_label') }}
                         </label>
                     </div>
 
-                    <button type="submit" class="btn view-more-btn">{{ __('static.pages.contact.send_message') }}</button>
+                    <button type="submit" class="btn view-more-btn" data-language="{{ $language }}">{{ __('static.pages.contact.send_message') }}</button>
                 </form>
             </div>
             <div class="col-lg-12 mb-4">
@@ -88,7 +88,7 @@
 
 @section('scripts')
     <script>
-        const swiperSliderInit = new Swiper(".swiper-slider", swiperSlider );
+        const swiperSliderInit = new Swiper(".swiper-slider", swiperSlider);
         const swiperPartnerInit = new Swiper(".swiper-partner", swiperPartner);
     </script>
 @endsection

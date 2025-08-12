@@ -10,7 +10,7 @@
 @section('main')
     <div class="container-xxl">
         <div class="container">
-            <h2 class="section-title mb-4 text-red">
+            <h2 class="section-title mb-4 text-red" data-language="{{ $language }}">
                 <i class="bi bi-graph-up-arrow"></i>
                 <span class="section-title-label pb-2 decor-border">
                     {{ __('static.pages.documents.development_strategy.title') }}

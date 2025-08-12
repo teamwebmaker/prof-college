@@ -10,7 +10,7 @@
     <div class="container-xxl">
         <h2 class="section-title mb-4 text-red">
             <i class="bi bi-newspaper"></i>
-            <span class="section-title-label pb-2 decor-border">{{ __('static.section.articles.title') }} / {{$category -> title -> $language}}</span>
+            <span class="section-title-label pb-2 decor-border" data-language="{{ $language }}">{{ __('static.section.articles.title') }} / {{$category -> title -> $language}}</span>
         </h2>
         <div class="row">
             @foreach($articles as $article)

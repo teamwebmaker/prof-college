@@ -19,6 +19,7 @@ use App\Models\Task;
 use App\Models\Teacher;
 use App\Models\Vacancy;
 use App\Models\Video;
+use App\Models\CollegePrinciple;
 use App\Models\Cataloge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -87,26 +88,6 @@ class PageController extends Controller
             'teachers' => Teacher::orderBy('id', 'DESC')->paginate(8),
         ]);
     }
-    //    public function documents()
-    //    {
-    //        $docs = Documentation::where('visibility', '1')->get();
-    //
-    //        $activate_docs = $docs->filter(function($doc){ return $doc-> category == 'activates';});
-    //        $authorization_docs = $docs->filter(function($doc){ return $doc-> category == 'authorizations';});
-    //        $act_docs = $docs->filter(function($doc){ return $doc-> category == 'acts';});
-    //        $education_docs = $docs->filter(function($doc){ return $doc-> category == 'educations';});
-    //        $rate_docs = $docs->filter(function($doc){ return $doc-> category == 'rates';});
-    //        $strategy_docs = $docs->filter(function($doc){ return $doc-> category == 'strategies';});
-    //
-    //        return view('pages.documents', [
-    //            'activate_docs' => $activate_docs,
-    //            'authorization_docs' => $authorization_docs,
-    //            'act_docs' => $act_docs,
-    //            'education_docs' => $education_docs,
-    //            'rate_docs' => $rate_docs,
-    //            'strategy_docs' => $strategy_docs,
-    //        ]);
-    //    }
 
     public function contact()
     {
@@ -132,7 +113,7 @@ class PageController extends Controller
     public function employers()
     {
         return view('pages.employers', [
-            'employers' => Employer::where('visibility', '1')->orderBy('id', 'DESC')->paginate(15),
+            'employers' => Employer::where('visibility', '1')->orderBy('id', 'DESC')->paginate(24),
         ]);
     }
 
@@ -214,12 +195,8 @@ class PageController extends Controller
 
     public function mission()
     {
-        $docs = Documentation::where('visibility', '1')->get();
-        $mission_docs = $docs->filter(function ($doc) {
-            return $doc->category == 'structure';
-        });
         return view('pages.mission', [
-            'docs' => $mission_docs
+            'college' => CollegePrinciple::latest()->first()
         ]);
     }
 }

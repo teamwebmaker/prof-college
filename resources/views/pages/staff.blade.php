@@ -9,7 +9,7 @@
         <!-- Administration Section -->
         <h2 class="section-title text-red mb-3">
             <i class="bi bi-person-badge"></i> {{-- Icon for administration --}}
-            <span class="section-title-label pb-2 decor-border">{{ __('static.pages.staff.administration') }}</span>
+            <span class="section-title-label pb-2 decor-border" data-language="{{ $language }}">{{ __('static.pages.staff.administration') }}</span>
         </h2>
 
         <div class="row justify-content-center g-4">
@@ -25,7 +25,7 @@
         <!-- Management Section -->
         <h2 class="section-title text-red mt-5  mb-3">
             <i class="bi bi-people"></i> {{-- Icon for management --}}
-            <span class="section-title-label pb-1 decor-border">{{ __('static.pages.staff.management') }}</span>
+            <span class="section-title-label pb-1 decor-border" data-language="{{ $language }}">{{ __('static.pages.staff.management') }}</span>
         </h2>
 
         <div class="row justify-content-center g-4">

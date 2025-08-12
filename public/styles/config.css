@@ -46,6 +46,10 @@ i {
     vertical-align: middle; /* Center align with surrounding text */
 }
 
+[data-language="ka"] {
+    font-family: "algeti" !important; /* Adjust icon size for Georgian language */
+}
+
 /* ============================================= */
 /*               Utility Classes                 */
 /* ============================================= */

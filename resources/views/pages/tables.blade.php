@@ -10,7 +10,7 @@
     <div class="container-xxl">
         <h2 class="section-title mb-4 text-red">
             <i class="bi bi-file-earmark-spreadsheet"></i>
-            <span class="section-title-label pb-2 decor-border">{{ __('static.pages.tables.title') }}</span>
+            <span class="section-title-label pb-2 decor-border" data-language="{{ $language }}">{{ __('static.pages.tables.title') }}</span>
         </h2>
         <div class="row justify-content-center">
             @foreach($professions as $profession)

@@ -3,26 +3,67 @@
 
 @section('styles')
     <style>
-
+        .nav-tabs .nav-link {
+            color: var(--dark-red);
+            background-color: var(--white);
+            font-weight: 600;
+            border: none;
+            padding: 12px 20px;
+            margin-right: 5px;
+            border-radius: 4px 4px 0 0;
+            border-bottom: 1px solid transparent;
+        }
+        .nav-tabs .nav-link.active {
+            color: var(--white);
+            background-color: var(--dark-red);
+            border-bottom: 1px solid var(--white);
+        }
+        .tab-content {
+            padding-block:  0;
+            color: var(--dark-red);
+        }
+        .principle-item {
+            border-left: 1px solid var(--dark-red);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .tab-pane {
+            padding: 20px;
+            background-color: var(--dark-red);
+            color: var(--white);
+            border-radius: 4px;
+        }
     </style>
 @endsection
+
 @section('main')
     <div class="container-xxl">
         <h2 class="section-title mb-4 text-red">
             <i class="bi bi-compass"></i>
-            <span class="section-title-label pb-2 decor-border">{{ __('static.pages.documents.mission.title') }}</span>
+            <span class="section-title-label pb-2 decor-border" data-language="{{ $language }}">{{ __('static.pages.documents.mission.title') }}</span>
         </h2>
-        <div class="row justify-content-center">
-            <div class="program-content">
-                <div class="authorization mb-5 border border-warning-subtle rounded p-2">
-                    <div class="row">
-                        @foreach($docs as $doc)
-                            <div class="col-md-4 mb-3">
-                                <x-doc-component :doc="$doc" :language="$language"/>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+        <nav>
+            <div class="nav nav-tabs" id="institutional-tabs" role="tablist">
+                <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#mission-content" type="button" role="tab" aria-controls="mission" aria-selected="true" data-language="{{ $language }}">
+                    {{ __('static.mission') }}
+                </button>
+                <button class="nav-link" id="vision-tab" data-bs-toggle="tab" data-bs-target="#vision-content" type="button" role="tab" aria-controls="vision" aria-selected="false" data-language="{{ $language }}">
+                    {{ __('static.vision') }}
+                </button>
+                <button class="nav-link" id="values-tab" data-bs-toggle="tab" data-bs-target="#values-content" type="button" role="tab" aria-controls="values" aria-selected="false" data-language="{{ $language }}">
+                    {{ __('static.values') }}
+                </button>
+            </div>
+        </nav>
+        <div class="tab-content" id="institutional-tab-content">
+            <div class="tab-pane fade show active" id="mission-content" role="tabpanel" aria-labelledby="mission-tab" tabindex="0" data-language="{{ $language }}">
+                {{ $college->mission->$language }}
+            </div>
+            <div class="tab-pane fade" id="vision-content" role="tabpanel" aria-labelledby="vision-tab" tabindex="0" data-language="{{ $language }}">
+                {{ $college->vision->$language }}
+            </div>
+            <div class="tab-pane fade" id="values-content" role="tabpanel" aria-labelledby="values-tab" tabindex="0" data-language="{{ $language }}">
+                {{ $college->principles->$language }}
             </div>
         </div>
     </div>
@@ -30,7 +71,8 @@
 
 @section('scripts')
     <script>
-        const swiperSliderInit = new Swiper(".swiper-slider", swiperSlider );
+        // Your existing swiper initializations
+        const swiperSliderInit = new Swiper(".swiper-slider", swiperSlider);
         const swiperPartnerInit = new Swiper(".swiper-partner", swiperPartner);
     </script>
 @endsection
