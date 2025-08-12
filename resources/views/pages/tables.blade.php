@@ -2,9 +2,115 @@
 @section('title', __('static.pages.title'))
 
 @section('styles')
-    <style>
 
-    </style>
+<style>
+.modern-ui-card {
+    --modern-primary: var(--dark-red);
+    --modern-primary-hover: var(--light-red);
+    --modern-text: #2b2d42;
+    --modern-bg: var(--white);
+    --modern-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --modern-card-radius: 12px;
+    --modern-transition: all 0.25s ease;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--modern-card-radius);
+    overflow: hidden;
+    background: var(--modern-bg);
+    box-shadow: var(--modern-card-shadow);
+    transition: var(--modern-transition);
+}
+
+.modern-ui-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+.modern-card-header {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+}
+
+.modern-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--modern-transition);
+}
+
+.modern-ui-card:hover .modern-card-img {
+    transform: scale(1.03);
+}
+
+.modern-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+}
+
+.modern-card-body {
+    padding: 16px;
+}
+
+.modern-profession-title {
+    color: var(--modern-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.modern-card-footer {
+    padding: 0 16px 16px;
+    margin-top: auto;
+}
+
+.modern-tables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 10px;
+}
+
+.modern-table-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    background: rgba(67, 97, 238, 0.08);
+    border-radius: 8px;
+    color: var(--modern-primary);
+    text-decoration: none;
+    transition: var(--modern-transition);
+    border: 1px solid rgba(67, 97, 238, 0.15);
+}
+
+.modern-table-card:hover {
+    background: var(--modern-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.modern-table-icon {
+    margin-bottom: 6px;
+}
+
+.modern-table-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.modern-table-number {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+</style>
 @endsection
 @section('main')
     <div class="container-xxl">

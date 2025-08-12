@@ -1,26 +1,27 @@
-<div class="card table-card">
-    <div class="card-header p-0 table-card-header">
-        <img src="{{ asset('images/professions/' . $profession->image) }}" class="response-img" alt="...">
+<div class="profession-card modern-ui-card">
+    <div class="modern-card-header">
+        <img src="{{ asset('images/professions/' . $profession->image) }}" class="modern-card-img" alt="{{ $profession->title->$language }}">
+        <div class="modern-img-overlay"></div>
     </div>
-    <div class="card-body table-card-body">
-        <h5 class="profession-title line-clamp text-red" data-language="{{ $language }}">
+    <div class="modern-card-body">
+        <h5 class="modern-profession-title" data-language="{{ $language }}">
             {{ $profession->title->$language }}
         </h5>
     </div>
-    <div class="card-footer table-card-footer bg-transparent">
-        <ul class="list-group list-group-flush">
+    <div class="modern-card-footer">
+        <div class="modern-tables-grid">
             @foreach($profession->groups as $group)
-                <li class="list-group-item table-list-item">
-                    <div class="card group-card">
-                        <a class="table-link" href="{{ $group->table }}" target="_blank">
-                            <i class="bi bi-table"></i>
-                            <span class="table-title" data-language="{{ $language }}">
-                                {{ $group->number }}
-                            </span>
-                        </a>
+                <a href="{{ $group->table }}" target="_blank" class="modern-table-card">
+                    <div class="modern-table-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20V20H4V4ZM6 8V12H18V8H6ZM6 14V16H10V14H6ZM12 14V16H18V14H12Z" fill="currentColor"/>
+                        </svg>
                     </div>
-                </li>
+                    <span class="modern-table-number" data-language="{{ $language }}">
+                        {{ $group->number }}
+                    </span>
+                </a>
             @endforeach
-        </ul>
+        </div>
     </div>
 </div>

@@ -28,7 +28,7 @@ class PageController extends Controller
 {
     public function home(Request $request)
     {
-        $articles = Article::where('visibility', '1')->orderBy('created_at', 'DESC')->paginate(8);
+        $articles = Article::where('visibility', '1')->orderBy('created_at', 'DESC')->paginate(6);
         if ($request->filled('search')) {
             $articles = Article::where('title', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')
                 ->where('visibility', '1')

@@ -1,9 +1,24 @@
-<div class="card staff-card">
-    <div class="card-header p-0 staff-card-header">
-        <img src="{{ asset('images/staff/' . $staff->image) }}" class="card-img-top response-img zoom-effect" alt="...">
+<div class="staff-card">
+    <div class="staff-card__image-container">
+        <img
+            src="{{ asset('images/staff/' . $staff->image) }}"
+            alt="{{ $staff->full_name->$language }}"
+            class="staff-card__image"
+            loading="lazy"
+        >
+        <div class="staff-card__overlay"></div>
     </div>
-    <div class="card-body staff-card-body">
-        <h5 class="card-title" data-language="{{ $language }}">{{ $staff->full_name->$language }}</h5>
-        <p class="card-text" data-language="{{ $language }}">{{ $staff->position->$language }}</p>
+
+    <div class="staff-card__content">
+        <h3 class="staff-card__name" data-language="{{ $language }}">
+            {{ $staff->full_name->$language }}
+        </h3>
+        <p class="staff-card__position" data-language="{{ $language }}">
+            {{ $staff->position->$language }}
+        </p>
+
+        <div class="staff-card__social">
+            <!-- Optional social links could go here -->
+        </div>
     </div>
 </div>

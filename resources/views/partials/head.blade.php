@@ -8,6 +8,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 <link rel="shortcut icon" href="{{ asset('images/themes/prof-gldani-icon.png') }}" type="image/x-icon" />
-<link rel="stylesheet" href="{{ asset('styles/app.css') }}?d=20250808" />
+<link rel="stylesheet" href="{{ asset('styles/app.css') }}?d=20251208" />
 @yield('styles')
 <title>@yield('title')</title>
