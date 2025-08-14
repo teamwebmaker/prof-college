@@ -1,6 +1,12 @@
 @extends('layouts.master')
 @section('title', __('static.pages.title'))
 
+@section('styles')
+<style>
+    /* Add your custom styles here */
+</style>
+@endsection
+
 @section('main')
     <div class="container-xxl">
         <h2 class="section-title mb-4 text-red">

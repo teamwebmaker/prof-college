@@ -55,7 +55,7 @@
                         data-url="{{ url()->current() }}"
                         data-title="{{ $article->title->$language }}"
                         data-image="{{ asset('images/articles/' . $article->image ) }}">
-                    <i class="fab fa-facebook-f"></i> Share
+                        <i class="bi bi-facebook"></i> {{ __('static.share') }}
                 </button>
             </div>
         </div>

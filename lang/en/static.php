@@ -21,6 +21,7 @@ return [
     'vote' => [
         'send' => 'Submit an Evaluation'
     ],
+    'share' => 'Share',
     'details' => 'View Details',
     'mission' => 'Mission',
     'vision' => 'Vision',

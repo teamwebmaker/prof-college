@@ -6,7 +6,7 @@
         @foreach($item->gallery_images as $image)
             <div class="col-md-3 mb-4">
                 <div class="card gallery-card">
-                    <a href="{{ asset(join('/', ['images/galleries', $item->uuid, $image->image])) }}"
+                    <a class="gallery-link" href="{{ asset(join('/', ['images/galleries', $item->uuid, $image->image])) }}"
                         data-fancybox="{{ 'gallery-' . $item->id }}"
                         data-caption="Single image">
                         <img class="response-img gallery-image"

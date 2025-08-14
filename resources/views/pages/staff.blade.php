@@ -6,7 +6,7 @@
 <style>
     .staff-card {
         --primary-color: var(--dark-red);
-        --text-color: #2b2d42;
+        --text-color: hsl(234, 21%, 20%);
         --bg-color: var(--white);
         --transition-speed: 0.3s;
 
@@ -14,7 +14,7 @@
         height: 100%;
         border-radius: 4px;
         background: var(--bg-color);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.1);
         overflow: hidden;
         position: relative;
         transition: transform var(--transition-speed) ease;
@@ -24,7 +24,7 @@
 
     .staff-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 12px 28px hsla(0, 0%, 0%, 0.15);
     }
 
     .staff-card__image-container {
@@ -50,7 +50,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 40%);
+        background: linear-gradient(to top, hsla(0, 0%, 0%, 0.7) 0%, hsla(0, 0%, 0%, 0) 40%);
         opacity: 0;
         transition: opacity var(--transition-speed) ease;
     }

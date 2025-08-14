@@ -5,7 +5,7 @@
 @section('title', __('static.pages.title'))
 
 @section('styles')
-    <style>
+<style>
 .classic-article-container {
     max-width: 800px;
     margin: 0 auto;
@@ -14,16 +14,16 @@
 }
 
 .classic-article-card {
-    border: 1px solid #e0e0e0;
+    border: 1px solid hsl(0, 0%, 88%);
     border-radius: 4px;
     overflow: hidden;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.12);
 }
 
 .classic-article-header {
     position: relative;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid hsl(0, 0%, 88%);
 }
 
 .classic-article-image {
@@ -37,14 +37,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.7);
+    background: hsla(0, 0%, 0%, 0.7);
     width: 60px;
     height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: hsl(0, 0%, 100%);
     font-size: 24px;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .article-date {
-    color: #666;
+    color: hsl(0, 0%, 40%);
     font-size: 14px;
     font-style: italic;
 }
@@ -65,7 +65,7 @@
 .article-title {
     font-size: 24px;
     margin: 0 0 15px 0;
-    color: #333;
+    color: hsl(0, 0%, 20%);
     font-weight: bold;
     line-height: 1.3;
 }
@@ -73,20 +73,20 @@
 .article-text {
     font-size: 16px;
     line-height: 1.6;
-    color: #444;
+    color: hsl(0, 0%, 27%);
     margin-bottom: 25px;
 }
 
 .attachments-section {
     margin: 25px 0;
     padding-top: 15px;
-    border-top: 1px dashed #ddd;
+    border-top: 1px dashed hsl(0, 0%, 87%);
 }
 
 .attachments-title {
     font-size: 18px;
     margin-bottom: 15px;
-    color: #333;
+    color: hsl(0, 0%, 20%);
     font-weight: bold;
 }
 
@@ -100,17 +100,17 @@
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    background: #f9f9f9;
-    border: 1px solid #e0e0e0;
+    background: hsl(0, 0%, 98%);
+    border: 1px solid hsl(0, 0%, 88%);
     border-radius: 3px;
     text-decoration: none;
-    color: #333;
+    color: hsl(0, 0%, 20%);
     transition: all 0.2s ease;
 }
 
 .attachment-item:hover {
-    background: #f0f0f0;
-    border-color: #ccc;
+    background: hsl(0, 0%, 94%);
+    border-color: hsl(0, 0%, 80%);
 }
 
 .attachment-icon {
@@ -137,12 +137,12 @@
 
 .attachment-type {
     font-size: 12px;
-    color: #666;
+    color: hsl(0, 0%, 40%);
 }
 
 .attachment-action {
     margin-left: 15px;
-    color: #666;
+    color: hsl(0, 0%, 40%);
     font-size: 14px;
 }
 
@@ -150,15 +150,15 @@
     display: flex;
     justify-content: flex-end;
     padding-top: 15px;
-    border-top: 1px dashed #ddd;
+    border-top: 1px dashed hsl(0, 0%, 87%);
 }
 
 .share-button {
     background: var(--dark-red);
-    color: white;
+    color: hsl(0, 0%, 100%);
     border: none;
     padding: 8px 15px;
-    border-radius: 3px;
+    border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
     transition: background 0.2s ease;
@@ -171,10 +171,24 @@
 .share-button i {
     margin-right: 5px;
 }
-    </style>
+
+.article-text > hr {
+    margin: 2rem 0;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2), hsla(0, 0%, 0%, 0));
+    opacity: 0.5;
+}
+
+.article-tex > br {
+    content: "";
+    display: block;
+    margin-top: 1.25rem;
+}
+</style>
 @endsection
 @section('main')
-    <div class="container">
+    <div class="container-xxl">
         <div class="row">
             <div class="col mb-4">
                 <x-single-article-component :article="$article" :language="$language"/>

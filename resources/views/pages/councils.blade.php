@@ -2,9 +2,137 @@
 @section('title', __('static.pages.title'))
 
 @section('styles')
-    <style>
+<style>
+    /* Modern Council Card - Light Theme */
+    .council-card-modern {
+        --light-red: hsl(1 95% 30% / var(--transparent, 1));
+        --dark-red: hsl(1 60% 45%);
+        --gold: hsl(43 55% 50% / var(--transparent, 1));
+        --white: hsl(0 0% 100% / var(--transparent, 1));
+        --light-gray: hsl(28 7% 87% / var(--transparent, 1));
+        --light-gray-alt: hsl(0 0% 95% / var(--transparent, 1));
+        --dark-text: hsl(0 0% 20%);
+        --medium-text: hsl(0 0% 35%);
 
-    </style>
+        --card-bg: var(--white);
+        --card-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.08);
+        --card-radius: 12px;
+        --card-padding: 1.5rem;
+        --label-color: var(--dark-red);
+        --value-color: var(--dark-text);
+        --row-gap: 0.75rem;
+        --hover-effect: translateY(-2px);
+        --transition-speed: 0.2s;
+        --border-accent: 2px solid var(--gold);
+        --divider-color: var(--light-gray);
+
+        background: var(--card-bg);
+        border-radius: var(--card-radius);
+        box-shadow: var(--card-shadow);
+        border-top: var(--border-accent);
+        overflow: hidden;
+        transition: all var(--transition-speed) ease;
+    }
+
+    .council-card-modern:hover {
+        transform: var(--hover-effect);
+        box-shadow: 0 6px 16px hsla(0, 0%, 0%, 0.12);
+        border-top-color: var(--light-red);
+    }
+
+    .council-card-header {
+        padding: var(--card-padding);
+        background: var(--card-bg);
+    }
+
+    .council-card-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        align-items: baseline;
+        margin-bottom: var(--row-gap);
+        padding-bottom: var(--row-gap);
+        border-bottom: 1px solid var(--divider-color);
+    }
+
+    .council-card-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .council-card-label {
+        color: var(--label-color);
+        font-weight: 600;
+        font-size: 0.95rem;
+        min-width: 120px;
+        position: relative;
+    }
+
+    .council-card-label::after {
+        content: ":";
+        position: absolute;
+        right: -0.5rem;
+    }
+
+    .council-card-value {
+        color: var(--value-color);
+        font-weight: 500;
+        font-size: 1rem;
+        flex: 1;
+        min-width: min(100%, 200px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .council-card-modern {
+            --card-padding: 1.25rem;
+            --row-gap: 0.5rem;
+        }
+
+        .council-card-row {
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .council-card-label,
+        .council-card-value {
+            min-width: 100%;
+        }
+
+        .council-card-label::after {
+            display: none;
+        }
+    }
+
+    /* Dark Mode Override */
+    @media (prefers-color-scheme: dark) {
+        .council-card-modern {
+            --card-bg: var(--white);
+            --label-color: var(--dark-red);
+            --value-color: var(--dark-text);
+            --divider-color: var(--light-gray);
+            --card-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.15);
+        }
+    }
+
+    /* Color Variants */
+    .council-card-modern.light-theme.primary {
+        --label-color: var(--dark-red);
+        --border-accent: 2px solid var(--dark-red);
+    }
+
+    .council-card-modern.light-theme.secondary {
+        --label-color: var(--gold);
+        --border-accent: 2px solid var(--gold);
+        --value-color: var(--medium-text);
+    }
+
+    .council-card-modern.light-theme.light {
+        --card-bg: var(--light-gray-alt);
+        --divider-color: hsl(0 0% 85%);
+    }
+</style>
 @endsection
 @section('main')
     <div class="container">
@@ -15,26 +143,26 @@
         <div class="row">
             @foreach($councils as $council)
                 <div class="col-12 mb-4">
-                    <div class="card council-card">
-                        <div class="card-header">
-                            <p class="council-card-text">
-                                <span class="text-red fw-bold" data-language="{{ $language }}">
+                    <div class="council-card-modern light-theme">
+                        <div class="council-card-header">
+                            <div class="council-card-row">
+                                <span class="council-card-label" data-language="{{ $language }}">
                                     {{ __('static.pages.councils.first_name')}}:
                                 </span>
-                                <span data-language="{{ $language }}">{{ $council->first_name->$language }}</span>
-                            </p>
-                            <p class="council-card-text">
-                                <span class="text-red fw-bold" data-language="{{ $language }}">
+                                <span class="council-card-value" data-language="{{ $language }}">{{ $council->first_name->$language }}</span>
+                            </div>
+                            <div class="council-card-row">
+                                <span class="council-card-label" data-language="{{ $language }}">
                                     {{ __('static.pages.councils.last_name')}}:
                                 </span>
-                                <span data-language="{{ $language }}">{{ $council->last_name->$language }}</span>
-                            </p>
-                            <p class="council-card-text">
-                                <span class="text-red fw-bold" data-language="{{ $language }}">
+                                <span class="council-card-value" data-language="{{ $language }}">{{ $council->last_name->$language }}</span>
+                            </div>
+                            <div class="council-card-row">
+                                <span class="council-card-label" data-language="{{ $language }}">
                                     {{ __('static.pages.councils.representative')}}:
                                 </span>
-                                <span data-language="{{ $language }}">{{ $council->representative->$language }}</span>
-                            </p>
+                                <span class="council-card-value" data-language="{{ $language }}">{{ $council->representative->$language }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

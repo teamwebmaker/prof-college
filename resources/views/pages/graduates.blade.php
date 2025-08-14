@@ -7,7 +7,7 @@
     </style>
 @endsection
 @section('main')
-    <div class="container">
+    <div class="container-xxl">
         <h2 class="section-title mb-4 text-red" data-language="{{$language}}">
             <i class="bi bi-mortarboard"></i>
             <span class="section-title-label pb-2 decor-border" data-language="{{$language}}">{{ __('static.pages.graduates.title') }}</span>

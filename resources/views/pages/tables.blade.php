@@ -10,7 +10,7 @@
     --modern-text: #2b2d42;
     --modern-bg: var(--white);
     --modern-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --modern-card-radius: 12px;
+    --modern-card-radius: 8px;
     --modern-transition: all 0.25s ease;
 
     height: 100%;
