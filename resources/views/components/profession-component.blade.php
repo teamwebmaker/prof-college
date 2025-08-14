@@ -1,3 +1,9 @@
+@once
+    @push('styles')
+    <link rel="stylesheet" href="{{ asset('styles/components/profession.css') }}" />
+    @endpush
+@endonce
+
 <div class="profession-card modern-ui-card">
     <div class="modern-card-header">
         <img src="{{ asset('images/professions/' . $profession->image) }}" class="modern-card-img" alt="{{ $profession->title->$language }}">

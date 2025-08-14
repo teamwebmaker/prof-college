@@ -1,3 +1,9 @@
+@once
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('styles/components/single-article.css') }}" />
+    @endpush
+@endonce
+
 <div class="classic-article-container">
     <div class="classic-article-card">
         <div class="classic-article-header">

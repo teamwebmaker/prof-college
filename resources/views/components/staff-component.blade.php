@@ -1,3 +1,9 @@
+@once
+    @push('styles')
+    <link rel="stylesheet" href="{{ asset('styles/components/staff.css') }}" />
+    @endpush
+@endonce
+
 <div class="staff-card">
     <div class="staff-card__image-container">
         <img

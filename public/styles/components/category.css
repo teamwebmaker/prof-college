@@ -1,0 +1,26 @@
+.modern-categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+.modern-category-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: var(--dark-red);
+    border-radius: 20px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--modern-transition);
+    border: 1px solid var(--modern-border);
+}
+
+.modern-category-item:hover {
+    background-color: var(--white);
+    color: var(--dark-red);
+    transform: translateY(-2px);
+    box-shadow: var(--modern-shadow);
+}

@@ -1,0 +1,11 @@
+.doc-card {
+    color: var(--dark-red);
+    background-color: transparent;
+    border: 1px solid var(--dark-red);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.doc-card:hover {
+    color: var(--white);
+    background-color: var(--dark-red);
+}

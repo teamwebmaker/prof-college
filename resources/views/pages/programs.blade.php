@@ -3,7 +3,7 @@
 
 @section('styles')
     <style>
-        /* Add your custom styles here */
+    @import url({{ asset('styles/components/program.css') }});
     </style>
 @endsection
 

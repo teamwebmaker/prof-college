@@ -1,3 +1,9 @@
+@once
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('styles/components/article.css') }}" />
+    @endpush
+@endonce
+
 <div class="modern-article-card">
     <div class="modern-article-media">
         @if($article->embed)

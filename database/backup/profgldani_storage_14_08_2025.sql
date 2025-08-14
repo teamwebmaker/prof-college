@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2025 at 12:34 PM
+-- Generation Time: Aug 14, 2025 at 10:37 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -190,11 +190,11 @@ CREATE TABLE `councils` (
 --
 
 INSERT INTO `councils` (`id`, `first_name`, `last_name`, `representative`, `visibility`, `created_at`, `updated_at`) VALUES
-(18, '{\"en\": \"Teona\", \"ka\": \"თეონა\"}', '{\"en\": \"Svanidze\", \"ka\": \"სვანიძე\"}', '{\"en\": \"St. Head of Culture, Education, Sports and Youth Department of Gldani district administration of Tbilisi Municipality\", \"ka\": \"ქ. თბილისის მუნიციპალიტეტის გლდანის რაიონის გამგეობის კულტურის, განათლების, სპორტისა და ახალგაზრდობის განყოფილების უფროსი\"}', '1', '2024-02-29 15:28:20', '2024-02-29 15:28:20'),
-(19, '{\"en\": \"Giorgi\", \"ka\": \"გიორგი\"}', '{\"en\": \"Tsutskiridze\", \"ka\": \"ცუცქირიძე\"}', '{\"en\": \"Executive Director of the Association of Georgian Banks\", \"ka\": \"საქართველოს ბანკების ასოციაციის აღმასრულებელი დირექტორი\"}', '1', '2024-07-29 12:17:48', '2024-07-29 12:17:48'),
-(20, '{\"en\": \"David\", \"ka\": \"დავით\"}', '{\"en\": \"Okeri\", \"ka\": \"ოქერი\"}', '{\"en\": \"Sales Director of \\\"Robert Bosch\\\" LLC in the Caucasus region\", \"ka\": \"შპს „რობერტ ბოშის“ გაყიდვების დირექტორი კავკასიის რეგიონში\"}', '1', '2024-07-29 12:18:46', '2024-07-29 12:18:46'),
-(21, '{\"en\": \"Zviad\", \"ka\": \"ზვიად\"}', '{\"en\": \"Mamniashvili\", \"ka\": \"მამნიაშვილი\"}', '{\"en\": \"Representative of vocational education teachers\", \"ka\": \"პროფესიული განათლების მასწავლებელთა წარმომადგენელი\"}', '1', '2024-07-29 12:19:45', '2024-07-29 12:19:45'),
-(22, '{\"en\": \"Nato\", \"ka\": \"ნატო\"}', '{\"en\": \"Tsimakuridze\", \"ka\": \"ციმაკურიძე\"}', '{\"en\": \"Representative of parents of professional students\", \"ka\": \"პროფესიული სტუდენტების მშობელთა წარმომადგენელი\"}', '1', '2024-07-29 12:20:40', '2024-07-29 12:20:40');
+(1, '{\"en\": \"Nana\", \"ka\": \"ნანა\"}', '{\"en\": \"Tsimakuridze\", \"ka\": \"ციმაკურიძე\"}', '{\"en\": \"Representative of local self-government body, Deputy head of the primary structural unit of the Gldani District Administration\", \"ka\": \"ადგილობრივი თვითმმართველობის ორგანოს წარმომადგენელი, გლდანის რაიონის გამგეობის პირველადი სტრუქტურული ერთეულის ხელმძღვანელის მოადგილე\"}', '1', '2025-08-13 09:56:54', '2025-08-13 09:56:54'),
+(2, '{\"en\": \"Lile\", \"ka\": \"ლილე\"}', '{\"en\": \"Shalikiani\", \"ka\": \"შალიკიანი\"}', '{\"en\": \"Representative of a public organization, Manager of the Professional Development Team at the Infrastructure Builders Association (AIP)\", \"ka\": \"საზოგადოებრივი ორგანიზაციის წარმომადგენელი, ა(ა)იპ - „ინფრასტრუქტურის მშენებელთა ასოციაციის“ პროფესიული განვითარების გუნდის მენეჯერი\"}', '1', '2025-08-13 09:56:54', '2025-08-13 09:56:54'),
+(3, '{\"en\": \"Aleksandre\", \"ka\": \"ალექსანდრე\"}', '{\"en\": \"Dolidze\", \"ka\": \"დოლიძე\"}', '{\"en\": \"Employer representative, Key Clients Manager at Robert Bosch LLC\", \"ka\": \"დამსაქმებლის წარმომადგენელი, შპს „რობერტ ბოშის“ ძირითადი კლიენტების მენეჯერი\"}', '1', '2025-08-13 09:56:54', '2025-08-13 09:56:54'),
+(4, '{\"en\": \"Liana\", \"ka\": \"ლიანა\"}', '{\"en\": \"Bolkvadze\", \"ka\": \"ბოლქვაძე\"}', '{\"en\": \"Employer representative, HR and Administrative Director at Novas LLC\", \"ka\": \"დამსაქმებლის წარმომადგენელი, შპს „ნოვას“ HR და ადმინისტრაციული დირექტორი\"}', '1', '2025-08-13 09:56:54', '2025-08-13 09:56:54'),
+(5, '{\"en\": \"Giuli\", \"ka\": \"გიული\"}', '{\"en\": \"Gurgenidze\", \"ka\": \"გურგენიძე\"}', '{\"en\": \"Representative of vocational education teachers\", \"ka\": \"პროფესიული განათლების მასწავლებელთა წარმომადგენელი\"}', '1', '2025-08-13 09:56:54', '2025-08-13 09:56:54');
 
 -- --------------------------------------------------------
 
@@ -791,7 +791,8 @@ INSERT INTO `professions` (`id`, `title`, `image`, `type`, `condition`, `level`,
 (14, '{\"en\": \"Sewing production\", \"ka\": \"სამკერვალო წარმოება\"}', 'sewing.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '100', '115', '18.5', '22', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:23:29'),
 (15, '{\"en\": \"Financial services\", \"ka\": \"საფინანსო სერვისები\"}', 'finance_services.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '52', '67', '10', '13.5', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:23:45'),
 (16, '{\"en\": \"Repair of the undercarriage of a light vehicle\", \"ka\": \"მსუბუქი ავტომობილის სავალი ნაწილის შეკეთება\"}', 'auto_rapiar.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '59', '74', '10', '14', '1', 1, '2024-03-16 10:39:02', '2025-02-18 07:38:09'),
-(17, '{\"en\": \"Repair of electrical and electronic systems of light vehicles\", \"ka\": \"მსუბუქი ავტომობილის ელექტრო და ელექტრონული სისტემების შეკეთება\"}', 'auto_service.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '82', NULL, '14', NULL, '1', 1, '2024-03-16 10:39:02', '2024-04-02 10:54:51');
+(17, '{\"en\": \"Repair of electrical and electronic systems of light vehicles\", \"ka\": \"მსუბუქი ავტომობილის ელექტრო და ელექტრონული სისტემების შეკეთება\"}', 'auto_service.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '82', NULL, '14', NULL, '1', 1, '2024-03-16 10:39:02', '2024-04-02 10:54:51'),
+(18, '{\"en\": \"Light vehicle engine repair\", \"ka\": \"მსუბუქი ავტომობილის ძრავას შეკეთება (მოდულური)\"}', 'no-image.jpg', '{\"en\": \"Modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'III', '58', '73', '10', '14', '1', 1, '2025-08-13 19:11:50', '2025-08-13 19:11:50');
 
 -- --------------------------------------------------------
 
@@ -1430,7 +1431,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `councils`
 --
 ALTER TABLE `councils`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `docs`
@@ -1508,7 +1509,7 @@ ALTER TABLE `photo_galleries`
 -- AUTO_INCREMENT for table `professions`
 --
 ALTER TABLE `professions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `programs`

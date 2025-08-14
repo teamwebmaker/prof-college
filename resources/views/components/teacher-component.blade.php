@@ -1,3 +1,9 @@
+@once
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('styles/components/teacher.css') }}" />
+    @endpush
+@endonce
+
 <div class="teacher-card-split">
     <div class="row g-0">
         <!-- Image Column (6) -->

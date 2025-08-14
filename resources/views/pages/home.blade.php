@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', __('static.pages.title'))
 
 @section('styles')
     <style>

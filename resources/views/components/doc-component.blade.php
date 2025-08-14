@@ -1,3 +1,9 @@
+@once
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('styles/components/doc.css') }}" />
+    @endpush
+@endonce
+
 @php
     $filePath = $doc->file->$language ?? null;
     $isDisabled = $filePath === null;

@@ -1,3 +1,9 @@
+@once
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('styles/components/vacancy.css') }}" />
+    @endpush
+@endonce
+
 <div class="card vacancy-card h-100 border-0 shadow-sm hover-shadow transition-all">
     <div class="card-body p-4 d-flex flex-column">
         <div class="d-flex justify-content-between align-items-start mb-3">
