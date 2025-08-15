@@ -142,7 +142,6 @@ body {
     color: var(--dark-red);
     text-align: justify;
     text-indent: 1.5rem;
-    text-shadow: 1px 1px 1px rgb(from var(--dark-red) r g b / 50%);
     line-height: 1.5;
 }
 

@@ -14,7 +14,7 @@ class JsonConvertCast implements CastsAttributes
      */
     public function get(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return json_decode($value);
+        return json_decode($value, false, 512, JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -24,6 +24,6 @@ class JsonConvertCast implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return json_encode($value);
+        return json_encode($value, JSON_UNESCAPED_UNICODE);
     }
 }

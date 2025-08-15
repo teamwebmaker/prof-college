@@ -28,7 +28,7 @@
                 <span class="article-date">{{ $article->created_at->format('F j, Y') }}</span>
             </div>
             <h2 class="article-title" data-language="{{ $language }}">{{ $article->title->$language }}</h2>
-            <p class="article-text" data-language="{{ $language }}">{{ $article->description->$language }}</p>
+            <p class="article-text" data-language="{{ $language }}">{!! $article->description->$language !!}</p>
 
             @if($article->docs->isNotEmpty())
             <div class="attachments-section">

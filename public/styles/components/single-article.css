@@ -69,6 +69,21 @@
     margin-bottom: 25px;
 }
 
+.article-text > span[color-red] {
+    color: var(--dark-red);
+    font-weight: bold;
+}
+
+.article-text > span[color-gold] {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.article-text > span[color-gray] {
+    color: var(--dark-gray);
+    font-weight: bold;
+}
+
 .attachments-section {
     margin: 25px 0;
     padding-top: 15px;
@@ -162,23 +177,4 @@
 
 .share-button i {
     margin-right: 5px;
-}
-
-.article-text > hr {
-    margin: 2rem 0;
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(
-        to right,
-        hsla(0, 0%, 0%, 0),
-        hsla(0, 0%, 0%, 0.2),
-        hsla(0, 0%, 0%, 0)
-    );
-    opacity: 0.5;
-}
-
-.article-tex > br {
-    content: "";
-    display: block;
-    margin-top: 1.25rem;
 }

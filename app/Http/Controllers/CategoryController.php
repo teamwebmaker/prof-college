@@ -35,7 +35,11 @@ class CategoryController extends Controller
      * Display the specified resource.
      */
     public function show(string $language, Category $category)
-    {   $articles = $category->articles()->paginate(6);
+    {
+        $articles = $category->articles()
+            ->orderBy('created_at', 'DESC')
+            ->paginate(6);
+
         return view('pages.category', [
             'category' => $category,
             'articles' => $articles

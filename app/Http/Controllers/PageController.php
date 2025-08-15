@@ -30,8 +30,13 @@ class PageController extends Controller
     {
         $articles = Article::where('visibility', '1')->orderBy('created_at', 'DESC')->paginate(6);
         if ($request->filled('search')) {
-            $articles = Article::where('title', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')
+            // Search across all articles (not limited to category)
+            $articles = Article::where(function ($query) use ($request) {
+                $query->where('title', 'like', '%' . $request->search . '%')
+                    ->orWhere('description', 'like', '%' . $request->search . '%');
+            })
                 ->where('visibility', '1')
+                ->orderBy('created_at', 'DESC')
                 ->paginate(8);
         }
         return view('pages.home', [
