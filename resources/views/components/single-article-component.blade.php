@@ -35,7 +35,7 @@
                 <h4 class="attachments-title">Documents</h4>
                 <div class="attachments-list">
                     @foreach($article->docs as $doc)
-                    <a href="{{ asset('docs/articles/' .$article->uuid .'/' .$doc->src) }}"
+                    <a href="{{ asset('files/' . $article->uuid .'/' .$doc->src) }}"
                         class="attachment-item"
                         target="_blank">
                         <div class="attachment-icon">

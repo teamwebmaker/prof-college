@@ -69,17 +69,17 @@
     margin-bottom: 25px;
 }
 
-.article-text > span[color-red] {
+.article-text > span[data-color-red] {
     color: var(--dark-red);
     font-weight: bold;
 }
 
-.article-text > span[color-gold] {
+.article-text > span[data-color-gold] {
     color: var(--gold);
     font-weight: bold;
 }
 
-.article-text > span[color-gray] {
+.article-text > span[data-color-gray] {
     color: var(--dark-gray);
     font-weight: bold;
 }

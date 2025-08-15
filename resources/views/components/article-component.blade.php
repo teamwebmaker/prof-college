@@ -30,7 +30,7 @@
                 {{ $article->title->$language }}
             </h3>
             <p class="modern-article-excerpt" data-language="{{ $language }}">
-                {{ $article->description->$language }}
+                {{ strip_tags($article->description->$language) }}
             </p>
         </div>
 
