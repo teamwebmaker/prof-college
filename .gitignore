@@ -8,6 +8,12 @@
 .env
 .env.backup
 .env.production
+
+# Admin credentials (sensitive)
+admin-credentials.yaml
+admin-credentials.yml
+credentials.yaml
+credentials.yml
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

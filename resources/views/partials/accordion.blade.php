@@ -2,7 +2,7 @@
     <!-- articles -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#articles" aria-expanded="true" aria-controls="articles">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#articles" aria-expanded="false" aria-controls="articles">
                 <i class="bi bi-newspaper"></i>
                 <span class="btn-label">სიახლეები</span>
             </button>
@@ -20,31 +20,10 @@
             </div>
         </div>
     </div>
-    <!-- teachers -->
-{{--    <div class="accordion-item">--}}
-{{--        <h2 class="accordion-header">--}}
-{{--            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#teachers" aria-expanded="true" aria-controls="teachers">--}}
-{{--                <i class="bi bi-person-bounding-box"></i>--}}
-{{--                <span class="btn-label">პედაგოგები</span>--}}
-{{--            </button>--}}
-{{--        </h2>--}}
-{{--        <div id="teachers" class="accordion-collapse collapse @if($routeName == 'teachers.index' || $routeName == 'teachers.create' || $routeName == 'teachers.edit') show @endif" data-bs-parent="#dashboard">--}}
-{{--            <div class="accordion-body">--}}
-{{--                <ul class="list-group">--}}
-{{--                    <li class="list-group-item  @if($routeName == 'teachers.index')  bg-secondary text-white @endif">--}}
-{{--                        <a class="nav-link" href="{{ route('teachers.index') }}">პედაგოგების სია</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="list-group-item  @if($routeName == 'teachers.create')  bg-secondary text-white   @endif">--}}
-{{--                        <a class="nav-link" href="{{ route('teachers.create') }}">პედაგოგის დამატება</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
     <!-- staff -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#staff" aria-expanded="true" aria-controls="staff">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#staff" aria-expanded="false" aria-controls="staff">
                 <i class="bi bi-person-bounding-box"></i>
                 <span class="btn-label">ადმინისტრაცია</span>
             </button>
@@ -65,7 +44,7 @@
     <!-- councils -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#councils" aria-expanded="true" aria-controls="councils">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#councils" aria-expanded="false" aria-controls="councils">
                 <i class="bi bi-bank"></i>
                 <span class="btn-label">სამეთვალყურეო საბჭო</span>
             </button>
@@ -86,7 +65,7 @@
     <!-- employers -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#employers" aria-expanded="true" aria-controls="employers">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#employers" aria-expanded="false" aria-controls="employers">
                 <i class="bi bi-person-workspace"></i>
                 <span class="btn-label">დამსაქმებლები</span>
             </button>
@@ -107,7 +86,7 @@
     <!-- graduates -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#graduates" aria-expanded="true" aria-controls="graduates">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#graduates" aria-expanded="false" aria-controls="graduates">
                 <i class="bi bi-mortarboard"></i>
                 <span class="btn-label">კურსდამთავრებულები</span>
             </button>
@@ -128,7 +107,7 @@
     <!-- partners -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#partners" aria-expanded="true" aria-controls="partners">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#partners" aria-expanded="false" aria-controls="partners">
                 <i class="bi bi-people"></i>
                 <span class="btn-label">პარტნიორები</span>
             </button>
@@ -149,7 +128,7 @@
     <!-- programs -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#programs" aria-expanded="true" aria-controls="programs">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#programs" aria-expanded="false" aria-controls="programs">
                 <i class="bi bi-card-list"></i>
                 <span class="btn-label">პროგრამები</span>
             </button>
@@ -170,7 +149,7 @@
     <!-- professions -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#professions" aria-expanded="true" aria-controls="professions">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#professions" aria-expanded="false" aria-controls="professions">
                 <i class="bi bi-briefcase"></i>
                 <span class="btn-label">პროფესიები</span>
             </button>
@@ -191,7 +170,7 @@
     <!-- galleries -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#photo_galleries" aria-expanded="true" aria-controls="photo_galleries">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#photo_galleries" aria-expanded="false" aria-controls="photo_galleries">
                 <i class="bi bi-file-image"></i>
                 <span class="btn-label">ფოტო გალერია</span>
             </button>
@@ -212,7 +191,7 @@
     <!-- videos -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#videos" aria-expanded="true" aria-controls="videos">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#videos" aria-expanded="false" aria-controls="videos">
                 <i class="bi bi-camera-reels"></i>
                 <span class="btn-label">ვიდეო გალერია</span>
             </button>
@@ -233,7 +212,7 @@
     <!-- slides -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#slides" aria-expanded="true" aria-controls="slides">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#slides" aria-expanded="false" aria-controls="slides">
                 <i class="bi bi-file-earmark-easel"></i>
                 <span class="btn-label">სლაიდები</span>
             </button>
@@ -254,7 +233,7 @@
     <!-- documentations -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#documents" aria-expanded="true" aria-controls="documents">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#documents" aria-expanded="false" aria-controls="documents">
                 <i class="bi bi-file-earmark-check"></i>
                 <span class="btn-label">დოკუმენტაცია</span>
             </button>
@@ -275,7 +254,7 @@
     <!-- groups -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#groups" aria-expanded="true" aria-controls="groups">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#groups" aria-expanded="false" aria-controls="groups">
                 <i class="bi bi-people"></i>
                 <span class="btn-label">ჯგუფები</span>
             </button>
@@ -296,7 +275,7 @@
     <!-- contacts -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#contacts" aria-expanded="true" aria-controls="contacts">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#contacts" aria-expanded="false" aria-controls="contacts">
                 <i class="bi bi-envelope"></i>
                 <span class="btn-label">კონტაქტები</span>
             </button>
@@ -311,28 +290,33 @@
             </div>
         </div>
     </div>
-    <!-- visitors -->
-{{--    <div class="accordion-item">--}}
-{{--        <h2 class="accordion-header">--}}
-{{--            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#visitors" aria-expanded="true" aria-controls="visitors">--}}
-{{--                <i class="bi bi-person-badge"></i>--}}
-{{--                <span class="btn-label">ვიზიოტრები</span>--}}
-{{--            </button>--}}
-{{--        </h2>--}}
-{{--        <div id="visitors" class="accordion-collapse collapse @if($routeName == 'visitors.index') show @endif" data-bs-parent="#dashboard">--}}
-{{--            <div class="accordion-body">--}}
-{{--                <ul class="list-group">--}}
-{{--                    <li class="list-group-item @if($routeName == 'visitors.index')  bg-secondary text-white @endif">--}}
-{{--                        <a class="nav-link" href="{{ route('visitors.index',['language' => app() -> getLocale()]) }}">ვიზიტორების სია</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <!-- admin users -->
+    @if(isset($authAdmin) && $authAdmin->canManageUsers())
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#admin_users" aria-expanded="false" aria-controls="admin_users">
+                <i class="bi bi-person-gear"></i>
+                <span class="btn-label">ადმინისტრატორები</span>
+            </button>
+        </h2>
+        <div id="admin_users" class="accordion-collapse collapse @if($routeName == 'admin-users.index' || $routeName == 'admin-users.create' || $routeName == 'admin-users.edit' || $routeName == 'admin-users.show') show @endif" data-bs-parent="#dashboard">
+            <div class="accordion-body">
+                <ul class="list-group">
+                    <li class="list-group-item @if($routeName == 'admin-users.index')  bg-secondary text-white @endif">
+                        <a class="nav-link" href="{{ route('admin-users.index',['language' => app() -> getLocale()]) }}">ადმინისტრატორების სია</a>
+                    </li>
+                    <li class="list-group-item @if($routeName == 'admin-users.create')  bg-secondary text-white @endif">
+                        <a class="nav-link" href="{{ route('admin-users.create',['language' => app() -> getLocale()]) }}">ახალი ადმინისტრატორი</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @endif
     <!-- vacancies -->
     <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#vacancies" aria-expanded="true" aria-controls="vacancies">
+            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#vacancies" aria-expanded="false" aria-controls="vacancies">
                 <i class="bi bi-binoculars"></i>
                 <span class="btn-label">ვაკანსიები</span>
             </button>
@@ -351,4 +335,3 @@
         </div>
     </div>
 </div>
-

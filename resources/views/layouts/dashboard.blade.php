@@ -10,7 +10,7 @@
             <div class="col-6">
                 <a type="button" class="btn bg-dark-red text-white" href="{{ route('admin.dashboard.page',['language' => app() -> getLocale()] ) }}">
                     <i class="bi bi-person"></i>
-                    <span class="text-label">profgldani@admin.panel</span>
+                    <span class="text-label">{{ $authAdmin->name ?? 'Admin' }} ({{ $authAdmin->role ?? 'admin' }})</span>
                 </a>
             </div>
             <div class="col-6">

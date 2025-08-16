@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DocController;
 use App\Http\Controllers\StaffController;
@@ -83,6 +84,13 @@ Route::group(['prefix' => '{language}'], function () {
             Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard.page');
             Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
             Route::prefix('dashboard')->group(function () {
+                // Admin Users Management (restricted to super_admin and admin roles)
+                Route::middleware(['admin.auth:super_admin,admin'])->group(function () {
+                    Route::resource('/admin-users', AdminUserController::class);
+                    Route::patch('/admin-users/{admin_user}/toggle-status', [AdminUserController::class, 'toggleStatus'])
+                          ->name('admin-users.toggle-status');
+                });
+                
                 Route::resource('/articles', ArticleController::class)->except('show');
                 Route::resource('/teachers', TeacherController::class);
                 Route::resource('/staff', StaffController::class);
