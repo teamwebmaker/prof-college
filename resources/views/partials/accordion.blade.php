@@ -4,7 +4,7 @@
         <h2 class="accordion-header">
             <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#articles" aria-expanded="false" aria-controls="articles">
                 <i class="bi bi-newspaper"></i>
-                <span class="btn-label">სიახლეები</span>
+                <span class="btn-label">სიახლეები {{ $routeName }}</span>
             </button>
         </h2>
         <div id="articles" class="accordion-collapse collapse @if($routeName == 'articles.index' || $routeName == 'articles.create' || $routeName == 'articles.edit') show @endif" data-bs-parent="#dashboard">
@@ -175,13 +175,13 @@
                 <span class="btn-label">ფოტო გალერია</span>
             </button>
         </h2>
-        <div id="photo_galleries" class="accordion-collapse collapse @if($routeName == 'photo_galleries.index' || $routeName == 'photo_galleries.create' || $routeName == 'photo_galleries.edit') show @endif" data-bs-parent="#dashboard">
+        <div id="photo_galleries" class="accordion-collapse collapse @if($routeName == 'galleries.index' || $routeName == 'galleries.create' || $routeName == 'galleries.edit') show @endif" data-bs-parent="#dashboard">
             <div class="accordion-body">
                 <ul class="list-group">
-                    <li class="list-group-item @if($routeName == 'photo_galleries.index')  bg-secondary text-white @endif">
+                    <li class="list-group-item @if($routeName == 'galleries.index')  bg-secondary text-white @endif">
                         <a class="nav-link" href="{{ route('galleries.index',['language' => app() -> getLocale()]) }}">გალერიების სია</a>
                     </li>
-                    <li class="list-group-item  @if($routeName == 'photo_galleries.create')  bg-secondary text-white @endif">
+                    <li class="list-group-item  @if($routeName == 'galleries.create')  bg-secondary text-white @endif">
                         <a class="nav-link" href="{{ route('galleries.create',['language' => app() -> getLocale()])}}">გალერიის დამატება</a>
                     </li>
                 </ul>
