@@ -63,24 +63,34 @@ i {
 .bg-dark-red {
     background-color: var(--dark-red);
 }
+
 .bg-light-red {
     background-color: var(--light-red);
 }
+
 .bg-light-gray {
     --alpha: 0;
     background-color: var(--light-gray);
 }
+
+.bg-gold {
+    background-color: var(--gold);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
 .text-white {
     color: var(--white);
 }
+
 .text-red {
     color: var(--dark-red);
 }
+
 .text-gold {
     color: var(--gold);
-}
-.bg-gold {
-    background-color: var(--gold);
 }
 
 /* Components */

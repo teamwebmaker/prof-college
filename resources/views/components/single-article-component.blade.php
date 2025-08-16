@@ -4,7 +4,6 @@
     @endpush
 @endonce
 
-<div class="classic-article-container">
     <div class="classic-article-card">
         <div class="classic-article-header">
             @if($article->embed)
@@ -66,4 +65,4 @@
             </div>
         </div>
     </div>
-</div>
+

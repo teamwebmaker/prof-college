@@ -11,7 +11,7 @@
             <div class="col-xl-4 col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-header p-0">
-                        <img src="{{ asset('images/partners/' . $partner -> image) }}" class="img-fluid response-img" alt="...">
+                        <img src="{{ asset('images/partners/' . $partner -> image) }}" class="img-fluid" alt="...">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title truncate" title="{{ $partner -> title }}">
