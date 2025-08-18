@@ -26,47 +26,48 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\ExternalRedirectController;
+
 /**
  * Professional College Web Routes Configuration
- * 
+ *
  * This file defines all web routes for the professional college management system.
  * The application supports multilingual functionality with Georgian (ka) and English (en) locales.
- * 
+ *
  * Route Structure:
  * 1. Root redirect: '/' -> '/ka' (default to Georgian)
  * 2. Language-prefixed routes: /{language}/...
  * 3. Admin panel routes: /{language}/admin/...
  * 4. Public pages: /{language}/page-name
  * 5. Resource controllers for CRUD operations
- * 
+ *
  * Security Features:
  * - Admin routes protected by 'route.guard' middleware
  * - Authentication required for administrative functions
  * - CSRF protection on all state-changing operations
- * 
+ *
  * Multilingual Support:
  * - All routes accept {language} parameter (ka/en)
  * - Language switching handled by SetLanguage middleware
  * - Content served based on current locale
- * 
+ *
  * Admin Panel Features:
  * - Full CRUD operations for articles, teachers, staff, etc.
  * - Image upload handling for profiles and content
  * - Category-based content organization
  * - Document management system
- * 
+ *
  * Public Features:
  * - Content browsing by category
  * - Article viewing with UUID-based URLs
  * - Contact form submissions
  * - Visitor tracking and statistics
  * - External library integration
- * 
+ *
  * Performance Considerations:
  * - Resource routes used for RESTful operations
  * - Route caching available for production
  * - Middleware groups for common functionality
- * 
+ *
  * @author Professional College Development Team
  * @version 2.0
  * @since 2024-02-07
@@ -88,9 +89,9 @@ Route::group(['prefix' => '{language}'], function () {
                 Route::middleware(['admin.auth:super_admin,admin'])->group(function () {
                     Route::resource('/admin-users', AdminUserController::class);
                     Route::patch('/admin-users/{admin_user}/toggle-status', [AdminUserController::class, 'toggleStatus'])
-                          ->name('admin-users.toggle-status');
+                        ->name('admin-users.toggle-status');
                 });
-                
+
                 Route::resource('/articles', ArticleController::class)->except('show');
                 Route::resource('/teachers', TeacherController::class);
                 Route::resource('/staff', StaffController::class);
@@ -99,7 +100,6 @@ Route::group(['prefix' => '{language}'], function () {
                 Route::resource('/graduates', GraduatedController::class);
                 Route::resource('/partners', PartnerController::class);
                 Route::resource('/programs', ProgramController::class);
-                Route::resource('/documents', DocumentController::class);
                 Route::resource('/professions', ProfessionController::class);
                 Route::resource('/docs', DocController::class);
                 Route::resource('/galleries', PhotoGalleryController::class);
@@ -120,7 +120,6 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/staff', [PageController::class, 'staff'])->name('staff');
     Route::get('/structure', [PageController::class, 'structure'])->name('structure');
     Route::get('/programs', [PageController::class, 'programs'])->name('programs');
-    Route::get('/documents', [PageController::class, 'documents'])->name('documents');
     Route::get('/teachers', [PageController::class, 'teachers'])->name('teachers');
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
     Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');

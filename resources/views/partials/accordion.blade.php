@@ -230,27 +230,7 @@
             </div>
         </div>
     </div>
-    <!-- documentations -->
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#documents" aria-expanded="false" aria-controls="documents">
-                <i class="bi bi-file-earmark-check"></i>
-                <span class="btn-label">დოკუმენტაცია</span>
-            </button>
-        </h2>
-        <div id="documents" class="accordion-collapse collapse @if($routeName == 'documents.index' || $routeName == 'documents.create' || $routeName == 'documents.edit') show @endif" data-bs-parent="#dashboard">
-            <div class="accordion-body">
-                <ul class="list-group">
-                    <li class="list-group-item @if($routeName == 'documents.index')  bg-secondary text-white @endif">
-                        <a class="nav-link" href="{{ route('documents.index',['language' => app() -> getLocale()]) }}">დოკუმენტების სია</a>
-                    </li>
-                    <li class="list-group-item  @if($routeName == 'documents.create')  bg-secondary text-white @endif">
-                        <a class="nav-link" href="{{ route('documents.create',['language' => app() -> getLocale()]) }}">დოკუმენტის დამატება</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
     <!-- groups -->
     <div class="accordion-item">
         <h2 class="accordion-header">

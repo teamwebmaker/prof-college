@@ -208,7 +208,7 @@ class PageController extends Controller
     public function sitemap()
     {
         $language = app()->getLocale();
-        
+
         $sitemapData = [
             'main_pages' => [
                 'title' => __('sitemap.main_pages'),
@@ -238,7 +238,6 @@ class PageController extends Controller
             'resources' => [
                 'title' => __('sitemap.resources'),
                 'routes' => [
-                    ['name' => __('sitemap.documents'), 'route' => 'documents', 'icon' => 'fas fa-file-alt'],
                     ['name' => __('sitemap.library'), 'route' => 'library', 'icon' => 'fas fa-book'],
                     ['name' => __('sitemap.reports_activities'), 'route' => 'reportsActivities', 'icon' => 'fas fa-chart-line'],
                     ['name' => __('sitemap.development_strategy'), 'route' => 'developmentStrategy', 'icon' => 'fas fa-road'],
