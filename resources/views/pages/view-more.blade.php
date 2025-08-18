@@ -30,4 +30,33 @@
             // Your custom options
         });
     </script>
+@push('structured-data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ url()->current() }}"
+  },
+  "headline": "{{ $article->title->$language }}",
+  "image": "{{ asset('images/articles/' . $article->image) }}",
+  "datePublished": "{{ $article->created_at->toIso8601String() }}",
+  "dateModified": "{{ $article->updated_at->toIso8601String() }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ __('static.pages.title') }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ __('static.pages.title') }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ asset('images/themes/prof-gldani-icon.png') }}"
+    }
+  },
+  "description": "{{ Str::substr($article->description->$language, 0, 150) }}"
+}
+</script>
+@endpush
 @endsection

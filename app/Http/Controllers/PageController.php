@@ -204,4 +204,64 @@ class PageController extends Controller
             'college' => CollegePrinciple::latest()->first()
         ]);
     }
+
+    public function sitemap()
+    {
+        $language = app()->getLocale();
+        
+        $sitemapData = [
+            'main_pages' => [
+                'title' => __('sitemap.main_pages'),
+                'routes' => [
+                    ['name' => __('sitemap.home'), 'route' => 'home', 'icon' => 'fas fa-home'],
+                    ['name' => __('sitemap.contact'), 'route' => 'contact', 'icon' => 'fas fa-envelope'],
+                    ['name' => __('sitemap.mission'), 'route' => 'mission', 'icon' => 'fas fa-bullseye'],
+                ]
+            ],
+            'institutional' => [
+                'title' => __('sitemap.institutional'),
+                'routes' => [
+                    ['name' => __('sitemap.staff'), 'route' => 'staff', 'icon' => 'fas fa-users'],
+                    ['name' => __('sitemap.structure'), 'route' => 'structure', 'icon' => 'fas fa-sitemap'],
+                    ['name' => __('sitemap.councils'), 'route' => 'councils', 'icon' => 'fas fa-user-tie'],
+                    ['name' => __('sitemap.teachers'), 'route' => 'teachers', 'icon' => 'fas fa-chalkboard-teacher'],
+                ]
+            ],
+            'academic' => [
+                'title' => __('sitemap.academic'),
+                'routes' => [
+                    ['name' => __('sitemap.programs'), 'route' => 'programs', 'icon' => 'fas fa-graduation-cap'],
+                    ['name' => __('sitemap.tables'), 'route' => 'tables', 'icon' => 'fas fa-table'],
+                    ['name' => __('sitemap.graduates'), 'route' => 'graduates', 'icon' => 'fas fa-user-graduate'],
+                ]
+            ],
+            'resources' => [
+                'title' => __('sitemap.resources'),
+                'routes' => [
+                    ['name' => __('sitemap.documents'), 'route' => 'documents', 'icon' => 'fas fa-file-alt'],
+                    ['name' => __('sitemap.library'), 'route' => 'library', 'icon' => 'fas fa-book'],
+                    ['name' => __('sitemap.reports_activities'), 'route' => 'reportsActivities', 'icon' => 'fas fa-chart-line'],
+                    ['name' => __('sitemap.development_strategy'), 'route' => 'developmentStrategy', 'icon' => 'fas fa-road'],
+                    ['name' => __('sitemap.acts'), 'route' => 'acts', 'icon' => 'fas fa-gavel'],
+                ]
+            ],
+            'community' => [
+                'title' => __('sitemap.community'),
+                'routes' => [
+                    ['name' => __('sitemap.employers'), 'route' => 'employers', 'icon' => 'fas fa-briefcase'],
+                    ['name' => __('sitemap.vacancies'), 'route' => 'vacancies', 'icon' => 'fas fa-search'],
+                    ['name' => __('sitemap.visitors'), 'route' => 'visitors', 'icon' => 'fas fa-eye'],
+                ]
+            ],
+            'media' => [
+                'title' => __('sitemap.media'),
+                'routes' => [
+                    ['name' => __('sitemap.gallery'), 'route' => 'gallery', 'icon' => 'fas fa-images'],
+                    ['name' => __('sitemap.videos'), 'route' => 'videos', 'icon' => 'fas fa-video'],
+                ]
+            ]
+        ];
+
+        return view('pages.sitemap', compact('sitemapData'));
+    }
 }

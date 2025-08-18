@@ -12,3 +12,4 @@
 @stack('styles')
 @yield('styles')
 <title>@yield('title')</title>
+@stack('structured-data')

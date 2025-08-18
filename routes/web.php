@@ -135,6 +135,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/reports-activities', [PageController::class, 'reportsActivities'])->name('reportsActivities');
     Route::get('/development-strategy', [PageController::class, 'developmentStrategy'])->name('developmentStrategy');
     Route::get('/mission', [PageController::class, 'mission'])->name('mission');
+    Route::get('/sitemap', [PageController::class, 'sitemap'])->name('sitemap');
     Route::get('acts', [PageController::class, 'acts'])->name('acts');
     Route::resource('/votes', VoteController::class)->only('store');
     Route::resource('/categories', CategoryController::class)->only('show');

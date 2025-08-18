@@ -14,6 +14,7 @@ admin-credentials.yaml
 admin-credentials.yml
 credentials.yaml
 credentials.yml
+Credential.yaml
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
