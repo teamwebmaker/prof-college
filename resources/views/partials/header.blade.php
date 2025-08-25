@@ -1,6 +1,6 @@
 <div class="container-fluid bg-dark-red">
     <h1 class="page-slogan p-2 d-md-none" data-language="{{ $language }}">{{ __('static.pages.title') }}</h1>
-    <div class="container-xxl navigation-container" data-conetnt="{{ __('static.pages.title') }}">
+    <div class="container-xxl navigation-container" data-content="{{ __('static.pages.title') }}" data-language="{{ $language }}">
         <nav class="navbar navbar-expand-xl">
             <a class="navbar-brand" href="{{ route('home', ['language' => app() -> getLocale()]) }}">
                 <img class="logo-icon" src="{{ asset('images/themes/college_logo.png') }}" />
