@@ -18,6 +18,9 @@
     --bg-color: transparent;
     --text-color: transparent;
     --border-color: transparent;
+
+    /* interactive */
+    --duration: 0.3s;
 }
 
 /* Base Elements */

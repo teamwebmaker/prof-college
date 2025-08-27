@@ -3,12 +3,13 @@
         <link rel="stylesheet" href="{{ asset('styles/components/doc.css') }}" />
     @endpush
 @endonce
-
 @php
     $filePath = $doc->file->$language ?? null;
     $isDisabled = $filePath === null;
-@endphp
 
+    // Build the URL with query string if file exists (date only, no time)
+    $fileUrl = $isDisabled ? '#' : asset('docs/documentations/' . $doc->category . '/' . $filePath) . '?updated=' . \Carbon\Carbon::parse($doc->updated_at)->format('Y-m-d');
+@endphp
 @php
     $sectionTranslations = [
         'normative' => 'ნორმატიული აქტები',
@@ -17,18 +18,15 @@
         'inclusive-report' => 'ინკლ. განათლების ანგარიში',
     ];
 @endphp
-
 <a class="doc-link text-decoration-none {{ $isDisabled ? 'disabled opacity-75 cursor-default' : '' }}"
-    href="{{ $isDisabled ? '#' : asset('docs/documentations/' . $doc->category . '/' . $filePath) }}"
+    href="{{ $fileUrl }}"
     target="{{ $isDisabled ? '_self' : '_blank' }}">
-
     <div class="card px-3 py-2 doc-card position-relative"
         @if (!$isDisabled)
             data-bs-toggle="tooltip"
             data-bs-placement="bottom"
             title="{{ $doc->title->$language }}"
         @endif>
-
         @if(!empty($doc->section))
         <span class="position-absolute top-0 end-0 small px-2 py-1 rounded-start bg-dark-red text-white"
             style="border-top-left-radius: 0px !important;"

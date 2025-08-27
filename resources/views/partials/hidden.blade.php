@@ -175,7 +175,7 @@
 <!-- end search template -->
 
 <!-- Start Modal -->
-<div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true"
+<div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="false"
     style="--bs-modal-width:1200px">
     <div class="modal-dialog">
         <div class="modal-content bg-transparent border-0">

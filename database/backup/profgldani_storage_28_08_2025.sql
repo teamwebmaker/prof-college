@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2025 at 05:26 PM
+-- Generation Time: Aug 27, 2025 at 09:19 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,7 +45,7 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `name`, `email`, `password`, `role`, `is_active`, `last_login_at`, `last_login_ip`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'profgldani@admin.panel', '$2y$12$n1n6xrzM4c07B1gR0PTG0OWiOaJvSOes3Zbo3Jqt.N5vqwrY6ur7S', 'super_admin', 1, '2025-08-16 11:17:25', '127.0.0.1', '2025-08-16 04:59:45', '2025-08-16 11:17:25'),
+(1, 'Super Admin', 'profgldani@admin.panel', '$2y$12$n1n6xrzM4c07B1gR0PTG0OWiOaJvSOes3Zbo3Jqt.N5vqwrY6ur7S', 'super_admin', 1, '2025-08-18 16:01:08', '127.0.0.1', '2025-08-16 04:59:45', '2025-08-18 16:01:08'),
 (2, 'Admin User', 'admin@prof-college.ge', '$2y$12$zrkS7lEoYtv3zqT4nL0mZ.TJIoGIwVnQZnBRHguLjHlSCdxXrLE1y', 'admin', 1, NULL, NULL, '2025-08-16 04:59:46', '2025-08-16 04:59:46');
 
 -- --------------------------------------------------------
@@ -626,6 +626,44 @@ CREATE TABLE `groups` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`id`, `number`, `table`, `profession_id`, `visibility`, `sortable`, `created_at`, `updated_at`) VALUES
+(1, 101, 'accounting_2024_fall.pdf', 1, '1', 1, '2024-09-15 04:00:00', '2024-09-15 04:00:00'),
+(2, 102, 'accounting_2024_spring.pdf', 1, '1', 2, '2024-03-20 05:30:00', '2024-03-20 05:30:00'),
+(3, 103, 'accounting_2024_evening.pdf', 1, '1', 3, '2024-10-01 14:00:00', '2024-10-01 14:00:00'),
+(4, 201, 'topography_integrated_2024.pdf', 3, '1', 4, '2024-09-10 04:30:00', '2024-09-10 04:30:00'),
+(5, 202, 'topography_modular_2024.pdf', 4, '1', 5, '2024-09-12 06:00:00', '2024-09-12 06:00:00'),
+(6, 203, 'topography_advanced_2024.pdf', 3, '1', 6, '2024-10-05 10:00:00', '2024-10-05 10:00:00'),
+(7, 301, 'design_integrated_fall.pdf', 5, '1', 7, '2024-09-18 05:00:00', '2024-09-18 05:00:00'),
+(8, 302, 'design_modular_spring.pdf', 6, '1', 8, '2024-03-25 04:45:00', '2024-03-25 04:45:00'),
+(9, 303, 'design_weekend_2024.pdf', 5, '1', 9, '2024-10-12 06:30:00', '2024-10-12 06:30:00'),
+(10, 304, 'design_evening_2024.pdf', 6, '1', 10, '2024-09-20 14:30:00', '2024-09-20 14:30:00'),
+(11, 401, 'web_dev_2024_fall.pdf', 8, '1', 11, '2024-09-05 05:15:00', '2024-09-05 05:15:00'),
+(12, 402, 'web_dev_intensive.pdf', 8, '1', 12, '2024-10-15 04:00:00', '2024-10-15 04:00:00'),
+(13, 403, 'web_dev_evening.pdf', 8, '1', 13, '2024-09-25 15:00:00', '2024-09-25 15:00:00'),
+(14, 501, 'network_systems_2024.pdf', 9, '1', 14, '2024-09-08 04:30:00', '2024-09-08 04:30:00'),
+(15, 502, 'network_advanced_2024.pdf', 9, '1', 15, '2024-10-20 06:00:00', '2024-10-20 06:00:00'),
+(16, 601, 'industrial_design_2024.pdf', 11, '1', 16, '2024-09-22 05:30:00', '2024-09-22 05:30:00'),
+(17, 602, 'industrial_design_spring.pdf', 11, '1', 17, '2024-03-15 04:15:00', '2024-03-15 04:15:00'),
+(18, 701, 'it_basics_2024.pdf', 12, '1', 18, '2024-09-12 05:00:00', '2024-09-12 05:00:00'),
+(19, 702, 'it_accelerated_2024.pdf', 12, '1', 19, '2024-10-08 09:30:00', '2024-10-08 09:30:00'),
+(20, 801, 'sewing_beginners_2024.pdf', 14, '1', 20, '2024-09-30 06:00:00', '2024-09-30 06:00:00'),
+(21, 802, 'sewing_advanced_2024.pdf', 14, '1', 21, '2024-10-10 10:30:00', '2024-10-10 10:30:00'),
+(22, 901, 'finance_services_fall.pdf', 15, '1', 22, '2024-09-17 04:45:00', '2024-09-17 04:45:00'),
+(23, 902, 'finance_services_evening.pdf', 15, '1', 23, '2024-09-28 14:15:00', '2024-09-28 14:15:00'),
+(24, 1001, 'auto_undercarriage_2024.pdf', 16, '1', 24, '2024-09-14 04:00:00', '2024-09-14 04:00:00'),
+(25, 1002, 'auto_electrical_2024.pdf', 17, '1', 25, '2024-09-21 05:30:00', '2024-09-21 05:30:00'),
+(26, 1003, 'auto_engine_repair_2024.pdf', 18, '1', 26, '2024-10-03 06:15:00', '2024-10-03 06:15:00'),
+(27, 1004, 'auto_mixed_specialties.pdf', 16, '1', 27, '2024-10-25 09:00:00', '2024-10-25 09:00:00'),
+(28, 105, 'accounting_weekend_2024.pdf', 1, '1', 28, '2024-11-02 05:00:00', '2024-11-02 05:00:00'),
+(29, 405, 'web_dev_bootcamp.pdf', 8, '1', 29, '2024-11-15 04:30:00', '2024-11-15 04:30:00'),
+(30, 305, 'design_freelancer_track.pdf', 6, '1', 30, '2024-11-20 13:30:00', '2024-11-20 13:30:00'),
+(31, 999, 'archived_test_group.pdf', 1, '0', 31, '2024-01-15 08:00:00', '2024-01-15 08:00:00'),
+(32, 998, 'suspended_group.pdf', 8, '0', 32, '2024-02-20 11:30:00', '2024-02-20 11:30:00');
+
 -- --------------------------------------------------------
 
 --
@@ -841,7 +879,7 @@ INSERT INTO `professions` (`id`, `title`, `image`, `type`, `condition`, `level`,
 (15, '{\"en\": \"Financial services\", \"ka\": \"საფინანსო სერვისები\"}', 'finance_services.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '52', '67', '10', '13.5', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:23:45'),
 (16, '{\"en\": \"Repair of the undercarriage of a light vehicle\", \"ka\": \"მსუბუქი ავტომობილის სავალი ნაწილის შეკეთება\"}', 'auto_rapiar.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '59', '74', '10', '14', '1', 1, '2024-03-16 10:39:02', '2025-02-18 07:38:09'),
 (17, '{\"en\": \"Repair of electrical and electronic systems of light vehicles\", \"ka\": \"მსუბუქი ავტომობილის ელექტრო და ელექტრონული სისტემების შეკეთება\"}', 'auto_service.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '82', NULL, '14', NULL, '1', 1, '2024-03-16 10:39:02', '2024-04-02 10:54:51'),
-(18, '{\"en\": \"Light vehicle engine repair\", \"ka\": \"მსუბუქი ავტომობილის ძრავას შეკეთება (მოდულური)\"}', 'no-image.jpg', '{\"en\": \"Modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'III', '58', '73', '10', '14', '1', 1, '2025-08-13 19:11:50', '2025-08-13 19:11:50');
+(18, '{\"en\": \"Light vehicle engine repair\", \"ka\": \"მსუბუქი ავტომობილის ძრავას შეკეთება (მოდულური)\"}', 'car_engine_repair.jpg', '{\"en\": \"Modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'III', '58', '73', '10', '14', '1', 1, '2025-08-13 19:11:50', '2025-08-27 18:22:27');
 
 -- --------------------------------------------------------
 
@@ -1535,7 +1573,7 @@ ALTER TABLE `graduateds`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `main_menus`
