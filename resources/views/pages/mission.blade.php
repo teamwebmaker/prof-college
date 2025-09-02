@@ -13,28 +13,60 @@
             <i class="bi bi-compass"></i>
             <span class="section-title-label pb-2 decor-border" data-language="{{ $language }}">{{ __('static.pages.documents.mission.title') }}</span>
         </h2>
-        <nav>
-            <div class="nav nav-tabs" id="institutional-tabs" role="tablist">
-                <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#mission-content" type="button" role="tab" aria-controls="mission" aria-selected="true" data-language="{{ $language }}">
-                    {{ __('static.mission') }}
-                </button>
-                <button class="nav-link" id="vision-tab" data-bs-toggle="tab" data-bs-target="#vision-content" type="button" role="tab" aria-controls="vision" aria-selected="false" data-language="{{ $language }}">
-                    {{ __('static.vision') }}
-                </button>
-                <button class="nav-link" id="values-tab" data-bs-toggle="tab" data-bs-target="#values-content" type="button" role="tab" aria-controls="values" aria-selected="false" data-language="{{ $language }}">
-                    {{ __('static.values') }}
-                </button>
+
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="institutional-section">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+                            <h3 class="section-title-text" data-language="{{$language}}">
+                                    {{ __('static.mission') }}
+                            </h3>
+                        </div>
+                        <div class="section-content" data-language="{{$language}}">
+                            {{$college->mission->$language}}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
-        <div class="tab-content" id="institutional-tab-content">
-            <div class="tab-pane fade show active" id="mission-content" role="tabpanel" aria-labelledby="mission-tab" tabindex="0" data-language="{{ $language }}">
-                {{ $college->mission->$language }}
+
+            <div class="col-12">
+                <div class="institutional-section">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <i class="bi bi-eye"></i>
+                            </div>
+                            <h3 class="section-title-text" data-language="{{$language}}">
+                                {{ __('static.vision') }}
+                            </h3>
+                        </div>
+                        <div class="section-content" data-language="{{$language}}">
+                            {{$college->vision->$language}}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="vision-content" role="tabpanel" aria-labelledby="vision-tab" tabindex="0" data-language="{{ $language }}">
-                {{ $college->vision->$language }}
-            </div>
-            <div class="tab-pane fade" id="values-content" role="tabpanel" aria-labelledby="values-tab" tabindex="0" data-language="{{ $language }}">
-                {{ $college->principles->$language }}
+
+            <div class="col-12">
+                <div class="institutional-section">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <h3 class="section-title-text" data-language="{{$language}}">
+                                {{ __('static.values') }}
+                            </h3>
+                        </div>
+                        <div class="section-content" data-language="{{$language}}">
+                            {{$college->principles->$language}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

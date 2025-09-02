@@ -156,10 +156,14 @@ class PageController extends Controller
 
     public function developmentStrategy()
     {
-        $docs = Documentation::where('visibility', '1')->get();
+        $docs = Documentation::where('visibility', '1')
+            ->orderBy('created_at', 'desc') // or 'asc' for ascending
+            ->get();
+
         $docs = $docs->filter(function ($doc) {
             return $doc->category == 'development-strategy';
         });
+
         return view('pages.development-strategy', [
             'docs' => $docs
         ]);

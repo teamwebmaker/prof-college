@@ -24,11 +24,13 @@
                     @php
                         $filePath = $catalogue->file->$language ?? null;
                         $isDisabled = is_null($filePath);
+                        // Get the date portion only from updated_at
+                        $updatedDate = $catalogue->updated_at ? $catalogue->updated_at->format('Y-m-d') : now()->format('Y-m-d');
                     @endphp
                     <div class="col-md-4 mb-2">
                         <a
                             class="doc-link text-decoration-none {{ $isDisabled ? 'disabled opacity-75 cursor-default' : '' }}"
-                            href="{{ $isDisabled ? '#' : asset('docs/programs/' . $filePath) }}"
+                            href="{{ $isDisabled ? '#' : asset('docs/programs/' . $filePath) . '?updated=' . $updatedDate }}"
                             target="{{ $isDisabled ? '_self' : '_blank' }}">
                             <div
                                 class="card px-3 py-2 doc-card"

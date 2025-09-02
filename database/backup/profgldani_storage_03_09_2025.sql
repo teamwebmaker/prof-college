@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2025 at 09:19 PM
+-- Generation Time: Sep 02, 2025 at 08:36 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -125,11 +125,11 @@ CREATE TABLE `cataloges` (
 --
 
 INSERT INTO `cataloges` (`id`, `title`, `file`, `visibility`, `sortable`, `created_at`, `updated_at`) VALUES
-(1, '{\"en\": \"2021 Catalog\", \"ka\": \"2021 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2021.pdf\"}', '1', 1, NULL, NULL),
-(2, '{\"en\": \"2022 Catalog\", \"ka\": \"2022 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2022.pdf\"}', '1', 1, NULL, NULL),
-(3, '{\"en\": \"2023 Catalog\", \"ka\": \"2023 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2023.pdf\"}', '1', 1, NULL, NULL),
-(4, '{\"en\": \"2024 Catalog\", \"ka\": \"2024 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2024.pdf\"}', '1', 1, NULL, NULL),
-(5, '{\"en\": \"2025 Catalog\", \"ka\": \"2025 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2025.pdf\"}', '1', 1, NULL, NULL);
+(1, '{\"en\": \"2021 Catalog\", \"ka\": \"2021 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2021.pdf\"}', '1', 1, '2025-08-27 20:53:43', '2025-08-27 20:00:00'),
+(2, '{\"en\": \"2022 Catalog\", \"ka\": \"2022 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2022.pdf\"}', '1', 1, '2025-08-27 20:54:47', '2025-08-27 20:00:00'),
+(3, '{\"en\": \"2023 Catalog\", \"ka\": \"2023 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2023.pdf\"}', '1', 1, '2025-08-27 20:54:47', '2025-08-27 20:54:47'),
+(4, '{\"en\": \"2024 Catalog\", \"ka\": \"2024 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2024.pdf\"}', '1', 1, '2025-08-27 20:54:47', '2025-08-27 20:54:47'),
+(5, '{\"en\": \"2025 Catalog\", \"ka\": \"2025 წლის კატალოგი\"}', '{\"en\": null, \"ka\": \"catalogue_2025.pdf\"}', '1', 1, '2025-08-27 20:54:47', '2025-08-27 20:54:47');
 
 -- --------------------------------------------------------
 
@@ -155,7 +155,7 @@ INSERT INTO `categories` (`id`, `title`, `visibility`, `created_at`, `updated_at
 (3, '{\"en\": \"Festivals\", \"ka\": \"ფესტივალები\"}', '1', '2024-02-14 11:12:10', '2024-02-14 11:12:10'),
 (4, '{\"en\": \"Intenal Activities\", \"ka\": \"შიდა ღონისძიებები\"}', '1', '2024-02-14 11:13:37', '2024-02-14 11:13:37'),
 (5, '{\"en\": \"News\", \"ka\": \"სიახლეები\"}', '0', '2024-02-14 11:14:01', '2024-02-14 11:14:01'),
-(6, '{\"en\": \"Extracurricular Activities\", \"ka\": \"ექსტრაკურიკულური აქტივობები\"}', '1', '2024-02-14 11:14:01', '2024-02-14 11:14:01'),
+(6, '{\"en\": \"Extracurricular Activities\", \"ka\": \"ექსტრაკურიკულური აქტივობები\"}', '0', '2024-02-14 11:14:01', '2024-02-14 11:14:01'),
 (7, '{\"en\": \"Projects\", \"ka\": \"პროექტები\"}', '1', '2024-02-14 11:14:01', '2024-02-14 11:14:01');
 
 -- --------------------------------------------------------
@@ -293,17 +293,8 @@ INSERT INTO `documentations` (`id`, `title`, `file`, `category`, `section`, `vis
 (13, '{\"en\": \"One-year Strategic Development Plan\", \"ka\": \"ერთწლიანი სტრატეგიული განვითარების გეგმა\"}', '{\"en\": null, \"ka\": \"one_year_strategic_development_plan.pdf\"}', 'development-strategy', NULL, '1', '2025-03-01 04:40:26', '2025-03-01 16:43:32'),
 (14, '{\"en\": \"One-year Strategic Development Plan (2018)\", \"ka\": \"ერთწლიანი სტრატეგიული განვითარების გეგმა 2018\"}', '{\"en\": null, \"ka\": \"one_year_strategic_development_plan_2018.pdf\"}', 'development-strategy', NULL, '1', '2025-03-01 04:40:26', '2025-03-01 16:43:32'),
 (15, '{\"en\": \"Six-year Strategic Plan\", \"ka\": \"ექვსწლიანი სტრატეგიული გეგმა\"}', '{\"en\": null, \"ka\": \"six_year_strategic_plan.pdf\"}', 'development-strategy', NULL, '1', '2025-03-01 04:40:26', '2025-03-01 16:43:32'),
-(16, '{\"en\": \"on the development of education quality\", \"ka\": \"განათლების ხარისხის განვითარების შესახებ\"}', '{\"en\": null, \"ka\": \"on_the_development_of_education_quality.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(17, '{\"en\": \"general administrative code\", \"ka\": \"ზოგადი ადმინისტრაციული კოდექსი\"}', '{\"en\": null, \"ka\": \"general_administrative_code.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(18, '{\"en\": \"on personal data protection\", \"ka\": \"პერსონალურ მონაცემთა დაცვის შესახებ\"}', '{\"en\": null, \"ka\": \"on_personal_data_protection.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(19, '{\"en\": \"law of georgia on vocational education\", \"ka\": \"საქართველოს კანონი პროფესიული განათლების შესახებ\"}', '{\"en\": null, \"ka\": \"law_of_georgia_on_vocational_education.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(20, '{\"en\": \"on legal entity of public law\", \"ka\": \"საჯარო სამართლის იურიდიული პირის შესახებ\"}', '{\"en\": null, \"ka\": \"on_legal_entity_of_public_law.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(21, '{\"en\": \"unified rules of recordkeeping\", \"ka\": \"საქმისწარმოების ერთიანი წესები\"}', '{\"en\": null, \"ka\": \"unified_rules_of_recordkeeping.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(22, '{\"en\": \"labor code of georgia\", \"ka\": \"საქართველოს შრომის კოდექსი\"}', '{\"en\": null, \"ka\": \"labor_code_of_georgia.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(23, '{\"en\": \"constitution of georgia\", \"ka\": \"საქართველოს კონსტიტუცია\"}', '{\"en\": null, \"ka\": \"constitution_of_georgia.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(24, '{\"en\": \"government resolution no 244 vocational education financing rule\", \"ka\": \"საქართველოს მთავრობის დადგენილება №244\"}', '{\"en\": null, \"ka\": \"government_resolution_no_244_vocational_education_financing_rule.pdf\"}', 'legislative-acts', NULL, '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(25, '{\"en\": \"personal data protection regulation\", \"ka\": \"პერსონალურ მონაცემთა დაცვის დებულება\"}', '{\"en\": null, \"ka\": \"personal_data_protection_regulation.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
-(26, '{\"en\": \"library regulation\", \"ka\": \"ბიბლიოთეკის დებულება\"}', '{\"en\": null, \"ka\": \"library_regulation.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
+(25, '{\"en\": \"personal data protection regulation\", \"ka\": \"პერსონალურ მონაცემთა დაცვის დებულება\"}', '{\"en\": null, \"ka\": \"personal_data_protection_regulation.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-02-28 20:00:00', '2025-09-01 20:00:00'),
+(26, '{\"en\": \"library regulation\", \"ka\": \"ბიბლიოთეკის დებულება\"}', '{\"en\": null, \"ka\": \"library_regulation.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-02-28 20:00:00', '2025-09-01 20:00:00'),
 (27, '{\"en\": \"internal mechanisms for quality development in education\", \"ka\": \"განათლების ხარისხის განვითარების შიდა მექამიზმები\"}', '{\"en\": null, \"ka\": \"internal_mechanisms_for_quality_development_in_education.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
 (28, '{\"en\": \"internal regulations\", \"ka\": \"შინაგანაწესი\"}', '{\"en\": null, \"ka\": \"internal_regulations.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
 (29, '{\"en\": \"creation of monitoring group for modular program implementation\", \"ka\": \"მოდულური პროგრამების განხორციელების მონიტორინგის ჯგუფის შექმნის შესახებ\"}', '{\"en\": null, \"ka\": \"creation_of_monitoring_group_for_modular_program_implementation.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-02-28 20:00:00', '2025-02-28 20:00:00'),
@@ -367,7 +358,16 @@ INSERT INTO `documentations` (`id`, `title`, `file`, `category`, `section`, `vis
 (87, '{\"en\": \"2018-2019 Activities\", \"ka\": \"2018-2019 წლის აქტივობები\"}', '{\"en\": null, \"ka\": \"activities_2018_2019.pdf\"}', 'reports-activities', NULL, '1', '2025-03-01 00:40:26', '2025-03-01 12:43:32'),
 (88, '{\"en\": \"2020 Activities\", \"ka\": \"2020 წლის აქტივობები\"}', '{\"en\": null, \"ka\": \"activities_2020.pdf\"}', 'reports-activities', NULL, '1', '2025-03-01 00:40:26', '2025-03-01 12:43:32'),
 (89, '{\"en\": \"Some Activities 2021\", \"ka\": \"ზოგიერთი აქტივობები 2021წ\"}', '{\"en\": null, \"ka\": \"some_activities_2021.pdf\"}', 'reports-activities', NULL, '1', '2025-03-01 00:40:26', '2025-03-01 12:43:32'),
-(90, '{\"en\": \"Freedom of Information\", \"ka\": \"ინფორმაციის თავისუფლების\"}', '{\"en\": null, \"ka\": \"freedom_of_information.pdf\"}', 'reports-activities', NULL, '1', '2025-03-01 00:40:26', '2025-03-01 12:43:32');
+(90, '{\"en\": \"Freedom of Information\", \"ka\": \"ინფორმაციის თავისუფლების\"}', '{\"en\": null, \"ka\": \"freedom_of_information.pdf\"}', 'reports-activities', NULL, '1', '2025-03-01 00:40:26', '2025-03-01 12:43:32'),
+(91, '{\"en\":\"Strategic and Action Plan Methodology\",\"ka\":\"სტრატეგიული და სამოქმედო გეგმების მეთოდოლოგია\"}', '{\"en\":null,\"ka\":\"strategic_and_action_plan_methodology.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-09-01 20:00:00', '2025-09-02 17:28:38'),
+(92, '{\"en\":\"Public Relations Rule\",\"ka\":\"საზოგადოებასთან ურთიერთობის წესი\"}', '{\"en\":null,\"ka\":\"public_relation_rule.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-09-01 20:00:00', '2025-09-01 20:00:00'),
+(93, '{\"en\":\"Functional rights and duties of employees\",\"ka\":\"თანამშრომელთა ფუნქციონალური უფლება-მოვალეობები\"}', '{\"en\":null,\"ka\":\"functional_rights_and_duties_of_employees.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-09-01 20:00:00', '2025-09-02 17:43:35'),
+(94, '{\"en\":\"Product storage and disposal rules\",\"ka\":\"პროდუქტის შენახვა-უტილიზაციის წესი\"}', '{\"en\":null,\"ka\":\"product_storage_and_disposal_rule.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-09-01 20:00:00', '2025-09-02 17:43:35'),
+(95, '{\"en\":\"One-year action plan (12.08.2024-31.12.2025)\",\"ka\":\"ერთწლიანი სამოქმედო გეგმა (12.08.2024-31.12.2025წწ.)\"}', '{\"en\": null, \"ka\": \"one_year_action_plan_12_08_2024-31_12_2025.pdf\"}', 'development-strategy', NULL, '1', '2025-09-02 04:40:26', '2025-09-02 17:53:34'),
+(96, '{\"en\":\"About the development of the quality of education\",\"ka\":\"განათლების ხარისხის განვითარების შესახებ\"}', '{\"en\":null,\"ka\":\"about_the_development_of_the_quality_of_education.pdf\"}', 'legislative-acts', NULL, '1', '2025-09-02 04:40:26', '2025-09-02 17:53:34'),
+(97, '{\"en\":\"College Statutes\",\"ka\":\"კოლეჯის წესდება\"}', '{\"en\":null,\"ka\":\"college_statutes.pdf\"}', 'legislative-acts', NULL, '1', '2025-09-02 04:40:26', '2025-09-02 18:15:26'),
+(98, '{\"en\":\"About vocational education\",\"ka\":\"პროფესიული განათლების შესახებ\"}', '{\"en\":null,\"ka\":\"about_vocational_education.pdf\"}', 'legislative-acts', NULL, '1', '2025-09-02 04:40:26', '2025-09-02 18:15:26'),
+(99, '{\"en\":\"Personnel management policy\",\"ka\":\"პერსონალის მართვის პოლიტიკა\"}', '{\"en\":null,\"ka\":\"personnel_management_policy.pdf\"}', 'subordinate-legislation-acts', 'internal-acts', '1', '2025-09-01 20:00:00', '2025-09-02 17:43:35');
 
 -- --------------------------------------------------------
 
@@ -939,15 +939,16 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`id`, `slide`, `created_at`, `updated_at`) VALUES
-(25, '665399fe53d33-1716754942.webp', '2024-05-26 16:22:22', '2024-05-26 16:22:22'),
-(26, '66539a08bbce3-1716754952.webp', '2024-05-26 16:22:32', '2024-05-26 16:22:32'),
-(27, '66539a10d2514-1716754960.webp', '2024-05-26 16:22:40', '2024-05-26 16:22:40'),
-(28, '66539a19161bd-1716754969.webp', '2024-05-26 16:22:49', '2024-05-26 16:22:49'),
-(29, '66539a20d330f-1716754976.webp', '2024-05-26 16:22:56', '2024-05-26 16:22:56'),
-(30, '66539a27d824a-1716754983.webp', '2024-05-26 16:23:03', '2024-05-26 16:23:03'),
-(31, '66539a31c2ce4-1716754993.webp', '2024-05-26 16:23:13', '2024-05-26 16:23:13'),
-(32, '66539a38250b6-1716755000.webp', '2024-05-26 16:23:20', '2024-05-26 16:23:20'),
-(33, '66a8d4974e187-1722340503.webp', '2024-07-30 07:55:03', '2024-07-30 07:55:03');
+(1, '25305c4e-8fc8-4ba3-9e02-691a40b01448.webp', '2024-05-26 12:22:22', '2024-05-26 12:22:22'),
+(2, '665399fe53d33-1716754942.webp', '2024-05-26 12:22:22', '2024-05-26 12:22:22'),
+(3, '66539a08bbce3-1716754952.webp', '2024-05-26 12:22:32', '2024-05-26 12:22:32'),
+(4, '66539a10d2514-1716754960.webp', '2024-05-26 12:22:40', '2024-05-26 12:22:40'),
+(5, '66539a19161bd-1716754969.webp', '2024-05-26 12:22:49', '2024-05-26 12:22:49'),
+(6, '66539a20d330f-1716754976.webp', '2024-05-26 12:22:56', '2024-05-26 12:22:56'),
+(7, '66539a27d824a-1716754983.webp', '2024-05-26 12:23:03', '2024-05-26 12:23:03'),
+(8, '66539a31c2ce4-1716754993.webp', '2024-05-26 12:23:13', '2024-05-26 12:23:13'),
+(9, '66539a38250b6-1716755000.webp', '2024-05-26 12:23:20', '2024-05-26 12:23:20'),
+(10, '66a8d4974e187-1722340503.webp', '2024-07-30 03:55:03', '2024-07-30 03:55:03');
 
 -- --------------------------------------------------------
 
@@ -1306,6 +1307,12 @@ ALTER TABLE `articles`
   ADD KEY `articles_category_id_foreign` (`category_id`);
 
 --
+-- Indexes for table `cataloges`
+--
+ALTER TABLE `cataloges`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -1510,6 +1517,12 @@ ALTER TABLE `articles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
+-- AUTO_INCREMENT for table `cataloges`
+--
+ALTER TABLE `cataloges`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -1543,7 +1556,7 @@ ALTER TABLE `docs`
 -- AUTO_INCREMENT for table `documentations`
 --
 ALTER TABLE `documentations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `employers`
@@ -1621,7 +1634,7 @@ ALTER TABLE `programs`
 -- AUTO_INCREMENT for table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `staff`
