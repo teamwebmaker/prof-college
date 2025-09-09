@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2025 at 08:36 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Sep 09, 2025 at 11:42 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin_users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` enum('super_admin','admin','editor') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'admin',
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('super_admin','admin','editor') NOT NULL DEFAULT 'admin',
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `last_login_at` timestamp NULL DEFAULT NULL,
-  `last_login_ip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_login_ip` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -58,11 +58,11 @@ CREATE TABLE `articles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`title`)),
   `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`description`)),
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `embed` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `embed` varchar(255) DEFAULT NULL,
+  `uuid` char(36) NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -114,7 +114,7 @@ CREATE TABLE `cataloges` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`title`)),
   `file` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`file`)),
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `sortable` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -140,7 +140,7 @@ INSERT INTO `cataloges` (`id`, `title`, `file`, `visibility`, `sortable`, `creat
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`title`)),
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -195,7 +195,7 @@ CREATE TABLE `contacts` (
   `message` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `contacts`
@@ -220,7 +220,7 @@ CREATE TABLE `councils` (
   `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `councils`
@@ -242,8 +242,8 @@ INSERT INTO `councils` (`id`, `first_name`, `last_name`, `representative`, `visi
 CREATE TABLE `docs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`title`)),
-  `type` enum('doc','docx','pdf','xlsx','ppt','pptx','xls') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `src` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` enum('doc','docx','pdf','xlsx','ppt','pptx','xls') NOT NULL,
+  `src` varchar(255) NOT NULL,
   `article_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -271,7 +271,7 @@ CREATE TABLE `documentations` (
   `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `documentations`
@@ -377,10 +377,10 @@ INSERT INTO `documentations` (`id`, `title`, `file`, `category`, `section`, `vis
 
 CREATE TABLE `employers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no-image.jpg',
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'no-image.jpg',
+  `url` varchar(255) DEFAULT NULL,
+  `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -445,11 +445,11 @@ INSERT INTO `employers` (`id`, `title`, `image`, `url`, `visibility`, `created_a
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -461,7 +461,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `gallery_images` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) NOT NULL,
   `photo_gallery_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -596,7 +596,7 @@ CREATE TABLE `graduateds` (
   `sortable` tinyint(4) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `graduateds`
@@ -624,45 +624,45 @@ CREATE TABLE `groups` (
   `sortable` tinyint(4) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `groups`
 --
 
 INSERT INTO `groups` (`id`, `number`, `table`, `profession_id`, `visibility`, `sortable`, `created_at`, `updated_at`) VALUES
-(1, 101, 'accounting_2024_fall.pdf', 1, '1', 1, '2024-09-15 04:00:00', '2024-09-15 04:00:00'),
-(2, 102, 'accounting_2024_spring.pdf', 1, '1', 2, '2024-03-20 05:30:00', '2024-03-20 05:30:00'),
-(3, 103, 'accounting_2024_evening.pdf', 1, '1', 3, '2024-10-01 14:00:00', '2024-10-01 14:00:00'),
-(4, 201, 'topography_integrated_2024.pdf', 3, '1', 4, '2024-09-10 04:30:00', '2024-09-10 04:30:00'),
-(5, 202, 'topography_modular_2024.pdf', 4, '1', 5, '2024-09-12 06:00:00', '2024-09-12 06:00:00'),
-(6, 203, 'topography_advanced_2024.pdf', 3, '1', 6, '2024-10-05 10:00:00', '2024-10-05 10:00:00'),
-(7, 301, 'design_integrated_fall.pdf', 5, '1', 7, '2024-09-18 05:00:00', '2024-09-18 05:00:00'),
-(8, 302, 'design_modular_spring.pdf', 6, '1', 8, '2024-03-25 04:45:00', '2024-03-25 04:45:00'),
-(9, 303, 'design_weekend_2024.pdf', 5, '1', 9, '2024-10-12 06:30:00', '2024-10-12 06:30:00'),
-(10, 304, 'design_evening_2024.pdf', 6, '1', 10, '2024-09-20 14:30:00', '2024-09-20 14:30:00'),
-(11, 401, 'web_dev_2024_fall.pdf', 8, '1', 11, '2024-09-05 05:15:00', '2024-09-05 05:15:00'),
-(12, 402, 'web_dev_intensive.pdf', 8, '1', 12, '2024-10-15 04:00:00', '2024-10-15 04:00:00'),
-(13, 403, 'web_dev_evening.pdf', 8, '1', 13, '2024-09-25 15:00:00', '2024-09-25 15:00:00'),
-(14, 501, 'network_systems_2024.pdf', 9, '1', 14, '2024-09-08 04:30:00', '2024-09-08 04:30:00'),
-(15, 502, 'network_advanced_2024.pdf', 9, '1', 15, '2024-10-20 06:00:00', '2024-10-20 06:00:00'),
-(16, 601, 'industrial_design_2024.pdf', 11, '1', 16, '2024-09-22 05:30:00', '2024-09-22 05:30:00'),
-(17, 602, 'industrial_design_spring.pdf', 11, '1', 17, '2024-03-15 04:15:00', '2024-03-15 04:15:00'),
-(18, 701, 'it_basics_2024.pdf', 12, '1', 18, '2024-09-12 05:00:00', '2024-09-12 05:00:00'),
-(19, 702, 'it_accelerated_2024.pdf', 12, '1', 19, '2024-10-08 09:30:00', '2024-10-08 09:30:00'),
-(20, 801, 'sewing_beginners_2024.pdf', 14, '1', 20, '2024-09-30 06:00:00', '2024-09-30 06:00:00'),
-(21, 802, 'sewing_advanced_2024.pdf', 14, '1', 21, '2024-10-10 10:30:00', '2024-10-10 10:30:00'),
-(22, 901, 'finance_services_fall.pdf', 15, '1', 22, '2024-09-17 04:45:00', '2024-09-17 04:45:00'),
-(23, 902, 'finance_services_evening.pdf', 15, '1', 23, '2024-09-28 14:15:00', '2024-09-28 14:15:00'),
-(24, 1001, 'auto_undercarriage_2024.pdf', 16, '1', 24, '2024-09-14 04:00:00', '2024-09-14 04:00:00'),
-(25, 1002, 'auto_electrical_2024.pdf', 17, '1', 25, '2024-09-21 05:30:00', '2024-09-21 05:30:00'),
-(26, 1003, 'auto_engine_repair_2024.pdf', 18, '1', 26, '2024-10-03 06:15:00', '2024-10-03 06:15:00'),
-(27, 1004, 'auto_mixed_specialties.pdf', 16, '1', 27, '2024-10-25 09:00:00', '2024-10-25 09:00:00'),
-(28, 105, 'accounting_weekend_2024.pdf', 1, '1', 28, '2024-11-02 05:00:00', '2024-11-02 05:00:00'),
-(29, 405, 'web_dev_bootcamp.pdf', 8, '1', 29, '2024-11-15 04:30:00', '2024-11-15 04:30:00'),
-(30, 305, 'design_freelancer_track.pdf', 6, '1', 30, '2024-11-20 13:30:00', '2024-11-20 13:30:00'),
-(31, 999, 'archived_test_group.pdf', 1, '0', 31, '2024-01-15 08:00:00', '2024-01-15 08:00:00'),
-(32, 998, 'suspended_group.pdf', 8, '0', 32, '2024-02-20 11:30:00', '2024-02-20 11:30:00');
+(1, 101, 'accounting_2024_fall.pdf', 1, '1', 1, '2024-09-15 00:00:00', '2024-09-15 00:00:00'),
+(2, 102, 'accounting_2024_spring.pdf', 1, '1', 2, '2024-03-20 01:30:00', '2024-03-20 01:30:00'),
+(3, 103, 'accounting_2024_evening.pdf', 1, '1', 3, '2024-10-01 10:00:00', '2024-10-01 10:00:00'),
+(4, 201, 'topography_integrated_2024.pdf', 3, '1', 4, '2024-09-10 00:30:00', '2024-09-10 00:30:00'),
+(5, 202, 'topography_modular_2024.pdf', 4, '1', 5, '2024-09-12 02:00:00', '2024-09-12 02:00:00'),
+(6, 203, 'topography_advanced_2024.pdf', 3, '1', 6, '2024-10-05 06:00:00', '2024-10-05 06:00:00'),
+(7, 301, 'design_integrated_fall.pdf', 5, '1', 7, '2024-09-18 01:00:00', '2024-09-18 01:00:00'),
+(8, 302, 'design_modular_spring.pdf', 6, '1', 8, '2024-03-25 00:45:00', '2024-03-25 00:45:00'),
+(9, 303, 'design_weekend_2024.pdf', 5, '1', 9, '2024-10-12 02:30:00', '2024-10-12 02:30:00'),
+(10, 304, 'design_evening_2024.pdf', 6, '1', 10, '2024-09-20 10:30:00', '2024-09-20 10:30:00'),
+(11, 401, 'web_dev_2024_fall.pdf', 8, '1', 11, '2024-09-05 01:15:00', '2024-09-05 01:15:00'),
+(12, 402, 'web_dev_intensive.pdf', 8, '1', 12, '2024-10-15 00:00:00', '2024-10-15 00:00:00'),
+(13, 403, 'web_dev_evening.pdf', 8, '1', 13, '2024-09-25 11:00:00', '2024-09-25 11:00:00'),
+(14, 501, 'network_systems_2024.pdf', 9, '1', 14, '2024-09-08 00:30:00', '2024-09-08 00:30:00'),
+(15, 502, 'network_advanced_2024.pdf', 9, '1', 15, '2024-10-20 02:00:00', '2024-10-20 02:00:00'),
+(16, 601, 'industrial_design_2024.pdf', 11, '1', 16, '2024-09-22 01:30:00', '2024-09-22 01:30:00'),
+(17, 602, 'industrial_design_spring.pdf', 11, '1', 17, '2024-03-15 00:15:00', '2024-03-15 00:15:00'),
+(18, 701, 'it_basics_2024.pdf', 12, '1', 18, '2024-09-12 01:00:00', '2024-09-12 01:00:00'),
+(19, 702, 'it_accelerated_2024.pdf', 12, '1', 19, '2024-10-08 05:30:00', '2024-10-08 05:30:00'),
+(20, 801, 'sewing_beginners_2024.pdf', 14, '1', 20, '2024-09-30 02:00:00', '2024-09-30 02:00:00'),
+(21, 802, 'sewing_advanced_2024.pdf', 14, '1', 21, '2024-10-10 06:30:00', '2024-10-10 06:30:00'),
+(22, 901, 'finance_services_fall.pdf', 15, '1', 22, '2024-09-17 00:45:00', '2024-09-17 00:45:00'),
+(23, 902, 'finance_services_evening.pdf', 15, '1', 23, '2024-09-28 10:15:00', '2024-09-28 10:15:00'),
+(24, 1001, 'auto_undercarriage_2024.pdf', 16, '1', 24, '2024-09-14 00:00:00', '2024-09-14 00:00:00'),
+(25, 1002, 'auto_electrical_2024.pdf', 17, '1', 25, '2024-09-21 01:30:00', '2024-09-21 01:30:00'),
+(26, 1003, 'auto_engine_repair_2024.pdf', 18, '1', 26, '2024-10-03 02:15:00', '2024-10-03 02:15:00'),
+(27, 1004, 'auto_mixed_specialties.pdf', 16, '1', 27, '2024-10-25 05:00:00', '2024-10-25 05:00:00'),
+(28, 105, 'accounting_weekend_2024.pdf', 1, '1', 28, '2024-11-02 01:00:00', '2024-11-02 01:00:00'),
+(29, 405, 'web_dev_bootcamp.pdf', 8, '1', 29, '2024-11-15 00:30:00', '2024-11-15 00:30:00'),
+(30, 305, 'design_freelancer_track.pdf', 6, '1', 30, '2024-11-20 09:30:00', '2024-11-20 09:30:00'),
+(31, 999, 'archived_test_group.pdf', 1, '0', 31, '2024-01-15 04:00:00', '2024-01-15 04:00:00'),
+(32, 998, 'suspended_group.pdf', 8, '0', 32, '2024-02-20 07:30:00', '2024-02-20 07:30:00');
 
 -- --------------------------------------------------------
 
@@ -673,9 +673,9 @@ INSERT INTO `groups` (`id`, `number`, `table`, `profession_id`, `visibility`, `s
 CREATE TABLE `main_menus` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`title`)),
-  `type` enum('route','url') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` enum('route','url') NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `visibility` enum('0','1') DEFAULT NULL,
   `sortable` tinyint(4) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -687,7 +687,7 @@ CREATE TABLE `main_menus` (
 
 INSERT INTO `main_menus` (`id`, `title`, `type`, `name`, `visibility`, `sortable`, `created_at`, `updated_at`) VALUES
 (1, '{\"en\": \"Home\", \"ka\": \"მთავარი\"}', 'route', 'home', '1', 1, '2024-02-26 11:13:09', '2024-02-26 11:13:09'),
-(2, '{\"en\": \"About us\", \"ka\": \"ჩვენს შესახებ\"}', 'route', NULL, '1', 1, '2024-02-26 11:13:09', '2024-02-26 11:13:09'),
+(2, '{\"en\": \"About us\", \"ka\": \"ჩვენ შესახებ\"}', 'route', NULL, '1', 1, '2024-02-26 11:13:09', '2024-02-26 11:13:09'),
 (3, '{\"en\": \"Programs\", \"ka\": \"პროგრამები\"}', 'route', 'programs', '1', 1, '2024-02-26 11:13:09', '2024-02-26 11:13:09'),
 (4, '{\"en\": \"Study Process\", \"ka\": \"სასწავლო პროცესი\"}', 'route', NULL, '1', 1, '2024-02-26 11:13:09', '2024-02-26 11:13:09'),
 (5, '{\"en\": \"Documentation\", \"ka\": \"დოკუმენტაცია\"}', 'route', 'documents', '0', 1, '2024-02-26 11:13:09', '2024-02-26 11:13:09'),
@@ -703,7 +703,7 @@ INSERT INTO `main_menus` (`id`, `title`, `type`, `name`, `visibility`, `sortable
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -742,9 +742,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `partners` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
   `sortable` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -768,8 +768,8 @@ INSERT INTO `partners` (`id`, `title`, `image`, `url`, `sortable`, `created_at`,
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -781,11 +781,11 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -801,8 +801,8 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `photo_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`title`)),
-  `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `uuid` char(36) NOT NULL,
+  `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -859,27 +859,32 @@ CREATE TABLE `professions` (
   `sortable` tinyint(4) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `professions`
 --
 
 INSERT INTO `professions` (`id`, `title`, `image`, `type`, `condition`, `level`, `credits`, `custom_credits`, `duration`, `custom_duration`, `visibility`, `sortable`, `created_at`, `updated_at`) VALUES
-(1, '{\"en\": \"Accounting\", \"ka\": \"ბუღალტრული აღრიცხვა\"}', 'accounting.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'V', '99', '129', '17', '24', '1', 1, '2024-03-16 10:39:02', '2025-06-25 15:28:46'),
-(3, '{\"en\": \"Performance of surveying-topographical work\", \"ka\": \"აზომვით-ტოპოგრაფიული სამუშაოს შესრულება\"}', 'topography.jpg', '{\"en\": \"integrated\", \"ka\": \"ინტეგრირებული\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '143', '173', '30', '37', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:07:23'),
-(4, '{\"en\": \"Performance of surveying-topographical work\", \"ka\": \"აზომვით-ტოპოგრაფიული სამუშაოს შესრულება\"}', 'topography.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '90', '120', '17', '24', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:07:30'),
-(5, '{\"en\": \"Performing graphic design\", \"ka\": \"გრაფიკული დიზაინის შესრულება\"}', 'graphic_design.jpg', '{\"en\": \"integrated\", \"ka\": \"ინტეგრირებული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '143', '173', '30', '37', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:07:50'),
-(6, '{\"en\": \"Performing graphic design\", \"ka\": \"გრაფიკული დიზაინის შესრულება\"}', 'graphic_design.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '90', '120', '16', '23', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:07:57'),
-(8, '{\"en\": \"Web technologies\", \"ka\": \"ვებტექნოლოგიები\"}', 'web_development.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '64', '94', '12', '19', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:08:22'),
-(9, '{\"en\": \"Computer network and systems\", \"ka\": \"კომპიუტერული ქსელი და სისტემები\"}', 'network.jpg', '{\"en\": \"integrated\", \"ka\": \"ინტეგრირებული\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '148', '178\r\n', '30', '37', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:08:54'),
-(11, '{\"en\": \"Performance of industrial design\", \"ka\": \"ინდუსტრიული დიზაინის შესრულება \"}', 'industrial_design.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '83', '113', '15', '22', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:22:45'),
-(12, '{\"en\": \"Information technology\", \"ka\": \"ინფორმაციის ტექნოლოგია\"}', 'Information_technologies.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '61', '76', '11', '15.5', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:23:01'),
-(14, '{\"en\": \"Sewing production\", \"ka\": \"სამკერვალო წარმოება\"}', 'sewing.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '100', '115', '18.5', '22', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:23:29'),
-(15, '{\"en\": \"Financial services\", \"ka\": \"საფინანსო სერვისები\"}', 'finance_services.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '52', '67', '10', '13.5', '1', 1, '2024-03-16 10:39:02', '2024-03-25 12:23:45'),
-(16, '{\"en\": \"Repair of the undercarriage of a light vehicle\", \"ka\": \"მსუბუქი ავტომობილის სავალი ნაწილის შეკეთება\"}', 'auto_rapiar.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '59', '74', '10', '14', '1', 1, '2024-03-16 10:39:02', '2025-02-18 07:38:09'),
-(17, '{\"en\": \"Repair of electrical and electronic systems of light vehicles\", \"ka\": \"მსუბუქი ავტომობილის ელექტრო და ელექტრონული სისტემების შეკეთება\"}', 'auto_service.jpg', '{\"en\": \"modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'III', '82', NULL, '14', NULL, '1', 1, '2024-03-16 10:39:02', '2024-04-02 10:54:51'),
-(18, '{\"en\": \"Light vehicle engine repair\", \"ka\": \"მსუბუქი ავტომობილის ძრავას შეკეთება (მოდულური)\"}', 'car_engine_repair.jpg', '{\"en\": \"Modular\", \"ka\": \"მოდულური\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'III', '58', '73', '10', '14', '1', 1, '2025-08-13 19:11:50', '2025-08-27 18:22:27');
+(1, '{\"en\": \"Accounting\", \"ka\": \"ბუღალტრული აღრიცხვა\"}', 'accounting.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'V', '99', '129', '17.5', '23.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(2, '{\"en\": \"Surveying and Topography\", \"ka\": \"აზომვით-ტოპოგრაფიული სამუშაოს შესრულება\"}', 'topography.jpg', '{\"en\": \"Integrated\", \"ka\": \"ინტეგრირებული\"}', '{\"en\": \"Integrated general education\", \"ka\": \"ინტეგრირებული ზოგადი განათლება\"}', 'IV', '117', '147', '21', '27', '0', 1, '2024-03-16 06:39:02', '2025-09-09 09:40:21'),
+(3, '{\"en\": \"Surveying and Topography\", \"ka\": \"აზომვით-ტოპოგრაფიული სამუშაოს შესრულება\"}', 'topography.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '92', '122', '17.5', '23.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(4, '{\"en\": \"Graphic Design\", \"ka\": \"გრაფიკული დიზაინის შესრულება\"}', 'graphic_design.jpg', '{\"en\": \"Integrated\", \"ka\": \"ინტეგრირებული\"}', '{\"en\": \"Integrated general education\", \"ka\": \"ინტეგრირებული ზოგადი განათლება\"}', 'IV', '143', '173', '30.5', '36.5', '0', 1, '2024-03-16 06:39:02', '2025-09-09 09:35:39'),
+(5, '{\"en\": \"Graphic Design\", \"ka\": \"გრაფიკული დიზაინის შესრულება\"}', 'graphic_design.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '90', '120', '17', '23', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(6, '{\"en\": \"Front-end Development\", \"ka\": \"Front-end დეველოპმენტი\"}', 'web_development.jpg', '{\"en\": \"Integrated\", \"ka\": \"ინტეგრირებული\"}', '{\"en\": \"Integrated general education\", \"ka\": \"ინტეგრირებული ზოგადი განათლება\"}', 'IV', '88', '118', '17', '23', '0', 1, '2024-03-16 06:39:02', '2025-09-09 09:35:48'),
+(7, '{\"en\": \"Front-end Development\", \"ka\": \"Front-end დეველოპმენტი\"}', 'web_development.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '60', '90', '11', '17', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(8, '{\"en\": \"Computer Network and Systems\", \"ka\": \"კომპიუტერული ქსელი და სისტემები\"}', 'network.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '90', '120', '18.5', '24.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(9, '{\"en\": \"Computer Network and Systems\", \"ka\": \"კომპიუტერული ქსელი და სისტემები\"}', 'network.jpg', '{\"en\": \"Integrated\", \"ka\": \"ინტეგრირებული\"}', '{\"en\": \"Integrated general education\", \"ka\": \"ინტეგრირებული ზოგადი განათლება\"}', 'IV', '148', '178', '30', '36', '0', 1, '2024-03-16 06:39:02', '2025-09-09 09:35:56'),
+(10, '{\"en\": \"Industrial Design\", \"ka\": \"ინდუსტრიული დიზაინის შესრულება\"}', 'industrial_design.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '83', '113', '15.5', '21.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(11, '{\"en\": \"Information Technology\", \"ka\": \"ინფორმაციის ტექნოლოგიის მხარდაჭერა\"}', 'Information_technologies.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '61', '76', '11.5', '14.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(12, '{\"en\": \"Financial Services\", \"ka\": \"საფინანსო სერვისები\"}', 'finance_services.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '52', '67', '10.5', '13.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(13, '{\"en\": \"Tailoring Production\", \"ka\": \"სამკერვალო წარმოება\"}', 'sewing.jpg', '{\"en\": \"Basic\", \"ka\": \"საბაზო\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '100', '115', '19', '22', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(14, '{\"en\": \"Automobile Body Construction\", \"ka\": \"მსუბუქი ავტომობილის სავალი ნაწილის შეკეთება\"}', 'auto_rapiar.jpg', '{\"en\": \"Basic\", \"ka\": \"საბაზო\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '59', '74', '11', '14', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(15, '{\"en\": \"Financial Services\", \"ka\": \"საფინანსო სერვისები\"}', 'finance_services.jpg', '{\"en\": \"Basic\", \"ka\": \"საბაზო\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '52', '67', '10.5', '13.5', '0', 1, '2024-03-16 06:39:02', '2025-09-09 09:39:37'),
+(16, '{\"en\": \"Automobile Electrical and Electronic Systems Construction\", \"ka\": \"მსუბუქი ავტომობილის ელექტრო და ელექტრონული სისტემების შეკეთება\"}', 'auto_service.jpg', '{\"en\": \"Basic\", \"ka\": \"საბაზო\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '82', '97', '15', '17.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(17, '{\"en\": \"Automobile Engine Repair\", \"ka\": \"მსუბუქი ავტომობილის ძრავას შეკეთება\"}', 'car_engine_repair.jpg', '{\"en\": \"Basic\", \"ka\": \"საბაზო\"}', '{\"en\": \"Basic education\", \"ka\": \"საბაზო განათლება\"}', 'IV', '58', '73', '11', '14', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02'),
+(18, '{\"en\": \"Heating, Air Conditioning and Refrigeration Systems Service\", \"ka\": \"გათბობის, ჰაერის კონდიცირებისა და სამაცივრო სისტემების მომსახურება\"}', 'systems_services.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '66', '96', '13.5', '19.5', '1', 1, '2024-03-16 06:39:02', '2025-09-09 08:58:33'),
+(19, '{\"en\": \"Web Technologies\", \"ka\": \"ვებტექნოლოგიები\"}', 'web_development.jpg', '{\"en\": \"Standard\", \"ka\": \"სტანდარტული\"}', '{\"en\": \"Complete general education\", \"ka\": \"სრული ზოგადი განათლება\"}', 'IV', '64', '94', '12.5', '18.5', '1', 1, '2024-03-16 06:39:02', '2024-03-16 06:39:02');
 
 -- --------------------------------------------------------
 
@@ -895,7 +900,7 @@ CREATE TABLE `programs` (
   `visibility` enum('0','1') DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `programs`
@@ -929,7 +934,7 @@ INSERT INTO `programs` (`id`, `title`, `file`, `category`, `visibility`, `create
 
 CREATE TABLE `slides` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `slide` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `slide` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -960,11 +965,11 @@ CREATE TABLE `staff` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `full_name` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`full_name`)),
   `position` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`position`)),
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no-image.jpg',
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `email` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'no-image.jpg',
+  `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `sortable` tinyint(4) NOT NULL DEFAULT 1,
-  `category` enum('management','administration') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'management',
+  `category` enum('management','administration') NOT NULL DEFAULT 'management',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1017,7 +1022,7 @@ CREATE TABLE `sub_menus` (
   `sortable` tinyint(4) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `sub_menus`
@@ -1052,25 +1057,35 @@ CREATE TABLE `sub_sliders` (
   `sortable` tinyint(4) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `sub_sliders`
 --
 
 INSERT INTO `sub_sliders` (`id`, `slide`, `visibility`, `sortable`, `created_at`, `updated_at`) VALUES
-(1, 'presentation-slide-01.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(2, 'presentation-slide-02.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(3, 'presentation-slide-03.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(4, 'presentation-slide-04.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(5, 'presentation-slide-05.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(6, 'presentation-slide-06.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(7, 'presentation-slide-07.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(8, 'presentation-slide-16.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(9, 'presentation-slide-17.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(10, 'presentation-slide-18.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(11, 'presentation-slide-19.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02'),
-(12, 'presentation-slide-20.webp', '1', 1, '2025-03-04 08:47:02', '2025-03-04 08:47:02');
+(1, 'presentation-slide-01.webp', '1', 1, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(2, 'presentation-slide-02.webp', '1', 2, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(3, 'presentation-slide-03.webp', '1', 3, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(4, 'presentation-slide-04.webp', '1', 4, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(5, 'presentation-slide-05.webp', '1', 5, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(6, 'presentation-slide-06.webp', '1', 6, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(7, 'presentation-slide-07.webp', '1', 7, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(8, 'presentation-slide-08.webp', '1', 8, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(9, 'presentation-slide-09.webp', '1', 9, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(10, 'presentation-slide-10.webp', '1', 10, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(11, 'presentation-slide-11.webp', '1', 11, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(12, 'presentation-slide-12.webp', '1', 12, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(13, 'presentation-slide-13.webp', '1', 13, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(14, 'presentation-slide-14.webp', '1', 14, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(15, 'presentation-slide-15.webp', '1', 15, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(16, 'presentation-slide-16.webp', '1', 16, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(17, 'presentation-slide-17.webp', '1', 17, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(18, 'presentation-slide-18.webp', '1', 18, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(19, 'presentation-slide-19.webp', '1', 19, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(20, 'presentation-slide-20.webp', '1', 20, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(21, 'presentation-slide-21.webp', '1', 21, '2025-03-04 04:47:02', '2025-03-04 04:47:02'),
+(22, 'presentation-slide-22.webp', '1', 22, '2025-03-04 04:47:02', '2025-03-04 04:47:02');
 
 -- --------------------------------------------------------
 
@@ -1080,10 +1095,10 @@ INSERT INTO `sub_sliders` (`id`, `slide`, `visibility`, `sortable`, `created_at`
 
 CREATE TABLE `tasks` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) NOT NULL,
   `title` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`title`)),
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `visibility` enum('0','1') CHARACTER SET utf8 NOT NULL DEFAULT '1',
+  `url` varchar(255) DEFAULT NULL,
+  `visibility` enum('0','1') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '1',
   `sortable` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1099,9 +1114,9 @@ CREATE TABLE `teachers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `full_name` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`full_name`)),
   `subject` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`subject`)),
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no-image.jpg',
-  `visibility` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `email` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'no-image.jpg',
+  `visibility` enum('0','1') NOT NULL DEFAULT '1',
   `sortable` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1165,11 +1180,11 @@ INSERT INTO `teachers` (`id`, `full_name`, `subject`, `email`, `image`, `visibil
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1188,7 +1203,7 @@ CREATE TABLE `vacancies` (
   `sortable` tinyint(4) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `vacancies`
@@ -1220,25 +1235,27 @@ CREATE TABLE `videos` (
   `sortable` tinyint(4) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `videos`
 --
 
 INSERT INTO `videos` (`id`, `title`, `url`, `visibility`, `sortable`, `created_at`, `updated_at`) VALUES
-(19, '{\"en\": \"A successful graduate of Gldani Vocational Training Center\", \"ka\": \"გლდანის პროფესიული მომზადების ცენტრის წარმატებული კურსდამთავრებული\"}', 'https://www.youtube.com/embed/LAxc4YoDaeg?si=XqiSbZUa9KLrvs-j', '1', 4, '2024-07-04 09:56:43', '2025-08-09 14:16:10'),
-(20, '{\"en\": \"\\\"Startup Hub\\\" project at the \\\"Gldani Vocational Training Center\\\" College\", \"ka\": \"\\\"სტარტაპ ჰაბის\\\" პროექტი სსიპ - კოლეჯ \\\"გლდანის პროფესიული მომზადების ცენტრში\\\"\"}', 'https://www.youtube.com/embed/3uaeJy5ToaA?si=SVpGzSvnaxpPC6S8', '1', 1, '2024-07-04 09:58:01', '2024-07-04 09:58:01'),
-(21, '{\"ka\":\"წლის საუკეთესო პროფესიული პროგრამა - ინდუსტრიული დიზაინის შესრულება\",\"en\":\"Best Professional Program of the Year - Industrial Design Performance\"}', 'https://www.youtube.com/embed/fW517iwURE4?si=9TkKqY4O5pqFA7rU', '1', 2, '2025-08-09 14:02:40', '2025-08-09 14:10:11'),
-(22, '{\"ka\":\"2024 წლის პროფესიული განათლების მასწავლებელი გურამ დავითლიძე\",\"en\":\"Vocational Education Teacher of the Year 2024 Guram Davitlidze\"}', 'https://www.youtube.com/embed/JMP9kfNalEE?si=bEA_gcTBWdW8RdGX', '1', 3, '2025-08-09 14:05:24', '2025-08-09 14:12:50'),
-(23, '{\"ka\":\"პროფესია საგამომცემლო საქმის დიზაინერი\",\"en\":\"Profession: Publishing designer\"}', 'https://www.youtube.com/embed/zw92D_dwcUk?si=4vQwFhZRl1z-gsVw', '1', 5, '2025-08-09 14:09:07', '2025-08-09 14:16:14'),
-(24, '{\"ka\":\"პროფესია - მძიმე ტექნიკის ოპერატორი\",\"en\":\"Profession - Heavy equipment operator\"}', 'https://www.youtube.com/embed/6I9wCvl1y2g?si=-_WBPa_xScg8Y-pK', '1', 6, '2025-08-09 14:15:21', '2025-08-09 14:15:21'),
-(25, '{\"ka\":\"გლდანის პროფესიულ კოლეჯში სტუდენტების მიღება დაიწყო\",\"en\":\"Gldani Vocational College has started accepting students\"}', 'https://www.youtube.com/embed/7U5sLp2OAC0?si=V7va2Ia0jw3nlZgQ', '1', 10, '2025-08-09 14:21:04', '2025-08-09 14:35:59'),
-(26, '{\"ka\":\"პროფესია ავტოშემკეთებელი\",\"en\":\"Profession: Auto mechanic\"}', 'https://www.youtube.com/embed/17Bpm8K9w9Y?si=hUlwuUN1a-Ue2aKK', '1', 11, '2025-08-09 14:24:22', '2025-08-09 14:36:05'),
-(27, '{\"ka\":\"პროფესია ვებ პროგრამისტი\",\"en\":\"Profession: Web Developer\"}', 'https://www.youtube.com/embed/2YnlsITijiA?si=Ifri0DaeZh3yaGZO', '1', 12, '2025-08-09 14:26:49', '2025-08-09 14:36:09'),
-(28, '{\"ka\":\"სსიპ.საზოგადოებრივი კოლეჯი. გლდანის პროფესიული მომზადების ცენტრი.\",\"en\":\"LEPL. Community College. Gldani Vocational Training Center.\"}', 'https://www.youtube.com/embed/FQakNuJZV3Q?si=nFA4OKplDzDxlc8Y', '1', 7, '2025-08-09 14:38:22', '2025-08-09 14:38:22'),
-(29, '{\"ka\":\"საზოგადოებრივი კოლეჯი “გლდანის პროფესიული მომზადების ცენტრი“ - პრეზენტაცია 2018\",\"en\":\"Community College “Gldani Vocational Training Center” - Presentation 2018\"}', 'https://www.youtube.com/embed/yMfnFW9zcC0?si=RcBzKaGAGl4N-rtU', '1', 8, '2025-08-09 14:40:45', '2025-08-09 14:40:45'),
-(30, '{\"ka\":\"გახდი პროფესიონალი და დასაქმდი\",\"en\":\"Become a professional and get a job.\"}', 'https://www.youtube.com/embed/ZIL17IYq15Y?si=9fzxj0iRKllB2bND', '1', 9, '2025-08-09 14:42:37', '2025-08-09 14:42:37');
+(19, '{\"en\": \"A successful graduate of Gldani Vocational Training Center\", \"ka\": \"გლდანის პროფესიული მომზადების ცენტრის წარმატებული კურსდამთავრებული\"}', 'https://www.youtube.com/embed/LAxc4YoDaeg?si=XqiSbZUa9KLrvs-j', '1', 9, '2024-07-04 09:56:43', '2025-09-09 07:43:46'),
+(20, '{\"en\": \"\\\"Startup Hub\\\" project at the \\\"Gldani Vocational Training Center\\\" College\", \"ka\": \"\\\"სტარტაპ ჰაბის\\\" პროექტი სსიპ - კოლეჯ \\\"გლდანის პროფესიული მომზადების ცენტრში\\\"\"}', 'https://www.youtube.com/embed/3uaeJy5ToaA?si=SVpGzSvnaxpPC6S8', '1', 12, '2024-07-04 09:58:01', '2025-09-09 07:43:50'),
+(21, '{\"ka\":\"წლის საუკეთესო პროფესიული პროგრამა - ინდუსტრიული დიზაინის შესრულება\",\"en\":\"Best Professional Program of the Year - Industrial Design Performance\"}', 'https://www.youtube.com/embed/fW517iwURE4?si=9TkKqY4O5pqFA7rU', '1', 11, '2025-08-09 14:02:40', '2025-09-09 07:43:53'),
+(22, '{\"ka\":\"2024 წლის პროფესიული განათლების მასწავლებელი გურამ დავითლიძე\",\"en\":\"Vocational Education Teacher of the Year 2024 Guram Davitlidze\"}', 'https://www.youtube.com/embed/JMP9kfNalEE?si=bEA_gcTBWdW8RdGX', '1', 10, '2025-08-09 14:05:24', '2025-09-09 07:43:58'),
+(23, '{\"ka\":\"პროფესია საგამომცემლო საქმის დიზაინერი\",\"en\":\"Profession: Publishing designer\"}', 'https://www.youtube.com/embed/zw92D_dwcUk?si=4vQwFhZRl1z-gsVw', '1', 8, '2025-08-09 14:09:07', '2025-09-09 07:44:02'),
+(24, '{\"ka\":\"პროფესია - მძიმე ტექნიკის ოპერატორი\",\"en\":\"Profession - Heavy equipment operator\"}', 'https://www.youtube.com/embed/6I9wCvl1y2g?si=-_WBPa_xScg8Y-pK', '1', 6, '2025-08-09 14:15:21', '2025-09-09 07:44:06'),
+(25, '{\"ka\":\"გლდანის პროფესიულ კოლეჯში სტუდენტების მიღება დაიწყო\",\"en\":\"Gldani Vocational College has started accepting students\"}', 'https://www.youtube.com/embed/7U5sLp2OAC0?si=V7va2Ia0jw3nlZgQ', '1', 3, '2025-08-09 14:21:04', '2025-09-09 07:44:09'),
+(26, '{\"ka\":\"პროფესია ავტოშემკეთებელი\",\"en\":\"Profession: Auto mechanic\"}', 'https://www.youtube.com/embed/17Bpm8K9w9Y?si=hUlwuUN1a-Ue2aKK', '1', 2, '2025-08-09 14:24:22', '2025-09-09 07:44:13'),
+(27, '{\"ka\":\"პროფესია ვებ პროგრამისტი\",\"en\":\"Profession: Web Developer\"}', 'https://www.youtube.com/embed/2YnlsITijiA?si=Ifri0DaeZh3yaGZO', '1', 1, '2025-08-09 14:26:49', '2025-09-09 07:44:16'),
+(28, '{\"ka\":\"სსიპ.საზოგადოებრივი კოლეჯი. გლდანის პროფესიული მომზადების ცენტრი.\",\"en\":\"LEPL. Community College. Gldani Vocational Training Center.\"}', 'https://www.youtube.com/embed/FQakNuJZV3Q?si=nFA4OKplDzDxlc8Y', '1', 7, '2025-08-09 14:38:22', '2025-09-09 07:44:19'),
+(29, '{\"ka\":\"საზოგადოებრივი კოლეჯი “გლდანის პროფესიული მომზადების ცენტრი“ - პრეზენტაცია 2018\",\"en\":\"Community College “Gldani Vocational Training Center” - Presentation 2018\"}', 'https://www.youtube.com/embed/yMfnFW9zcC0?si=RcBzKaGAGl4N-rtU', '1', 5, '2025-08-09 14:40:45', '2025-09-09 07:44:23'),
+(30, '{\"ka\":\"გახდი პროფესიონალი და დასაქმდი\",\"en\":\"Become a professional and get a job.\"}', 'https://www.youtube.com/embed/ZIL17IYq15Y?si=9fzxj0iRKllB2bND', '1', 4, '2025-08-09 14:42:37', '2025-09-09 07:44:26'),
+(31, '{\"ka\":\"ინტეგრირებული პროგრამა გლდანის პროფესიული მომზადების ცენტრში\",\"en\":\"Integrated Program at Gldani Vocational Training Center\"}', 'https://www.youtube.com/embed/bFD1cvjzhZM?si=SWF_M_V2b4ZIZkg0', '1', 13, '2025-09-09 09:58:01', '2025-09-09 09:58:01'),
+(32, '{\"ka\":\"რა არის ინტეგრირეგული პროგრამები?!\",\"en\":\"What are integrative programs?!\"}', 'https://www.youtube.com/embed/nuNErAlHtec?si=V6bJbrbidVVTiLnS', '1', 14, '2025-10-09 09:58:01', '2025-10-09 09:58:01');
 
 -- --------------------------------------------------------
 
@@ -1255,7 +1272,7 @@ CREATE TABLE `visitors` (
   `phone` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `visitors`
@@ -1279,7 +1296,7 @@ CREATE TABLE `votes` (
   `low` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `votes`
@@ -1622,7 +1639,7 @@ ALTER TABLE `photo_galleries`
 -- AUTO_INCREMENT for table `professions`
 --
 ALTER TABLE `professions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `programs`
@@ -1652,7 +1669,7 @@ ALTER TABLE `sub_menus`
 -- AUTO_INCREMENT for table `sub_sliders`
 --
 ALTER TABLE `sub_sliders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tasks`
@@ -1682,7 +1699,7 @@ ALTER TABLE `vacancies`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `visitors`
@@ -1717,12 +1734,6 @@ ALTER TABLE `docs`
 --
 ALTER TABLE `gallery_images`
   ADD CONSTRAINT `gallery_images_photo_gallery_id_foreign` FOREIGN KEY (`photo_gallery_id`) REFERENCES `photo_galleries` (`id`);
-
---
--- Constraints for table `groups`
---
-ALTER TABLE `groups`
-  ADD CONSTRAINT `groups_ibfk_1` FOREIGN KEY (`profession_id`) REFERENCES `professions` (`id`);
 
 --
 -- Constraints for table `sub_menus`

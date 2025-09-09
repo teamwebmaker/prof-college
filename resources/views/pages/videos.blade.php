@@ -14,7 +14,7 @@
         </h2>
         <div class="row justify-content-center">
             @foreach($videos as $video)
-                <div class="col-xl-4 col-md-6 mb-4">
+                <div class="col-md-6 mb-4">
                     <x-video-component :video="$video" :language="$language"/>
                 </div>
             @endforeach

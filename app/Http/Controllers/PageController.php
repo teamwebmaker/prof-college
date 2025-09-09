@@ -111,7 +111,7 @@ class PageController extends Controller
     public function videos()
     {
         return view('pages.videos', [
-            'videos' => Video::where('visibility', '1')->orderBy('sortable', 'ASC')->paginate(12),
+            'videos' => Video::where('visibility', '1')->orderBy('sortable', 'DESC')->paginate(6),
         ]);
     }
 
@@ -126,7 +126,6 @@ class PageController extends Controller
     {
         return view('pages.tables', [
             'professions' => Profession::where('visibility', '1')
-                ->where('type->en', 'modular') // Querying the JSON column
                 ->with('groups')
                 ->get(),
         ]);
