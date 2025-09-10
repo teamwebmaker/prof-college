@@ -67,7 +67,7 @@
                             >
                                 <i class="bi bi-mortarboard-fill me-2"></i>
                                 {{ $profession->title->$language }}
-                                @if (!in_array($profession->type->$language, ['მოდულური', 'modular']))
+                                @if ($profession->type->$language)
                                     ({{ $profession->type->$language }})
                                 @endif
                             </button>

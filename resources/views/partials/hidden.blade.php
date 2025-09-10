@@ -15,18 +15,30 @@
             </button>
         </li>
         <li class="list-group-item p-0 bg-transparent  border border-0">
-            <a href="https://geolibrary.byethost3.com/gldani/opac/index.php"
-                class="btn bg-dark-red text-white aside-btn" target="_blank" data-bs-toggle="tooltip"
-                data-bs-placement="left" data-bs-title="{{ __('static.section.aside.library') }}" data-language="{{$language}}">
-                <i class="bi bi-book fs-4"></i>
-            </a>
+            <a href="https://geolibrary.byethost3.com/gldani/opac/index.php" 
+            class="btn bg-dark-red text-white aside-btn" 
+            target="_blank" 
+            data-bs-toggle="tooltip" 
+            data-bs-placement="left" 
+            data-bs-title="ბიბლიოთეკა" 
+            data-language="ka"
+            aria-label="Library">
+            <i class="bi bi-book fs-4"></i>
+        </a>
         </li>
         <li class="list-group-item p-0 bg-transparent  border border-0">
-            <a class="btn bg-dark-red text-white aside-btn" data-fancybox data-type="iframe"
-                data-preload="false"
-                    href="{{ asset('docs/static/announcement.pdf') }}" target="_blank" data-bs-toggle="tooltip"
-                data-bs-placement="left" data-bs-title="{{ __('static.section.aside.announcement') }}" data-language="{{$language}}">
-                    <i class="bi bi-megaphone fs-4"></i>
+            <a class="btn bg-dark-red text-white aside-btn" 
+                data-fancybox 
+                data-type="iframe" 
+                data-preload="false" 
+                href="{{ asset('docs/static/announcement.pdf') }}" 
+                target="_blank" 
+                data-bs-toggle="tooltip" 
+                data-bs-placement="left" 
+                data-bs-title="Announcements" 
+                data-language="ka"
+                aria-label="View current announcements (PDF document, opens in a new window)"> 
+                <i class="bi bi-megaphone fs-4"></i>
             </a>
         </li>
     </ul>
@@ -34,19 +46,23 @@
 
 <!-- start program list template -->
 <template id="programsList">
-    <div class="accordion" id="programsListTabs">
+    <div class="accordion" id="programsListingTab">
         @foreach($professions as $profession)
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button program-accordion-button @if(!$loop->first) collapsed @endif"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#programsListTab-{{$profession->id}}"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#programsListingTab-{{$profession->id}}"
                         aria-expanded="@if($loop->first) true @else false @endif"
-                        aria-controls="programsListTab-{{ $profession->id }}" data-language="{{$language}}">
-                        {{ $profession->title->$language }} ({{$profession->type->$language}})
+                        aria-controls="programsListingTab-{{ $profession->id }}" data-language="{{$language}}">
+                        <i class="bi bi-mortarboard-fill me-2"></i>
+                        {{ $profession->title->$language }}
+                                @if ($profession->type->$language)
+                                    ({{ $profession->type->$language }})
+                                @endif
                     </button>
                 </h2>
-                <div id="programsListTab-{{$profession->id}}"
-                    class="accordion-collapse collapse @if($loop->first) show @endif" data-bs-parent="#programsListTabs">
+                <div id="programsListingTab-{{$profession->id}}"
+                    class="accordion-collapse collapse @if($loop->first) show @endif" data-bs-parent="#programsListingTab">
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             @if($profession->condition)

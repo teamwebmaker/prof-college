@@ -3,7 +3,7 @@
     <div class="container-xxl navigation-container" data-content="{{ __('static.pages.title') }}" data-language="{{ $language }}">
         <nav class="navbar navbar-expand-xl">
             <a class="navbar-brand" href="{{ route('home', ['language' => app() -> getLocale()]) }}">
-                <img class="logo-icon" src="{{ asset('images/themes/college_logo.png') }}" />
+                <img class="logo-icon" src="{{ asset('images/themes/college_logo.png') }}" alt="College Logo" />
             </a>
             <div class="language-bar">
                 <ul class="language-switcher m-0 p-0">
@@ -70,9 +70,9 @@
                         @endif
                     @endforeach
                     <li class="nav-item">
-                        <a class="nav-link text-white position-relative animated-line" aria-current="page" onclick="showModal('search')">
+                        <button class="nav-link text-white position-relative animated-line" aria-current="page" onclick="showModal('search')">
                             <i class="bi bi-search"></i>
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </div>

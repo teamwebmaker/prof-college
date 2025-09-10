@@ -199,8 +199,8 @@ body {
     background-color: var(--gold);
     border-radius: 0;
     opacity: 1;
-    width: 12px;
-    height: 12px;
+    width: 32px;
+    height: 32px;
 }
 .swiper-pagination-bullet-active {
     background-color: var(--dark-red);
