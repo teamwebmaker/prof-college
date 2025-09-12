@@ -152,5 +152,11 @@ return [
     'meta' => [
         'description' => 'გლდანის პროფესიული მომზადების ცენტრი',
         'keywords' => join(',', ['კოლეჯი', 'განათლება', 'სწავლა'])
+    ],
+    'documentation' => [
+        'normative' => 'ნორმატიული აქტები',
+        'internal-acts' => 'შიდა აქტები',
+        'library-report' => 'ბიბლიოთეკის ანგარიში',
+        'inclusive-report' => 'ინკლ. განათლების ანგარიში',
     ]
 ];

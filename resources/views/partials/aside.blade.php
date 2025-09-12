@@ -3,7 +3,7 @@
 
     <h2 class="section-title mb-4 fs-4 text-red">
         <i class="bi bi-pin-angle fs-2"></i>
-        <span class="section-title-label pb-2 decor-border" data-language="ka">საინფორმაციო დაფა</span>
+        <span class="section-title-label pb-2 decor-border" data-language="ka">{{ __('static.section.tasks.title') }}</span>
     </h2>
 
     <!-- Categories List -->

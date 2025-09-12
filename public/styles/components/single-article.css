@@ -62,19 +62,37 @@
     margin-bottom: 25px;
 }
 
-.article-text > span[data-color-red] {
+.article-text span[data-bg-gold] {
+    --transparent: 0.3;
+    --gold: hsl(43 55% 50% / var(--transparent));
+    background-color: var(--gold);
+}
+
+.article-text span[data-color-red] {
     color: var(--dark-red);
     font-weight: bold;
 }
 
-.article-text > span[data-color-gold] {
+.article-text span[data-color-gold] {
     color: var(--gold);
     font-weight: bold;
 }
 
-.article-text > span[data-color-gray] {
+.article-text span[data-color-gray] {
     color: var(--dark-gray);
     font-weight: bold;
+}
+
+.article-text span[data-display-block] {
+    display: block;
+}
+
+.article-text span[data-text-center] {
+    text-align: center;
+}
+
+.article-text span[data-text-right] {
+    text-align: right;
 }
 
 .attachments-section {

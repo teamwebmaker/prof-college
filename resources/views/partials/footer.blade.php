@@ -6,16 +6,16 @@
             </div>
             <div class="col-md-9">
                 <div class="row align-items-center">
-                    <div class="col-lg-5 py-1">
-                        <span class="contact text-red" style="--icon: '\f3e8'" data-language="{{ $language }}">{{ __('static.contact.address') }}</span>
+                    <div class="col-lg-5 py-2 info-box rounded-start">
+                        <span class="contact text-white" style="--icon: '\f3e8'" data-language="{{ $language }}">{{ __('static.contact.address') }}</span>
                     </div>
-                    <div class="col-lg-3 text-center py-1">
-                        <a class="contact text-red" href="tel:0322140314" style="--icon: '\f5c1'">
+                    <div class="col-lg-3 text-center py-2 info-box">
+                        <a class="contact text-white" href="tel:0322140314" style="--icon: '\f5c1'">
                             <span data-language="{{ $language }}">(032) 2-140-314</span>
                         </a>
                     </div>
-                    <div class="col-lg-4 py-1">
-                        <a class="contact text-red" href="mailto:polrofgldaniedu@gmail.com" style="--icon: '\f32f'">
+                    <div class="col-lg-4 py-2 info-box rounded-end">
+                        <a class="contact text-white" href="mailto:polrofgldaniedu@gmail.com" style="--icon: '\f32f'">
                             <span data-language="{{ $language }}">profgldaniedu@gmail.com</span>
                         </a>
                     </div>

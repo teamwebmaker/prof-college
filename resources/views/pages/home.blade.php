@@ -37,7 +37,7 @@
 
         setTimeout(() => {
             document.getElementById('voting-toggle').click()
-        }, 5000)
+        }, 10000)
     </script>
 
 

@@ -20,7 +20,7 @@
             target="_blank" 
             data-bs-toggle="tooltip" 
             data-bs-placement="left" 
-            data-bs-title="ბიბლიოთეკა" 
+            data-bs-title="{{ __('static.section.aside.library') }}" 
             data-language="ka"
             aria-label="Library">
             <i class="bi bi-book fs-4"></i>
@@ -35,7 +35,7 @@
                 target="_blank" 
                 data-bs-toggle="tooltip" 
                 data-bs-placement="left" 
-                data-bs-title="Announcements" 
+                data-bs-title="{{ __('static.section.aside.announcement') }}" 
                 data-language="ka"
                 aria-label="View current announcements (PDF document, opens in a new window)"> 
                 <i class="bi bi-megaphone fs-4"></i>

@@ -10,14 +10,7 @@
     // Build the URL with query string if file exists (date only, no time)
     $fileUrl = $isDisabled ? '#' : asset('docs/documentations/' . $doc->category . '/' . $filePath) . '?updated=' . \Carbon\Carbon::parse($doc->updated_at)->format('Y-m-d');
 @endphp
-@php
-    $sectionTranslations = [
-        'normative' => 'ნორმატიული აქტები',
-        'internal-acts' => 'შიდა აქტები',
-        'library-report' => 'ბიბლიოთეკის ანგარიში',
-        'inclusive-report' => 'ინკლ. განათლების ანგარიში',
-    ];
-@endphp
+
 <a class="doc-link text-decoration-none {{ $isDisabled ? 'disabled opacity-75 cursor-default' : '' }}"
     href="{{ $fileUrl }}"
     target="{{ $isDisabled ? '_self' : '_blank' }}">
@@ -31,7 +24,7 @@
         <span class="position-absolute top-0 end-0 small px-2 py-1 rounded-start bg-dark-red text-white"
             style="border-top-left-radius: 0px !important;"
             data-language="{{ $language }}">
-            {{ $sectionTranslations[$doc->section] ?? $doc->section }}
+            {{ __('static.documentation.' .  $doc->section )  ?? $doc->section}}
         </span>
         @endif
         <h6 class="module-title d-flex align-items-center gap-1 mt-3">

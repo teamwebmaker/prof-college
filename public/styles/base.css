@@ -80,14 +80,16 @@ body {
     position: relative;
     font-size: 0.7rem;
     font-weight: bold;
-    color: var(--white);
+    color: var(--dark-red);
+    background-color: var(--white);
     transition: all 0.7s;
     padding: 0.75rem 1rem;
 }
+
 .language-link:hover,
 .language-link-active {
-    background-color: var(--white);
-    color: var(--dark-red);
+    background-color: var(--dark-red);
+    color: var(--white);
 }
 
 .dropdown-menu-category {
@@ -199,8 +201,8 @@ body {
     background-color: var(--gold);
     border-radius: 0;
     opacity: 1;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
 }
 .swiper-pagination-bullet-active {
     background-color: var(--dark-red);
@@ -779,4 +781,14 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+/* Footer Block */
+
+.info-box {
+    background-color: var(--dark-red);
+    transition: var(--modern-transition);
+}
+
+.info-box:hover {
+    background-color: var(--light-red);
 }

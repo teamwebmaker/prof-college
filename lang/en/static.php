@@ -151,5 +151,11 @@ return [
     'meta' => [
         'description' => 'LEPL College ″Gldani Vocational Education and Training Center″',
         'keywords' => join(',', ['college', 'education', 'learning'])
+    ],
+    'documentation' => [
+        'normative' => 'Normative acts',
+        'internal-acts' => 'Internal acts',
+        'library-report' => 'Library report',
+        'inclusive-report' => 'Inclusive Education Report',
     ]
 ];
