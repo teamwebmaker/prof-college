@@ -35,9 +35,18 @@
             // Your custom options
         });
 
-        setTimeout(() => {
-            document.getElementById('voting-toggle').click()
-        }, 10000)
+        // Check only on load - no setTimeout
+        const today = new Date().toDateString();
+        if (localStorage.hasOwnProperty("voting-college")) {
+            if (localStorage.getItem('voting-college') !== today) {
+                document.getElementById('voting-toggle')?.click();
+                localStorage.setItem('voting-college', today);
+            }
+        } else {
+            document.getElementById('voting-toggle')?.click();
+            localStorage.setItem('voting-college', today);
+        }
+        
     </script>
 
 

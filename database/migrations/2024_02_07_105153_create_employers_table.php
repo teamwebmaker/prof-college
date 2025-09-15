@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->json('title');
             $table->string('image') -> default('no-image.jpg');
             $table->string('url') -> nullable();
             $table->enum('visibility',['0', '1']) -> default('1');
