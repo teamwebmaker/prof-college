@@ -126,7 +126,7 @@
                             {{ __('static.section.vote.title') }}
                         </h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="background-image: url('{{ asset('images/themes/bg-pattern.png') }}')">
                         <form method="post" action="{{ route('votes.store', ['language' => app()->getLocale()]) }}">
                             @csrf
                             <div class="row justify-content-center">
@@ -191,7 +191,7 @@
 <!-- end search template -->
 
 <!-- Start Modal -->
-<div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="false"
+<div class="modal fade" id="pageModal" tabindex="-1" aria-label="გვერდის შეფასების ფორმა" aria-labelledby="pageModalLabel" aria-hidden="false"
     style="--bs-modal-width:1200px">
     <div class="modal-dialog">
         <div class="modal-content bg-transparent border-0">
