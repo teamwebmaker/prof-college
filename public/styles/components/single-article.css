@@ -95,6 +95,10 @@
     text-align: right;
 }
 
+.article-text span[data-paragraph] {
+    text-indent: 1rem;
+}
+
 .attachments-section {
     margin: 25px 0;
     padding-top: 15px;

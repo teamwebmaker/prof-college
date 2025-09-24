@@ -61,8 +61,8 @@ class PageController extends Controller
 
     public function structure(Request $request)
     {
-        $fileName = implode(".", [$request->route()->getName(), "pdf"]);
-        return view('pages.pdf-view', [
+        $fileName = implode(".", [$request->route()->getName(), "svg"]);
+        return view('pages.svg-view', [
             'fileName' => $fileName
         ]);
     }

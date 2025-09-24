@@ -70,7 +70,7 @@
                         @endif
                     @endforeach
                     <li class="nav-item">
-                        <button class="nav-link text-white position-relative animated-line" aria-current="page" onclick="showModal('search')">
+                        <button class="nav-link text-white position-relative animated-line" aria-current="page" aria-label="Search" onclick="showModal('search')">
                             <i class="bi bi-search"></i>
                         </button>
                     </li>
