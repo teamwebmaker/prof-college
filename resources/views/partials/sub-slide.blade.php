@@ -3,7 +3,7 @@
         <div class="swiper-wrapper">
             @foreach( $slides as $slide )
                 <div class="swiper-slide">
-                    <img src="{{ asset('images/sub-slides/' . $slide -> slide) }}" class="w-100" alt="" />
+                    <img src="{{ asset('images/sub-slides/' . $slide -> slide -> $language) }}" class="w-100" alt="" />
                 </div>
             @endforeach
         </div>

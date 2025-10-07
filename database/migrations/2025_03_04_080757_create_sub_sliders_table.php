@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sub_sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('slide');
+            $table->json('slide');
             $table->enum('visibility',['0', '1']) -> default('1');
             $table->tinyInteger('sortable') -> default(1);
             $table->timestamps();

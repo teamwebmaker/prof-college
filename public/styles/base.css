@@ -183,13 +183,44 @@ body {
 }
 
 .slide-image {
-    aspect-ratio: 21/6;
+    aspect-ratio: 21/7;
     object-fit: cover;
     object-position: center;
+    transition: aspect-ratio 0.3s ease-in-out;
 }
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+    .slide-image {
+        aspect-ratio: 21/9;
+    }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
     .slide-image {
         aspect-ratio: 21/12;
+    }
+}
+
+/* Large mobile devices */
+@media (max-width: 640px) {
+    .slide-image {
+        aspect-ratio: 16/10;
+    }
+}
+
+/* Standard mobile devices */
+@media (max-width: 480px) {
+    .slide-image {
+        aspect-ratio: 4/3;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 375px) {
+    .slide-image {
+        aspect-ratio: 1/1;
     }
 }
 
