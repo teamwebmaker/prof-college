@@ -41,6 +41,21 @@
                 <i class="bi bi-megaphone fs-4"></i>
             </a>
         </li>
+        <li class="list-group-item p-0 bg-transparent  border border-0">
+            <a class="btn bg-dark-red text-white aside-btn" 
+                data-fancybox 
+                data-type="iframe" 
+                data-preload="false" 
+                href="{{ asset('docs/static/schedule.pdf') }}"
+                target="_blank" 
+                data-bs-toggle="tooltip" 
+                data-bs-placement="left" 
+                data-bs-title="{{ __('static.section.aside.schedule') }}" 
+                data-language="ka"
+                aria-label="View current schedules (PDF document, opens in a new window)"> 
+                <i class="bi bi-bell fs-4"></i>
+            </a>
+        </li>
     </ul>
 </aside>
 

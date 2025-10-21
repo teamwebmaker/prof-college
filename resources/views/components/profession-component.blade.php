@@ -12,8 +12,11 @@
     <div class="modern-card-body">
         <h5 class="modern-profession-title" data-language="{{ $language }}">
             {{ $profession->title->$language }}
+            @if ($profession->type->$language)
+                <span style="font-size: 0.75rem; color:var(--dark-red)">({{$profession->type->$language}})</span>
+            @endif
         </h5>
-    </div>
+    </div> 
     <div class="modern-card-footer">
         <div class="modern-tables-grid">
             @foreach($profession->groups as $group)

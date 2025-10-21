@@ -143,6 +143,7 @@ return [
             'announcement' => 'Announcement',
             'vote' => 'Vote',
             'library' => 'Library',
+            'schedule' => 'Final Confirmation Schedule (October)'
         ]
     ],
     'admission' => [

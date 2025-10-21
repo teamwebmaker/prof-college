@@ -15,9 +15,11 @@
         </h2>
         <div class="row justify-content-center">
             @foreach($professions as $profession)
-                <div class="col-lg-4  col-sm-6  mb-4">
+                @if($profession->type->$language !== 'Integrated' && $profession->type->$language !== 'ინტეგრირებული')
+                <div class="col-lg-4 col-sm-6 mb-4">
                     <x-profession-component :profession="$profession" :language="$language"/>
                 </div>
+                @endif
             @endforeach
         </div>
     </div>
