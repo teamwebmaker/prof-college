@@ -16,7 +16,7 @@
     /* Contact Info Styling */
     .contact-info-block {
         background: var(--light-gray-alt);
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 0.5rem;
         box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.08);
     }
@@ -131,11 +131,10 @@
             </div>
 
             <!-- Contact Info -->
+        
             <div class="col-lg-12">
                 <div class="contact-info-block">
-                    <span class="contact" style="--icon: '\f3e8'" data-language="ka">
-                        ქ. თბილისი, ილია ვეკუას ქუჩა, №44
-                    </span>
+                    <span class="contact" style="--icon: '\f3e8'" data-language="ka"> ქ. თბილისი, ილია ვეკუას ქუჩა, №44 </span>
                     <a class="contact" href="tel:0322140314" style="--icon: '\f5c1'">
                         <span data-language="ka">(032) 2-140-314</span>
                     </a>
@@ -147,7 +146,20 @@
                     </a>
                 </div>
             </div>
-        </div>
+
+            <div class="col-lg-12 mt-4 mb-4 mb-lg-0">
+                <div class="contact-info-block">
+                    <span class="contact" style="--icon: '\f36f'" data-language="ka">
+                        <strong>პერსონალურ მონაცემთა დაცვის ოფიცერი:</strong> შპს “ჯეო სეიფთი”, ს/კ 405321637; 
+                    </span>
+                    <span class="contact" style="--icon: '\f677'" data-language="ka">
+                        <strong>საკონტაქტო პირი:</strong> ანამარია ბაგალიშვილი; 
+                    </span>
+                    <a class="contact" href="mailto:Anamaria.bagalishvili@geosafety.ge" style="--icon: '\f32f'">
+                        <span data-language="ka">Anamaria.bagalishvili@geosafety.ge</span>
+                    </a>
+                </div>
+            </div>
     </div>
 @endsection
 

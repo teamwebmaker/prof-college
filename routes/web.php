@@ -20,7 +20,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\GalleryImageController;
 use App\Http\Controllers\VideoController;
-use App\Http\Controllers\slideController;
+use App\Http\Controllers\SlideController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VacancyController;
@@ -107,7 +107,7 @@ Route::group(['prefix' => '{language}'], function () {
                 Route::resource('/videos', VideoController::class);
                 // FIXED: Corrected controller name capitalization (slideController -> SlideController)
                 // TODO: Consider renaming to SlideController for PSR-4 compliance
-                Route::resource('/slides', slideController::class);
+                Route::resource('/slides', SlideController::class);
                 Route::resource('/groups', GroupController::class);
                 Route::resource('/vacancies', VacancyController::class);
                 Route::resource('/contacts', ContactController::class)->except('store', 'edit');

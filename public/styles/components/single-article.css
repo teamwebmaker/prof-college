@@ -62,6 +62,22 @@
     margin-bottom: 25px;
 }
 
+.article-text span[data-font-xs] {
+    font-size: 0.75rem; /* 12px - extra small */
+}
+.article-text span[data-font-small] {
+    font-size: 0.875rem; /* 14px */
+}
+.article-text span[data-font-medium] {
+    font-size: 1rem; /* 16px */
+}
+.article-text span[data-font-large] {
+    font-size: 1.25rem; /* 20px */
+}
+.article-text span[data-font-xl] {
+    font-size: 1.5rem; /* 24px - extra large */
+}
+
 .article-text span[data-bg-gold] {
     --transparent: 0.3;
     --gold: hsl(43 55% 50% / var(--transparent));
