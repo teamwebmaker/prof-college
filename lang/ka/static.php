@@ -56,6 +56,14 @@ return [
         ],
         'documents' => [
             'title' => 'საკანონმდებლო აქტები',
+            'section' => [
+                'inclusive_education_reports' => 'ინკლუზიური განათლების ანგარიშები',
+                'one_year_action_plan_reports' => 'ერთწლიანი სამოქმედო გეგმის ანგარიშები',
+                'library_reports' => 'ბიბლიოთეკის ანგარიშები',
+                'strategic_plan_reports' => 'სტრატეგიული გეგმის ანგარიშები',
+                'college_activity_reports' => 'კოლეჯის საქმიანობის ანგარიშები',
+                'miscellaneous_activity_reports' => 'სხვადასხვა აქტივობის ანგარიშები'
+            ],
             'legislation' => [
                 'title' => 'საკანონმდებლო აქტების სია',
                 'authorization' => 'ავტორიზაცია',

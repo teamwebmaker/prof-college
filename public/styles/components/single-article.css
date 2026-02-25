@@ -62,56 +62,69 @@
     margin-bottom: 25px;
 }
 
-.article-text span[data-font-xs] {
+.article-text span[data-font-xs],
+.article-text blockquote[data-font-xs] {
     font-size: 0.75rem; /* 12px - extra small */
 }
-.article-text span[data-font-small] {
+.article-text span[data-font-small],
+.article-text blockquote[data-font-small] {
     font-size: 0.875rem; /* 14px */
 }
-.article-text span[data-font-medium] {
+.article-text span[data-font-medium],
+.article-text blockquote[data-font-medium] {
     font-size: 1rem; /* 16px */
 }
-.article-text span[data-font-large] {
+.article-text span[data-font-large],
+.article-text blockquote[data-font-large] {
     font-size: 1.25rem; /* 20px */
 }
-.article-text span[data-font-xl] {
+.article-text span[data-font-xl],
+.article-text blockquote[data-font-xl] {
     font-size: 1.5rem; /* 24px - extra large */
 }
 
-.article-text span[data-bg-gold] {
+.article-text span[data-bg-gold],
+.article-text blockquote[data-bg-gold] {
     --transparent: 0.3;
     --gold: hsl(43 55% 50% / var(--transparent));
     background-color: var(--gold);
 }
 
-.article-text span[data-color-red] {
+.article-text span[data-color-red],
+.article-text blockquote[data-color-red] {
     color: var(--dark-red);
     font-weight: bold;
 }
 
-.article-text span[data-color-gold] {
+.article-text span[data-color-gold],
+.article-text blockquote[data-color-gold] {
     color: var(--gold);
     font-weight: bold;
 }
 
-.article-text span[data-color-gray] {
+.article-text span[data-color-gray],
+.article-text blockquote[data-color-gray] {
     color: var(--dark-gray);
     font-weight: bold;
 }
 
-.article-text span[data-display-block] {
+.article-text span[data-display-block],
+.article-text blockquote[data-display-block] {
     display: block;
 }
 
-.article-text span[data-text-center] {
+.article-text span[data-text-center],
+.article-text blockquote[data-text-center] {
     text-align: center;
 }
 
-.article-text span[data-text-right] {
+.article-text span[data-text-right],
+.article-text blockquote[data-text-right] {
     text-align: right;
 }
 
-.article-text span[data-paragraph] {
+.article-text span[data-paragraph],
+.article-text blockquote[data-paragraph] {
     text-indent: 1rem;
 }
 

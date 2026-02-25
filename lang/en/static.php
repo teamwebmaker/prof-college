@@ -56,6 +56,14 @@ return [
         ],
         'documents' => [
             'title' => 'Legislative Acts',
+            'section' => [
+                'inclusive_education_reports' => 'Inclusive Education Reports',
+                'one_year_action_plan_reports' => 'One-Year Action Plan Reports',
+                'library_reports' => 'Library Reports',
+                'strategic_plan_reports' => 'Strategic Plan Reports',
+                'college_activity_reports' => 'College Activity Reports',
+                'miscellaneous_activity_reports' => 'Miscellaneous Activity Reports'
+            ],
             'legislation' => [
                 'title' => 'Legislative Acts List',
                 'authorization' => 'Authorization',

@@ -174,8 +174,32 @@ class PageController extends Controller
         $legislative_docs = $docs->filter(function ($doc) {
             return $doc->category == 'reports-activities';
         });
+        $inclusive_educations = $docs->filter(function ($doc) {
+            return $doc->section == 'inclusive-education-report';
+        });
+        $library_reports = $docs->filter(function ($doc) {
+            return $doc->section == 'library-report';
+        });
+        $strategic_plan_reports = $docs->filter(function ($doc) {
+            return $doc->section == 'strategic-plan-report';
+        });
+        $college_activity_reports = $docs->filter(function ($doc) {
+            return $doc->section == 'college-activity-report';
+        });
+        $miscellaneous_activity_reports = $docs->filter(function ($doc) {
+            return $doc->section == 'miscellaneous-activity-report';
+        });
+        $one_year_action_plan_reports = $docs->filter(function ($doc) {
+            return $doc->section == 'one-year-action-plan-report';
+        });
         return view('pages.reports-activities', [
-            'docs' => $legislative_docs
+            'docs' => $legislative_docs,
+            'inclusive_educations' => $inclusive_educations,
+            'library_reports' => $library_reports,
+            'strategic_plan_reports' => $strategic_plan_reports,
+            'college_activity_reports' => $college_activity_reports,
+            'miscellaneous_activity_reports' => $miscellaneous_activity_reports,
+            'one_year_action_plan_reports' => $one_year_action_plan_reports,
         ]);
     }
 

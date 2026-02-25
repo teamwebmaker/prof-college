@@ -27,7 +27,7 @@
         margin-bottom: 1rem;
         font-size: 1rem;
         position: relative;
-        padding-left: 2rem;
+        padding-left: 1.5rem;
         color: var(--dark-red);
         font-weight: 500;
     }
